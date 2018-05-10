@@ -1,0 +1,233 @@
+.jd{
+	visibility:hidden;position:absolute;z-index:1;
+}
+ .headerClass{
+ 	height: 25px;text-align: center;color:#404040;background: #c7e9ad;font-size:14px;
+ }
+ .evenRow{
+ 	height: 23px;background:#e3fcff;text-align:center;font-size:14px;color:#404040
+ }
+
+ .oddRow{
+ 	height: 23px;background:#f4f4f4;text-align:center;font-size:14px;color:#404040
+ }
+ .selectedRow{
+ 	background:white;height: 23px;text-align:center;font-size:14px;
+ }
+ #topop{
+ 	width:780px;height:25px;float:left;font-size:14px;margin-top:5px;
+ }
+
+#topop form{
+	font-size:14px;float:left;margin-top:-2px;
+ }
+ #topop label{
+ 	font-size:14px;color:#404040;
+ }
+#topop .paixu{
+	position:absolute;margin-left:200px;margin-top:0px;float:left;
+}
+#topop .xinzipai{
+	margin-left:40px;margin-right:30px;
+}
+#topop a{
+	color:green;text-decoration:none;
+}
+#topop a:hover{
+	color:red;
+}
+#pagespan{
+	margin-left:-100px;margin-top:0px;position:absolute;
+}
+#buttomop{
+	width:770px;font-size:14px;margin-top:3px;color:#404040;height:18px;
+}
+#buttomop .info{
+	float:left;width:200px;
+}
+#buttomop .info span{
+	margin-right:20px;
+}
+#buttomop .pageop{
+	float:right;width:300px;
+}
+#buttomop .pageop .shangye{
+	margin-top:0px;margin-left:10px;
+}
+#buttomop .pageop .xiaye{
+	margin-top:0px;margin-left:10px;
+}
+#buttomop .pageop .from{
+	background:url(../images/from.gif);
+	opacity:1;
+	border:none;
+	width:12px;
+	height:15px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+	margin-top:-2px;margin-left:2px;
+}
+#buttomop .pageop .fromover{
+	background:url(../images/fromOver.gif);
+	opacity:1;
+	border:none;
+	width:12px;
+	height:15px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+	margin-top:-2px;margin-left:2px;
+	color:red;
+}
+#buttomop .pageop .previous{
+	background:url(../images/previous.gif);
+	opacity:1;
+	border:none;
+	width:14px;
+	height:15px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+	margin-top:-2px;margin-left:2px;
+}
+#buttomop .pageop .previousover{
+	background:url(../images/previousOver.gif);
+	opacity:1;
+	border:none;
+	width:14px;
+	height:15px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+	margin-top:-2px;margin-left:2px;
+	color:red;
+}
+#buttomop .pageop .next{
+	background:url(../images/next.gif);
+	opacity:1;
+	border:none;
+	width:14px;
+	height:15px;
+	align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+	margin-top:-2px;margin-left:2px;
+}
+#buttomop .pageop .nextover{
+	background:url(../images/nextOver.gif);
+	opacity:1;
+	border:none;
+	width:14px;
+	height:15px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+	margin-top:-2px;margin-left:2px;
+}
+#buttomop .pageop .to{
+	background:url(../images/to.gif);
+	opacity:1;
+	border:none;
+	width:12px;
+	height:15px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+	margin-top:-2px;margin-left:2px;
+}
+#buttomop .pageop .toover{
+	background:url(../images/toOver.gif);
+	opacity:1;
+	border:none;
+	width:12px;
+	height:15px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+	margin-top:-2px;margin-left:2px;
+	color:red;
+}
+#buttomop .pageop .tiaozhuan{
+	margin-top:0px;margin-left:20px;
+}
+#buttomop .pageop .yefield{
+	margin-left:0px;width:25px;height:16px;margin-top:0px;
+}
+#buttomop .pageop .ye{
+	margin-left:8px;margin-top:0px;
+}
+#buttomop .pageop .queding{
+	background:url(../images/smallBlueButton.gif);
+	opacity:1;
+	border:none;
+	width:44px;
+	height:24px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+	margin-top:0px;
+	margin-left:2px;
+	font-size:13px;
+	/*color:#007b00;*/
+}
+#buttomop .pageop .quedingover{
+	background:url(../images/smallOrangeButton.gif);
+	opacity:1;
+	border:none;
+	width:44px;
+	height:24px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+	margin-top:0px;
+	margin-left:2px;font-size:13px;
+	color:red;
+}
+#operate p{
+	font-size:18px;text-align:center;margin:10px auto 0 auto;position:relative;color:#666666;
+}
+#operate .inid{
+	width:100px;maxlength:10;
+}
+#operate .inname{
+	width:100px;maxlength:5;
+}
+#operate .inschool{
+	width:180px;maxlength:15;
+}
+#operate .intype{
+	width:120px;maxlength:10;
+}
+#operate .search{
+	background:url(../images/blueButton.png);
+	opacity:1;
+	border:none;
+	width:95px;
+	height:28px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+}
+#operate .searchover{
+	background:url(../images/orangeButton.png);
+	opacity:1;
+	border:none;
+	width:95px;
+	height:28px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+   <package name="login" extends="struts-default">
+       <action name="login" class="zhf.LoginAction">
+          	<result name="success">/login.jsp</result>
+          	<result name="personal" type="redirect-action">
+          	    <param name="actionName">GhTargetList</param>
+           	</result>
+          	<result name="manage" type="redirect-action">
+                <param name="actionName">UserAuthList</param>
+          	</result>
+          	<result name="input">/login.jsp</result>    
+       </action>
+       <action name="zhuXiao" class="zhf.ZhuXiaoAction">
+            <result name="success">/login.jsp</result>
+       </action>
+   </package>
+   
+   <package name="personal" extends="struts-default">
+       <action name="GhTargetList" class="zhf.GhTargetListAction">
+          	<result name="success">/ghtargetlist.jsp</result>
+           	<result name="input">/ghtargetlist.jsp</result> 
+           	<result>/ghtargetlist.jsp</result>       
+       </action>  
+       <action name="GhBookList" class="zhf.GhBookListAction">
+          	<result name="success">/ghbooklist.jsp</result>
+           	<result name="input">/ghbooklist.jsp</result> 
+           	<result>/ghbooklist.jsp</result>       
+       </action>  
+       <action name="GhInfoList" class="zhf.GhInfoListExeAction" method="init">
+          	<result name="success">/ghinfolist.jsp</result>
+           	<result>/ghinfolist.jsp</result>       
+       </action>
+       <action name="GhInfoListExe" class="zhf.GhInfoListExeAction">
+          	<result name="success">/ghinfolist.jsp</result>
+           	<result name="fail">/ghinfolist.jsp</result> 
+       </action> 
+   </package>
+   
+   <package name="manage" extends="struts-default">
+       <action name="UserAuthList" class="zhf.UserAuthListAction">
+          	<result name="success">/userauthlist.jsp</result>
+           	<result name="input">/userauthlist.jsp</result> 
+           	<result>/userauthlist.jsp</result>       
+       </action>  
+       <action name="GhBookList" class="zhf.GhBookListAction">
+          	<result name="success">/ghbooklist.jsp</result>
+           	<result name="input">/ghbooklist.jsp</result> 
+           	<result>/ghbooklist.jsp</result>       
+       </action>   
+   </package>
+   
+   <package name="import" extends="struts-default">
+       <action name="GhImport" class="zhf.GhImportAction">
+          	<result name="success">/ghimport.jsp</result>
+           	<result name="input">/ghimport.jsp</result> 
+           	<result>/ghimport.jsp</result>       
+       </action>
+       <action name="GhImportExe" class="zhf.GhImportExeAction">
+          	<result name="success">/ghimport.jsp</result>
+           	<result name="input">/ghimport.jsp</result> 
+           	<result>/ghimport.jsp</result>       
+       </action> 
+   </package>
+   
+</struts>
