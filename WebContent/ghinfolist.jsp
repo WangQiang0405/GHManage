@@ -48,6 +48,11 @@
 		    var obj = document.getElementById("eventid");
 		    obj.value = "3";
 		}
+		function onClickTr(index) {
+		    alert(index);
+		    //var obj = document.getElementById("ghl" + index);
+		    //alert(obj.cells[0].innerText);
+		}
 		</script>
 	</head>
 	<body>
@@ -101,6 +106,7 @@
 			<s:if test="ghInfoList.size()!=0">
 				<s:iterator id="List" value="ghInfoList" status="ghl">
 					<tr id="ghl<s:property value="#ghl.index"/>"
+					onclick="onClickTr('<s:property value="wangShenId"/>')"
 						<s:if test="#ghl.odd">class="oddRow"</s:if>
 						<s:else>class="evenRow"</s:else>
 						onmouseover="this.className='selectedRow';" 
