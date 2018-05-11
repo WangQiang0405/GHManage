@@ -50,6 +50,7 @@
 		}
 		function onClickTr(index) {
 		    alert(index);
+		    
 		    //var obj = document.getElementById("ghl" + index);
 		    //alert(obj.cells[0].innerText);
 		}
