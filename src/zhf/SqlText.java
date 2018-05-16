@@ -33,6 +33,11 @@ public class SqlText {
     // countno表数据更新
     public static final String SQL_COUNT_NO_U = "update countno set no = ?";
 
+    /** 计划与实际页面使用SQL文 **/
+    // ghdetail列表实际人数记录条数取得
+    public static final String SQL_PLANFACT_GH_DETAIL_S = "select count(*) from ghdetail where offerStatus = 'accept'";
+
+    
     /** 导入应聘者信息页面使用SQL文 **/
     // ghdetail表数据取得
     public static final String SQL_IMPORT_GH_DETAIL_S = "select * from ghdetail where anme = ?";
@@ -44,5 +49,9 @@ public class SqlText {
     public static final String SQL_INFO_GH_DETAIL_S = "select * from ghdetail_bakup";
     // ghdetail列表记录条数取得
     public static final String SQL_INFO_TOTAL_GH_DETAIL_S = "select count(*) from ghdetail_bakup";
+    
+    /** ghdetail表使用SQL文 **/
+    // ghdetail表数据全部取得
+    public static final String SQL_GH_DETAIL_S = "select * from ghdetail";
 
 }
