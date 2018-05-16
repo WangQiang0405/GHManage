@@ -62,7 +62,7 @@
 							<td><s:property value="ghOrInt"/></td>
 							<td><s:property value="repMgr"/></td>
 							<td><s:property value="offerOnboardRq"/></td>
-							<td><a href="ghDetail.action?wsId=<s:property value="wsId"/>" target="_blank">查看</a></td>
+							<td><a href="javascript:void(0);" onclick="windowpopup(this)">查看</a></td>
 						</tr>
 					</s:iterator>
 				</table>

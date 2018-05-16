@@ -1,7 +1,16 @@
 package zhf;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class DButil {
 
@@ -361,6 +370,75 @@ public class DButil {
 	    }
 	}
 	return totalRecs;
+    }
+
+    // 获取各种ghdetail数据全部信息
+    public static List getGhDetailList(String name) {
+	ArrayList list = new ArrayList();
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	try {
+	    conn = getConnection();
+	    stmt = conn.createStatement();
+	    String sql = " where name = '" + name + "'";
+	    String sql1 = SqlText.SQL_GH_DETAIL_S + sql;
+	    rs = stmt.executeQuery(sql1);
+	    while (rs.next()) {
+		int No = rs.getInt("id");
+		String Project = rs.getString("pjname");
+		String Name = rs.getString("name");
+		String Sex = rs.getString("sex");
+		String Education = rs.getString("education");
+		String GraduatedSchool = rs.getString("school");
+		String Major = rs.getString("major");
+		String Language = rs.getString("language");
+		String BookStatus = rs.getString("bookStatus");
+		String OfferStatus = rs.getString("offerStatus");
+		String OfferWaitingReason = rs.getString("OfferWReason");
+		String InternFlag = rs.getString("internFlg");
+		String SectorOrSL = rs.getString("sectorOrSL");
+		String Reporting = rs.getString("reportManager");
+		Date InternOBD1 = rs.getDate("InternOBD");
+		String InternOBD = null;
+		if (InternOBD1 != null) {
+		    InternOBD = rs.getDate("InternOBD").toString();
+		}
+		Date OfferOBDPlan1 = rs.getDate("offerOBDPlan");
+		String OfferOBDPlan = null;
+		if (OfferOBDPlan1 == null) {
+		    OfferOBDPlan = rs.getDate("offerOBDPlan").toString();
+		}
+		Date OfferOBDActual1 = rs.getDate("offerOBDActual");
+		String OfferOBDActual = null;
+		if (OfferOBDActual1 != null) {
+		    OfferOBDActual = rs.getDate("offerOBDActual").toString();
+		}
+		String Comments = rs.getString("comments");
+		GhDetailTable gdt = new GhDetailTable(No, Project, Name, Sex, Education, GraduatedSchool, Major,
+			Language, BookStatus, OfferStatus, OfferWaitingReason, InternFlag, SectorOrSL, Reporting,
+			InternOBD, OfferOBDPlan, OfferOBDActual, Comments);
+
+		list.add(gdt);
+	    }
+	} catch (Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    try {
+		if (conn != null) {
+		    conn.close();
+		}
+		if (stmt != null) {
+		    stmt.close();
+		}
+		if (rs != null) {
+		    rs.close();
+		}
+	    } catch (SQLException e) {
+		e.printStackTrace();
+	    }
+	}
+	return list;
     }
 
 }

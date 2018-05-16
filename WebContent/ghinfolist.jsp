@@ -48,9 +48,22 @@
 		    var obj = document.getElementById("eventid");
 		    obj.value = "3";
 		}
-		function onClickTr(index) {
-		    alert(index);
+		function onClickTr(id,index) {
+		    //alert(index);
 		    
+		    var curTable = document.getElementById("ghl" + index).parentNode;
+			//document.getElementById("mytable").children[0];
+		    for(var i = 1; i < curTable.children.length; i++) {
+			//alert(i);
+				if((i-1) % 2 == 1){    //∆Ê ˝
+				    //curTable.children[i].className='evenRow';
+				    curTable.children[i].style.background = "#e3fcff";
+				} else {    //≈º ˝
+			  		//curTable.children[i].className='oddRow';
+			  		curTable.children[i].style.background = "#f4f4f4";
+			    }
+			 }
+		    document.getElementById("ghl" + index).style.background = "yellow";
 		    //var obj = document.getElementById("ghl" + index);
 		    //alert(obj.cells[0].innerText);
 		}
@@ -94,7 +107,7 @@
 				
 			</div>
 			<H3 style="margin-top:10px"><img src="images/h3.gif"><s:text name="search.result"/></H3>
-			<table border="1" bgcolor="#e2e2e2" cellspacing="1" align="center" width="770px">
+			<table id = "mytable" border="1" bgcolor="#e2e2e2" cellspacing="1" align="center" width="770px">
 				<tr class="headerClass">
 					<th>Õ¯…Í±‡∫≈</th>
 					<th>–’√˚</th>
@@ -107,7 +120,7 @@
 			<s:if test="ghInfoList.size()!=0">
 				<s:iterator id="List" value="ghInfoList" status="ghl">
 					<tr id="ghl<s:property value="#ghl.index"/>"
-					onclick="onClickTr('<s:property value="wangShenId"/>')"
+					onclick="onClickTr('<s:property value="wangShenId"/>','<s:property value="#ghl.index"/>')"
 						<s:if test="#ghl.odd">class="oddRow"</s:if>
 						<s:else>class="evenRow"</s:else>
 						onmouseover="this.className='selectedRow';" 

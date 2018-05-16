@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
-        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-        "http://struts.apache.org/dtds/struts-2.0.dtd">
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	
    <package name="login" extends="struts-default">
        <action name="login" class="zhf.LoginAction">
           	<result name="success">/login.jsp</result>
-          	<result name="personal" type="redirect-action">
+          	<result name="personal" type="redirectAction">
           	    <param name="actionName">GhTargetList</param>
            	</result>
-          	<result name="manage" type="redirect-action">
+          	<result name="manage" type="redirectAction">
                 <param name="actionName">UserAuthList</param>
           	</result>
           	<result name="input">/login.jsp</result>    
@@ -22,15 +22,20 @@
    
    <package name="personal" extends="struts-default">
        <action name="GhTargetList" class="zhf.GhTargetListAction">
-          	<result name="success">/ghtargetlist.jsp</result>
-           	<result name="input">/ghtargetlist.jsp</result> 
-           	<result>/ghtargetlist.jsp</result>       
+          	<result name="success">/PlanFact.jsp</result>
+           	<result name="input">/PlanFact.jsp</result> 
+           	<result>/PlanFact.jsp</result>       
        </action>  
        <action name="GhBookList" class="zhf.GhBookListAction">
           	<result name="success">/ghbooklist.jsp</result>
            	<result name="input">/ghbooklist.jsp</result> 
            	<result>/ghbooklist.jsp</result>       
-       </action>  
+       </action>
+       <action name="Ghdetail" class="zhf.GhDetailAction">
+          	<result name="success">/ghdetail.jsp</result>
+           	<result name="input">/ghdetail.jsp</result> 
+           	<result>/ghdetail.jsp</result>
+       </action>
        <action name="GhInfoList" class="zhf.GhInfoListExeAction" method="init">
           	<result name="success">/ghinfolist.jsp</result>
            	<result>/ghinfolist.jsp</result>       
@@ -66,5 +71,15 @@
            	<result>/ghimport.jsp</result>       
        </action> 
    </package>
+   
+   <package name="chart" namespace="" extends="jfreechart-default"> 
+        <action name="barChart" class="com.jfreechart.action.CreateJFreeChartBar">
+            <result type="chart">
+                <param name="width">780</param>
+                <param name="height">450</param>
+            </result>
+        </action>
+   </package>
+   
    
 </struts>
