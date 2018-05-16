@@ -1,10 +1,23 @@
-package zhf;
+package zhf.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StringUtil {
+import org.apache.struts2.ServletActionContext;
 
+public class StringUtil {
+    
+    /**
+     * 获得web项目根目录
+     */
+    public static String getWebRootPath() {
+	//ActionContext actionContext = ActionContext.getContext();
+	//ServletContext servletContext = (ServletContext) actionContext.get(ServletActionContext.SERVLET_CONTEXT);
+	//String rootPath = servletContext.getRealPath("/");
+	String rootPath = ServletActionContext.getServletContext().getRealPath("/");
+	return rootPath;
+    }
+    
     // 判断字符串是否超长
     public static boolean isOverMaxLenhth(String str, int intMax) {
 	if (str.length() > intMax) {

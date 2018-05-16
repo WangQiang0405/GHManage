@@ -2,13 +2,14 @@ package com.jfreechart.action;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 //import java.sql.*;
-import java.util.*;
-import zhf.DButil;
+import java.util.ArrayList;
+import java.util.List;
+
 import zhf.GhTargetTable;
 import zhf.SqlText;
+import zhf.util.DBUtil;
 
 //import zhf.SqlText;
 
@@ -20,7 +21,7 @@ public class ChartDataAction {
 	Statement stmt = null;
 	ResultSet rs = null;
 	try {
-	    conn = DButil.getConnection();
+	    conn = DBUtil.getConnection();
 	    stmt = conn.createStatement();
 
 	    String sql1 = SqlText.SQL3_GHTARGETALL;
@@ -38,19 +39,10 @@ public class ChartDataAction {
 	} catch (Exception e) {
 	    e.printStackTrace();
 	} finally {
-	    try {
-		if (conn != null) {
-		    conn.close();
-		}
-		if (stmt != null) {
-		    stmt.close();
-		}
-		if (rs != null) {
-		    rs.close();
-		}
-	    } catch (SQLException e) {
-		e.printStackTrace();
-	    }
+	    // 释放资源
+	    DBUtil.closeResultSet(rs);
+	    DBUtil.closeStatement(stmt);
+	    DBUtil.closeConnection(conn);
 	}
 
 	return list;
@@ -63,7 +55,7 @@ public class ChartDataAction {
 	Statement stmt = null;
 	ResultSet rs = null;
 	try {
-	    conn = DButil.getConnection();
+	    conn = DBUtil.getConnection();
 	    stmt = conn.createStatement();
 
 	    String sqlWhere = " and pjname = '" + pjname + "'";
@@ -77,19 +69,10 @@ public class ChartDataAction {
 	} catch (Exception e) {
 	    e.printStackTrace();
 	} finally {
-	    try {
-		if (conn != null) {
-		    conn.close();
-		}
-		if (stmt != null) {
-		    stmt.close();
-		}
-		if (rs != null) {
-		    rs.close();
-		}
-	    } catch (SQLException e) {
-		e.printStackTrace();
-	    }
+	    // 释放资源
+	    DBUtil.closeResultSet(rs);
+	    DBUtil.closeStatement(stmt);
+	    DBUtil.closeConnection(conn);
 	}
 
 	return totalRecs;

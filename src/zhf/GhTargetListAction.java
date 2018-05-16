@@ -1,11 +1,12 @@
 package zhf;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.opensymphony.xwork2.*;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+
+import zhf.util.DBUtil;
 
 public class GhTargetListAction extends ActionSupport {
 
@@ -26,7 +27,7 @@ public class GhTargetListAction extends ActionSupport {
 	}
 
 	public Map getProjectList() {
-		Map map = DButil.getProjectList();
+		Map map = DBUtil.getProjectList();
 		map.put("0000", "È«²¿");
 		return map;
 	}
@@ -37,7 +38,7 @@ public class GhTargetListAction extends ActionSupport {
 			this.ProjecName = (String) session.get("projecName");
 		}
 
-		List list = DButil.getTargetGhList(ProjecName, 0, 0, "GhTargetListAction");
+		List list = DBUtil.getTargetGhList(ProjecName, 0, 0, "GhTargetListAction");
 		return list;
 	}
 

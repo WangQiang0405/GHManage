@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.List;
 
+import zhf.util.DBUtil;
+import zhf.util.DateUtil;
+
 public class GhImportLogic {
 
     public String importDetail(String filePath) throws SQLException {
@@ -37,7 +40,7 @@ public class GhImportLogic {
 	    int intCountNo = intCountNoSuf;
 
 	    // 获取DB连接
-	    conn = DButil.getConnection();
+	    conn = DBUtil.getConnection();
 	    // 从Excel中读入数据
 	    pstmtI = conn.prepareStatement(strSqlGhdetailI);
 	    ExcelRead ex = new ExcelRead();
@@ -108,10 +111,10 @@ public class GhImportLogic {
 	    e.printStackTrace();
 	} finally {
 	    // 释放资源
-	    DButil.closeResultSet(rs);
-	    DButil.closeStatement(pstmtU);
-	    DButil.closeStatement(pstmtI);
-	    DButil.closeConnection(conn);
+	    DBUtil.closeResultSet(rs);
+	    DBUtil.closeStatement(pstmtU);
+	    DBUtil.closeStatement(pstmtI);
+	    DBUtil.closeConnection(conn);
 	}
 
 	// 返回结果
@@ -130,7 +133,7 @@ public class GhImportLogic {
 	String strSqlCountnoS = SqlText.SQL_COUNT_NO_S;
 
 	// 获取DB连接
-	conn = DButil.getConnection();
+	conn = DBUtil.getConnection();
 
 	// 采番表数据取得
 	pstmtS = conn.prepareStatement(strSqlCountnoS);
@@ -138,9 +141,9 @@ public class GhImportLogic {
 	while (rs.next()) {
 	    countNo = rs.getString("no");
 	}
-	DButil.closeResultSet(rs);
-	DButil.closeStatement(pstmtS);
-	DButil.closeConnection(conn);
+	DBUtil.closeResultSet(rs);
+	DBUtil.closeStatement(pstmtS);
+	DBUtil.closeConnection(conn);
 
 	// 返回结果
 	return countNo;
@@ -159,7 +162,7 @@ public class GhImportLogic {
 	String strSqlGhdetailS = SqlText.SQL_IMPORT_GH_DETAIL_S;
 
 	// 获取DB连接
-	conn = DButil.getConnection();
+	conn = DBUtil.getConnection();
 
 	// 采番表数据取得
 	pstmtS = conn.prepareStatement(strSqlGhdetailS);
@@ -168,9 +171,9 @@ public class GhImportLogic {
 	while (rs.next()) {
 	    blnIsExist = true;
 	}
-	DButil.closeResultSet(rs);
-	DButil.closeStatement(pstmtS);
-	DButil.closeConnection(conn);
+	DBUtil.closeResultSet(rs);
+	DBUtil.closeStatement(pstmtS);
+	DBUtil.closeConnection(conn);
 
 	// 返回结果
 	return blnIsExist;

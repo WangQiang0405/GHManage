@@ -1,8 +1,13 @@
 package zhf;
 
-import java.util.*;
-import com.opensymphony.xwork2.*;
-import com.opensymphony.xwork2.validator.annotations.*;
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.Validation;
+
+import zhf.util.DBUtil;
 
 @Validation()
 public class LoginAction extends ActionSupport {
@@ -53,7 +58,7 @@ public class LoginAction extends ActionSupport {
 			if (!yanzhengma.equals(this.yanzhengma.toLowerCase())) {
 				this.result = this.getText("login.yanzhengmaerror");
 			} else {
-				String[] impinfo = DButil.login(uid, pwd);
+				String[] impinfo = DBUtil.login(uid, pwd);
 				Map session = ActionContext.getContext().getSession();
 				if (Integer.parseInt(impinfo[0]) == 1) {
 					session.put("right", "manage");

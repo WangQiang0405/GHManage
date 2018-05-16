@@ -1,13 +1,13 @@
 package zhf;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import zhf.util.DBUtil;
 
 public class GhInfoLogic {
 
@@ -20,7 +20,7 @@ public class GhInfoLogic {
 	ResultSet rs = null;
 	try {
 	    // 获取DB连接
-	    conn = DButil.getConnection();
+	    conn = DBUtil.getConnection();
 	    stmt = conn.createStatement();
 
 	    int recNum = 0;
@@ -52,9 +52,9 @@ public class GhInfoLogic {
 	    e.printStackTrace();
 	} finally {
 	    // 释放资源
-	    DButil.closeResultSet(rs);
-	    DButil.closeStatement(stmt);
-	    DButil.closeConnection(conn);
+	    DBUtil.closeResultSet(rs);
+	    DBUtil.closeStatement(stmt);
+	    DBUtil.closeConnection(conn);
 	}
 
 	return list;
@@ -70,7 +70,7 @@ public class GhInfoLogic {
 
 	try {
 	    // 获取DB连接
-	    conn = DButil.getConnection();
+	    conn = DBUtil.getConnection();
 	    stmt = conn.createStatement();
 	    String sql = "";
 	    if (!"".equals(sqlWhere)) {
@@ -86,9 +86,9 @@ public class GhInfoLogic {
 	    e.printStackTrace();
 	} finally {
 	    // 释放资源
-	    DButil.closeResultSet(rs);
-	    DButil.closeStatement(stmt);
-	    DButil.closeConnection(conn);
+	    DBUtil.closeResultSet(rs);
+	    DBUtil.closeStatement(stmt);
+	    DBUtil.closeConnection(conn);
 	}
 	return totalRecs;
     }

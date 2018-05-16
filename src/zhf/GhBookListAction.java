@@ -7,6 +7,8 @@ import java.util.Map;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import zhf.util.DBUtil;
+
 public class GhBookListAction extends ActionSupport
 	{
 		private int pageSpan=5;
@@ -58,7 +60,7 @@ public class GhBookListAction extends ActionSupport
 			{
 				this.projecName=(String)session.get("projectName");
 			}
-			return DButil.getTotalRecs(projecName);
+			return DBUtil.getTotalRecs(projecName);
 		}
 		
 		public void setCurrenPageNo(int currenPageNo)
@@ -93,7 +95,7 @@ public class GhBookListAction extends ActionSupport
 		
 		public Map getProjectList()
 		{
-			Map map = DButil.getProjectList();
+			Map map = DBUtil.getProjectList();
 			map.put("0000","È«²¿");
 			return map;
 		}
@@ -110,7 +112,7 @@ public class GhBookListAction extends ActionSupport
 				this.pageSpan=(Integer)session.get("pageSpan");
 			}
 			
-			List list=DButil.getTargetGhList(projecName,pageSpan,currenPageNo,"GhBookListAction");
+			List list=DBUtil.getTargetGhList(projecName,pageSpan,currenPageNo,"GhBookListAction");
 		
 			return list;
 		}

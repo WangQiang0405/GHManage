@@ -1,4 +1,4 @@
-package zhf;
+package zhf.util;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -12,7 +12,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DButil {
+import zhf.GhBookListTable;
+import zhf.GhDetailTable;
+import zhf.GhTargetTable;
+import zhf.SqlText;
+import zhf.UserInfoTable;
+
+public class DBUtil {
 
     // 获得数据库连接
     public static Connection getConnection() {

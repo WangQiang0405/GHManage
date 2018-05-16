@@ -9,6 +9,8 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.Validation;
 
+import zhf.util.StringUtil;
+
 @Validation()
 public class GhInfoListExeAction extends ActionSupport {
 

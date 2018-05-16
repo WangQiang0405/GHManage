@@ -7,6 +7,8 @@ import java.util.Map;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import zhf.util.DBUtil;
+
 public class UserAuthListAction extends ActionSupport{
 	private int pageSpan=5;
 	private int currenPageNo=1;
@@ -61,7 +63,7 @@ public class UserAuthListAction extends ActionSupport{
 		{
 			this.userId=(String)session.get("userId");
 		}
-		return DButil.getTotalUserRecs(userId);
+		return DBUtil.getTotalUserRecs(userId);
 	}
 	
 	public void setCurrenPageNo(int currenPageNo)
@@ -96,7 +98,7 @@ public class UserAuthListAction extends ActionSupport{
 	
 	public Map getUserList()
 	{
-		Map map = DButil.getUserList();
+		Map map = DBUtil.getUserList();
 		map.put("0000","È«²¿");
 		return map;
 	}
@@ -113,7 +115,7 @@ public class UserAuthListAction extends ActionSupport{
 			this.pageSpan=(Integer)session.get("pageSpan");
 		}
 		
-		List list=DButil.getUserList(userId,pageSpan,currenPageNo);
+		List list=DBUtil.getUserList(userId,pageSpan,currenPageNo);
 	
 		return list;
 	}
