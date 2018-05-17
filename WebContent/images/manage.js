@@ -79,7 +79,7 @@ function changepwd()
 function change()
 {
 	var randomnumber=Math.random();
-	document.getElementById("yanzhengmatu").src="yanzhengma.jsp?a="+randomnumber;
+	document.getElementById("yanzhengmatu").src="./jsp/yanzhengma.jsp?a="+randomnumber;
 }
 function getElementPos(elementId) 
 {      

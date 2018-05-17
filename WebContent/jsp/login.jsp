@@ -27,7 +27,7 @@
 						<s:password id="pwd" name="pwd" cssClass="inpwd"/>
 						<span class="yanzhengma"><s:text name="login.yanzheng"/></span>
 						<s:textfield id="yanzhengma" name="yanzhengma" cssClass="inyanzhengma"/>
-						<img id="yanzhengmatu" src="yanzhengma.jsp">
+						<img id="yanzhengmatu" src="./jsp/yanzhengma.jsp">
 						<a href="#" onclick="change();"><s:text name="login.change"/></a>
 						<s:submit id="submit" value="%{getText(\"login.login\")}" cssClass="logins"/>
 						<s:textfield id="result" name="result" cssStyle="display:none"/>
