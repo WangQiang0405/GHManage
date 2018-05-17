@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import zhf.common.SqlText;
+import zhf.table.GhInfoListTable;
 import zhf.util.DBUtil;
 
 public class GhInfoLogic {
