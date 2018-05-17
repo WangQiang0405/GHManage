@@ -4,7 +4,7 @@
 	<head>
 		<title><s:text name="mainmanage.title"/></title>
 		<link href="images/impliststyle.css" rel="stylesheet" type="text/css"/>
-		<script language="JavaScript" src="images/manage.js"></script>
+		<script language="JavaScript" src="js/manage.js"></script>
 		<script language="JavaScript">
 		function mymouseout(id,styleclass)
 		{

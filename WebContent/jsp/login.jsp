@@ -5,7 +5,7 @@
 		<title><s:text name="login.title"/></title>
 		<link href="images/style.css" rel="stylesheet" type="text/css"/>
 		<link href="images/loginStyle.css" rel="stylesheet" type="text/css"/>
-		<script language="JavaScript" src="images/manage.js"></script>
+		<script language="JavaScript" src="js/manage.js"></script>
 	</head>
 	<body>
 		<div id="container">
