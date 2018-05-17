@@ -73,7 +73,7 @@
    </package>
    
    <package name="chart" namespace="" extends="jfreechart-default"> 
-        <action name="barChart" class="com.jfreechart.action.CreateJFreeChartBar">
+        <action name="barChart" class="zhf.action.CreateJFreeChartBarAction">
             <result type="chart">
                 <param name="width">780</param>
                 <param name="height">450</param>

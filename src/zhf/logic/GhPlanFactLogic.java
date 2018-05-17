@@ -1,4 +1,4 @@
-package com.jfreechart.action;
+package zhf.logic;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,7 +13,7 @@ import zhf.util.DBUtil;
 
 //import zhf.SqlText;
 
-public class ChartDataAction {
+public class GhPlanFactLogic {
 
     public static List getUserList() {
 	ArrayList list = new ArrayList();

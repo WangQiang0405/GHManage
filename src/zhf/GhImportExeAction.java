@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.Validation;
 
 import zhf.common.GhCommon;
+import zhf.logic.GhImportLogic;
 
 @Validation()
 public class GhImportExeAction extends ActionSupport {

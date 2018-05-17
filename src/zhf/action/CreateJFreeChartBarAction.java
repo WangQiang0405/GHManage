@@ -1,4 +1,4 @@
-package com.jfreechart.action;
+package zhf.action;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -26,10 +26,11 @@ import org.jfree.ui.TextAnchor;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import zhf.logic.GhPlanFactLogic;
 import zhf.table.GhTargetTable;
 import zhf.util.StringUtil;
 
-public class CreateJFreeChartBar extends ActionSupport {
+public class CreateJFreeChartBarAction extends ActionSupport {
     private static final long serialVersionUID = 1L;
     private JFreeChart chart;
 
@@ -141,7 +142,7 @@ public class CreateJFreeChartBar extends ActionSupport {
 	String[] rowKeys = { "计划", "实际", "差" };
 	// String []colKeys = {"Aflac&Mitsui", "Metlife", "SJNK", "TMNF"};
 	@SuppressWarnings("rawtypes")
-	List list1 = ChartDataAction.getUserList();
+	List list1 = GhPlanFactLogic.getUserList();
 	// x轴数据
 	String colKeys[] = new String[list1.size()];
 	int ghhcs[] = new int[list1.size()];
@@ -160,7 +161,7 @@ public class CreateJFreeChartBar extends ActionSupport {
 	    GhTargetTable gt = (GhTargetTable) list1.get(i);
 	    ghhcs[i] = gt.getGhhcs();
 	    data[0][i] = ghhcs[i];
-	    ghrecs[i] = ChartDataAction.getGhactualcsRecs(colKeys[i]);
+	    ghrecs[i] = GhPlanFactLogic.getGhactualcsRecs(colKeys[i]);
 	    data[1][i] = ghrecs[i];
 	    data[2][i] = data[0][i] - data[1][i];
 	}

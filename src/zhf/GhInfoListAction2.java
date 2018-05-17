@@ -1,11 +1,12 @@
 package zhf;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+
+import zhf.logic.GhInfoLogic;
 
 public class GhInfoListAction2 extends ActionSupport {
     private int pageSpan = 10;

@@ -1,4 +1,4 @@
-package zhf;
+package zhf.logic;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.Validation;
 
 import zhf.common.GhCommon;
+import zhf.logic.GhInfoLogic;
 import zhf.util.StringUtil;
 
 @Validation()
