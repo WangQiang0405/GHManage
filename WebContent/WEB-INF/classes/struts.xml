@@ -22,9 +22,9 @@
    
    <package name="personal" extends="struts-default">
        <action name="GhTargetList" class="zhf.action.GhTargetListAction">
-          	<result name="success">/jsp/PlanFact.jsp</result>
-           	<result name="input">/jsp/PlanFact.jsp</result> 
-           	<result>/jsp/PlanFact.jsp</result>       
+          	<result name="success">/jsp/ghPlanFact.jsp</result>
+           	<result name="input">/jsp/ghPlanFact.jsp</result> 
+           	<result>/jsp/ghPlanFact.jsp</result>       
        </action>  
        <action name="GhBookList" class="zhf.action.GhBookListAction">
           	<result name="success">/jsp/ghbooklist.jsp</result>
