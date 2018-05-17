@@ -7,8 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import zhf.GhTargetTable;
-import zhf.SqlText;
+import zhf.common.SqlText;
+import zhf.table.GhTargetTable;
 import zhf.util.DBUtil;
 
 //import zhf.SqlText;

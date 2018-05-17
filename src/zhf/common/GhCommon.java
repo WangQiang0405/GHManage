@@ -1,4 +1,4 @@
-package zhf;
+package zhf.common;
 
 //常量定义
 public class GhCommon {

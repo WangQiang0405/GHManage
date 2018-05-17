@@ -1,4 +1,4 @@
-package zhf;
+package zhf.common;
 
 //数据库连接资源定义 以及 Sql语句大本营
 public class SqlText {

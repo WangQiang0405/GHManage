@@ -1,4 +1,4 @@
-package zhf;
+package zhf.common;
 
 import java.io.File;
 import java.io.FileInputStream;

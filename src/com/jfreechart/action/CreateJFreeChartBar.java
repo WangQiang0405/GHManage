@@ -26,7 +26,7 @@ import org.jfree.ui.TextAnchor;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import zhf.GhTargetTable;
+import zhf.table.GhTargetTable;
 import zhf.util.StringUtil;
 
 public class CreateJFreeChartBar extends ActionSupport {

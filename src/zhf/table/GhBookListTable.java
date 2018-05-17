@@ -1,4 +1,4 @@
-package zhf;
+package zhf.table;
 
 public class GhBookListTable {
 	

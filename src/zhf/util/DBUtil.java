@@ -12,11 +12,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import zhf.GhBookListTable;
-import zhf.GhDetailTable;
-import zhf.GhTargetTable;
-import zhf.SqlText;
-import zhf.UserInfoTable;
+import zhf.common.SqlText;
+import zhf.table.GhBookListTable;
+import zhf.table.GhDetailTable;
+import zhf.table.GhTargetTable;
+import zhf.table.UserInfoTable;
 
 public class DBUtil {
 

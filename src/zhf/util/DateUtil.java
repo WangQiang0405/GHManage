@@ -3,7 +3,7 @@ package zhf.util;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import zhf.GhCommon;
+import zhf.common.GhCommon;
 
 public class DateUtil {
 
