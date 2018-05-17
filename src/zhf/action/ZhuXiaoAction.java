@@ -1,4 +1,4 @@
-package zhf;
+package zhf.action;
 
 import com.opensymphony.xwork2.ActionContext;
 

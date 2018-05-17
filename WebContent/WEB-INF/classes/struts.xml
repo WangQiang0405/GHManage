@@ -5,7 +5,7 @@
 <struts>
 	
    <package name="login" extends="struts-default">
-       <action name="login" class="zhf.LoginAction">
+       <action name="login" class="zhf.action.LoginAction">
           	<result name="success">/login.jsp</result>
           	<result name="personal" type="redirectAction">
           	    <param name="actionName">GhTargetList</param>
@@ -15,44 +15,44 @@
           	</result>
           	<result name="input">/login.jsp</result>    
        </action>
-       <action name="zhuXiao" class="zhf.ZhuXiaoAction">
+       <action name="zhuXiao" class="zhf.action.ZhuXiaoAction">
             <result name="success">/login.jsp</result>
        </action>
    </package>
    
    <package name="personal" extends="struts-default">
-       <action name="GhTargetList" class="zhf.GhTargetListAction">
+       <action name="GhTargetList" class="zhf.action.GhTargetListAction">
           	<result name="success">/PlanFact.jsp</result>
            	<result name="input">/PlanFact.jsp</result> 
            	<result>/PlanFact.jsp</result>       
        </action>  
-       <action name="GhBookList" class="zhf.GhBookListAction">
+       <action name="GhBookList" class="zhf.action.GhBookListAction">
           	<result name="success">/ghbooklist.jsp</result>
            	<result name="input">/ghbooklist.jsp</result> 
            	<result>/ghbooklist.jsp</result>       
        </action>
-       <action name="Ghdetail" class="zhf.GhDetailAction">
+       <action name="Ghdetail" class="zhf.action.GhDetailAction">
           	<result name="success">/ghdetail.jsp</result>
            	<result name="input">/ghdetail.jsp</result> 
            	<result>/ghdetail.jsp</result>
        </action>
-       <action name="GhInfoList" class="zhf.GhInfoListExeAction" method="init">
+       <action name="GhInfoList" class="zhf.action.GhInfoListExeAction" method="init">
           	<result name="success">/ghinfolist.jsp</result>
            	<result>/ghinfolist.jsp</result>       
        </action>
-       <action name="GhInfoListExe" class="zhf.GhInfoListExeAction">
+       <action name="GhInfoListExe" class="zhf.action.GhInfoListExeAction">
           	<result name="success">/ghinfolist.jsp</result>
            	<result name="fail">/ghinfolist.jsp</result> 
        </action> 
    </package>
    
    <package name="manage" extends="struts-default">
-       <action name="UserAuthList" class="zhf.UserAuthListAction">
+       <action name="UserAuthList" class="zhf.action.UserAuthListAction">
           	<result name="success">/userauthlist.jsp</result>
            	<result name="input">/userauthlist.jsp</result> 
            	<result>/userauthlist.jsp</result>       
        </action>  
-       <action name="GhBookList" class="zhf.GhBookListAction">
+       <action name="GhBookList" class="zhf.action.GhBookListAction">
           	<result name="success">/ghbooklist.jsp</result>
            	<result name="input">/ghbooklist.jsp</result> 
            	<result>/ghbooklist.jsp</result>       
@@ -60,12 +60,12 @@
    </package>
    
    <package name="import" extends="struts-default">
-       <action name="GhImport" class="zhf.GhImportAction">
+       <action name="GhImport" class="zhf.action.GhImportAction">
           	<result name="success">/ghimport.jsp</result>
            	<result name="input">/ghimport.jsp</result> 
            	<result>/ghimport.jsp</result>       
        </action>
-       <action name="GhImportExe" class="zhf.GhImportExeAction">
+       <action name="GhImportExe" class="zhf.action.GhImportExeAction">
           	<result name="success">/ghimport.jsp</result>
            	<result name="input">/ghimport.jsp</result> 
            	<result>/ghimport.jsp</result>       
