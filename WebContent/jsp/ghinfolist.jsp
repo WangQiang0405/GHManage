@@ -72,10 +72,10 @@
 	<body>
 	<div id="container">
 		<div id="tophead">
-			<s:include value="top.jsp"/>
+			<s:include value="/jsp/top.jsp"/>
 		</div>
 		<div id="leftcontent">
-			<s:include value="lefttree.jsp"/>
+			<s:include value="/jsp/lefttree.jsp"/>
 		</div>
 		<s:form action="GhInfoListExe" theme="simple" method="post" onsubmit="" validate="true">
 		<s:hidden id="eventid" name="eventid" value="0"/>

@@ -12,10 +12,10 @@
 	<body>
 	<div id="container">
 		<div id="tophead">
-			<s:include value="top.jsp"/>
+			<s:include value="/jsp/top.jsp"/>
 		</div>
 		<div id="leftcontent">
-			<s:include value="lefttreemanage.jsp"/>
+			<s:include value="/jsp/lefttreemanage.jsp"/>
 		</div>
 		<div id="maincontent">
 			<div id="ftdiv">

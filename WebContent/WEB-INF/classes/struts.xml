@@ -6,69 +6,69 @@
 	
    <package name="login" extends="struts-default">
        <action name="login" class="zhf.action.LoginAction">
-          	<result name="success">/login.jsp</result>
+          	<result name="success">/jsp/login.jsp</result>
           	<result name="personal" type="redirectAction">
           	    <param name="actionName">GhTargetList</param>
            	</result>
           	<result name="manage" type="redirectAction">
                 <param name="actionName">UserAuthList</param>
           	</result>
-          	<result name="input">/login.jsp</result>    
+          	<result name="input">/jsp/login.jsp</result>    
        </action>
        <action name="zhuXiao" class="zhf.action.ZhuXiaoAction">
-            <result name="success">/login.jsp</result>
+            <result name="success">/jsp/login.jsp</result>
        </action>
    </package>
    
    <package name="personal" extends="struts-default">
        <action name="GhTargetList" class="zhf.action.GhTargetListAction">
-          	<result name="success">/PlanFact.jsp</result>
-           	<result name="input">/PlanFact.jsp</result> 
-           	<result>/PlanFact.jsp</result>       
+          	<result name="success">/jsp/PlanFact.jsp</result>
+           	<result name="input">/jsp/PlanFact.jsp</result> 
+           	<result>/jsp/PlanFact.jsp</result>       
        </action>  
        <action name="GhBookList" class="zhf.action.GhBookListAction">
-          	<result name="success">/ghbooklist.jsp</result>
-           	<result name="input">/ghbooklist.jsp</result> 
-           	<result>/ghbooklist.jsp</result>       
+          	<result name="success">/jsp/ghbooklist.jsp</result>
+           	<result name="input">/jsp/ghbooklist.jsp</result> 
+           	<result>/jsp/ghbooklist.jsp</result>       
        </action>
        <action name="Ghdetail" class="zhf.action.GhDetailAction">
-          	<result name="success">/ghdetail.jsp</result>
-           	<result name="input">/ghdetail.jsp</result> 
-           	<result>/ghdetail.jsp</result>
+          	<result name="success">/jsp/ghdetail.jsp</result>
+           	<result name="input">/jsp/ghdetail.jsp</result> 
+           	<result>/jsp/ghdetail.jsp</result>
        </action>
        <action name="GhInfoList" class="zhf.action.GhInfoListExeAction" method="init">
-          	<result name="success">/ghinfolist.jsp</result>
-           	<result>/ghinfolist.jsp</result>       
+          	<result name="success">/jsp/ghinfolist.jsp</result>
+           	<result>/jsp/ghinfolist.jsp</result>       
        </action>
        <action name="GhInfoListExe" class="zhf.action.GhInfoListExeAction">
-          	<result name="success">/ghinfolist.jsp</result>
-           	<result name="fail">/ghinfolist.jsp</result> 
+          	<result name="success">/jsp/ghinfolist.jsp</result>
+           	<result name="fail">/jsp/ghinfolist.jsp</result> 
        </action> 
    </package>
    
    <package name="manage" extends="struts-default">
        <action name="UserAuthList" class="zhf.action.UserAuthListAction">
-          	<result name="success">/userauthlist.jsp</result>
-           	<result name="input">/userauthlist.jsp</result> 
-           	<result>/userauthlist.jsp</result>       
+          	<result name="success">/jsp/userauthlist.jsp</result>
+           	<result name="input">/jsp/userauthlist.jsp</result> 
+           	<result>/jsp/userauthlist.jsp</result>       
        </action>  
        <action name="GhBookList" class="zhf.action.GhBookListAction">
-          	<result name="success">/ghbooklist.jsp</result>
-           	<result name="input">/ghbooklist.jsp</result> 
-           	<result>/ghbooklist.jsp</result>       
+          	<result name="success">/jsp/ghbooklist.jsp</result>
+           	<result name="input">/jsp/ghbooklist.jsp</result> 
+           	<result>/jsp/ghbooklist.jsp</result>       
        </action>   
    </package>
    
    <package name="import" extends="struts-default">
        <action name="GhImport" class="zhf.action.GhImportAction">
-          	<result name="success">/ghimport.jsp</result>
-           	<result name="input">/ghimport.jsp</result> 
-           	<result>/ghimport.jsp</result>       
+          	<result name="success">/jsp/ghimport.jsp</result>
+           	<result name="input">/jsp/ghimport.jsp</result> 
+           	<result>/jsp/ghimport.jsp</result>       
        </action>
        <action name="GhImportExe" class="zhf.action.GhImportExeAction">
-          	<result name="success">/ghimport.jsp</result>
-           	<result name="input">/ghimport.jsp</result> 
-           	<result>/ghimport.jsp</result>       
+          	<result name="success">/jsp/ghimport.jsp</result>
+           	<result name="input">/jsp/ghimport.jsp</result> 
+           	<result>/jsp/ghimport.jsp</result>       
        </action> 
    </package>
    

@@ -17,43 +17,52 @@
 	<body>
 	<div id="container">
 		<div id="tophead">
-			<s:include value="top.jsp"/>
+			<s:include value="/jsp/top.jsp"/>
 		</div>
 		<div id="leftcontent">
-			<s:include value="lefttreemanage.jsp"/>
+			<s:include value="/jsp/lefttree.jsp"/>
 		</div>
 		<div id="maincontent">
 			<div id="topop">
-				<s:form action="UserAuthList" >
-				<s:select name="userId" label="%{getText(\"userIdList.xuanzheyonghu\")}" labelposition="left" 
-				list="UserList" listKey="key" listValue="value" onchange="this.form.submit();"/>
+				<s:form action="GhBookList" >
+				<s:select name="projecName" label="%{getText(\"projectList.xuanzhexiangmu\")}" labelposition="left" 
+				list="ProjectList" listKey="key" listValue="value" onchange="this.form.submit();"/>
 				</s:form>
 											
 			</div>
-			<s:if test="UserInfoList.size()!=0">
+			<s:if test="GhBookList.size()!=0">
 				
 				<table border="1" bgcolor="#e2e2e2" cellspacing="1" align="center" width="770px">
 				
 					<tr class="headerClass">
-						<th>用户名</th>
-						<th>用户密码</th>
-						<th>权限级别</th>
-						<th>修改用户信息</th>
-						<th>删除用户信息</th>						
+						<th>网申编号</th>
+						<th>学生姓名</th>
+						<th>处理状态</th>
+						<th>Offer状态</th>
+						<th>预定项目</th>
+						<th>是否实习</th>
+						<th>报告经理</th>
+						<th>Offer入职日期</th>
+						<th>详细信息</th>
 					</tr>
-					<s:iterator id="List" value="UserInfoList" status="ul">
-						<tr id="ul<s:property value="#ul.index"/>"
-							<s:if test="#ul.odd">class="oddRow"</s:if>
+					<s:iterator id="List" value="GhBookList" status="ghl">
+						<tr id="ghl<s:property value="#ghl.index"/>"
+							<s:if test="#ghl.odd">class="oddRow"</s:if>
 							<s:else>class="evenRow"</s:else>
 							onmouseover="this.className='selectedRow';" 
-							onmouseout="mymouseout('ul<s:property value='#ul.index'/>',
-							<s:if test='#ul.odd'>'oddRow'</s:if>
-							<s:else>'evenRow'</s:else>);" >
-							<td><s:property value="userId"/></td>
-							<td><s:property value="userPwd"/></td>
-							<td><s:property value="userType"/></td>
-							<td><a href="ghDetail.action?wsId=<s:property value="wsId"/>" target="_blank">修改</a></td>
-							<td><a href="ghDetail.action?wsId=<s:property value="wsId"/>" target="_blank">删除</a></td>
+							onmouseout="mymouseout('ghl<s:property value='#ghl.index'/>',
+							<s:if test='#ghl.odd'>'oddRow'</s:if>
+							<s:else>'evenRow'</s:else>);" 
+							>
+							<td><s:property value="wangShenId"/></td>
+							<td><s:property value="studentName"/></td>
+							<td><s:property value="chuLiSts"/></td>
+							<td><s:property value="offerSts"/></td>
+							<td><s:property value="bookByPj"/></td>
+							<td><s:property value="ghOrInt"/></td>
+							<td><s:property value="repMgr"/></td>
+							<td><s:property value="offerOnboardRq"/></td>
+							<td><a href="javascript:void(0);" onclick="windowpopup(this)">查看</a></td>
 						</tr>
 					</s:iterator>
 				</table>
@@ -64,22 +73,22 @@
 				<span class="totalnum"><s:property value="totalMessage"/><s:text name="impleeyList.jilushu"/></span>
 				</div>
 				<div class="pageop">
-				<s:form action="UserAuthList" >
+				<s:form action="GhBookList" >
 				<s:select name="pageSpan" id="pagespan"
 				list="spanList" listKey="key" listValue="value" onchange="this.form.submit();"/>
 				</s:form>
 				<span class="shangye">
 					<s:if test="currenPageNo>1">
-						<a href="UserAuthList.action?currenPageNo=<s:property value="currenPageNo-1"/>"><s:text name="impleeyList.shangye"/></a>
+						<a href="GhBookList.action?currenPageNo=<s:property value="currenPageNo-1"/>"><s:text name="impleeyList.shangye"/></a>
 					</s:if>
 				</span>
 				<span class="xiaye">
 				<s:if test="currenPageNo<maxPageNo">
-					<a href="UserAuthList.action?currenPageNo=<s:property value="currenPageNo+1"/>"><s:text name="impleeyList.xiaye"/></a>
+					<a href="GhBookList.action?currenPageNo=<s:property value="currenPageNo+1"/>"><s:text name="impleeyList.xiaye"/></a>
 				</s:if>
 				</span>
 				
-				<s:form action="UserAuthList" theme="simple" >
+				<s:form action="GhBookList" theme="simple" >
 					<span class="tiaozhuan"><s:text name="impleeyList.tiaozhuan"/></span>
 					<s:textfield id="tiaoye" name="currenPageNo" cssClass="yefield" onmouseover="this.select();"/><span class="ye"><s:text name="impleeyList.ye"/></span>
 					<s:submit value="%{getText(\"impleeyList.queding\")}" cssClass="queding" 
@@ -93,7 +102,7 @@
 				
 			</s:if>
 			<s:else>
-				<p>没有相应的用户信息</p>
+				<p>没有相应的学生信息</p>
 			</s:else>
 		</div>
 	</div>	

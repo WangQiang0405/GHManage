@@ -24,7 +24,7 @@
     <!--配置Web应用的欢迎文件-->
     <welcome-file-list>
 	    <welcome-file>
-            login.jsp
+            /jsp/login.jsp
         </welcome-file>
     </welcome-file-list>
 </web-app>
