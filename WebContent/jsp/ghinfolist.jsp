@@ -151,30 +151,30 @@
 					
 					<span class="shangye">
 						<s:if test="ghInfoList.size()!=0&&currenPageNo==1">
-							<s:submit id="submit" value=""
+							<s:submit id="submit" value=" "
 							cssClass="from" onmouseout="this.className='from';"/>
-							<s:submit id="submit" value=""
+							<s:submit id="submit" value=" "
 							cssClass="previous" onmouseout="this.className='previous';"/>
 							<!-- <a href="GhInfoListExe.action?currenPageNo=<s:property value="currenPageNo-1"/>&eventid='2'"><s:text name="impleeyList.shangye"/></a> -->
 						</s:if>
 						<s:if test="currenPageNo>1">
-							<s:submit id="submit" value="" onclick="submitFrom()"
+							<s:submit id="submit" value=" " onclick="submitFrom()"
 							cssClass="from" onmouseover="this.className='fromover';" onmouseout="this.className='from';"/>
-							<s:submit id="submit" value="" onclick="submitPrevious()"
+							<s:submit id="submit" value=" " onclick="submitPrevious()"
 							cssClass="previous" onmouseover="this.className='previousover';" onmouseout="this.className='previous';"/>
 							<!-- <a href="GhInfoListExe.action?currenPageNo=<s:property value="currenPageNo-1"/>&eventid='2'"><s:text name="impleeyList.shangye"/></a> -->
 						</s:if>
 						<s:if test="currenPageNo<maxPageNo">
-							<s:submit id="submit" value="" onclick="submitNext()"
+							<s:submit id="submit" value=" " onclick="submitNext()"
 							cssClass="next" onmouseover="this.className='nextover';" onmouseout="this.className='next';"/>
-							<s:submit id="submit" value="" onclick="submitTo()"
+							<s:submit id="submit" value=" " onclick="submitTo()"
 							cssClass="to" onmouseover="this.className='toover';" onmouseout="this.className='to';"/>
 							<!-- <a href="GhInfoListExe.action?currenPageNo=<s:property value="currenPageNo+1"/>&eventid='2'"><s:text name="impleeyList.xiaye"/></a>-->
 						</s:if>
 						<s:if test="currenPageNo==maxPageNo">
-							<s:submit id="submit" value=""
+							<s:submit id="submit" value=" "
 							cssClass="next" onmouseout="this.className='next';"/>
-							<s:submit id="submit" value=""
+							<s:submit id="submit" value=" "
 							cssClass="to" onmouseout="this.className='to';"/>
 							<!-- <a href="GhInfoListExe.action?currenPageNo=<s:property value="currenPageNo+1"/>&eventid='2'"><s:text name="impleeyList.xiaye"/></a>-->
 						</s:if>
