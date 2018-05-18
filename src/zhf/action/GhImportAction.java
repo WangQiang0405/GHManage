@@ -4,14 +4,13 @@ import java.io.File;
 import java.sql.SQLException;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import com.opensymphony.xwork2.validator.annotations.Validation;
 
 import zhf.common.GhCommon;
 import zhf.logic.GhImportLogic;
 
 @Validation()
-public class GhImportExeAction extends ActionSupport {
+public class GhImportAction extends ActionSupport {
 
     private String importPath = "";
     private String result = "";

@@ -36,11 +36,11 @@
            	<result name="input">/jsp/ghdetail.jsp</result> 
            	<result>/jsp/ghdetail.jsp</result>
        </action>
-       <action name="GhImport" class="zhf.action.GhImportExeAction" method="init">
+       <action name="GhImport" class="zhf.action.GhImportAction" method="init">
           	<result name="init">/jsp/ghimport.jsp</result>
           	<result name="input">/jsp/ghimport.jsp</result>
        </action>
-       <action name="GhImportExe" class="zhf.action.GhImportExeAction">
+       <action name="GhImportExe" class="zhf.action.GhImportAction">
           	<result name="success">/jsp/ghimport.jsp</result>
           	<result name="fail">/jsp/ghimport.jsp</result>
            	<result name="input">/jsp/ghimport.jsp</result>
