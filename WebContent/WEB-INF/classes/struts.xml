@@ -36,6 +36,16 @@
            	<result name="input">/jsp/ghdetail.jsp</result> 
            	<result>/jsp/ghdetail.jsp</result>
        </action>
+       <action name="GhImport" class="zhf.action.GhImportExeAction" method="init">
+          	<result name="init">/jsp/ghimport.jsp</result>
+          	<result name="input">/jsp/ghimport.jsp</result>
+       </action>
+       <action name="GhImportExe" class="zhf.action.GhImportExeAction">
+          	<result name="success">/jsp/ghimport.jsp</result>
+          	<result name="fail">/jsp/ghimport.jsp</result>
+           	<result name="input">/jsp/ghimport.jsp</result>
+           	<result>/jsp/ghimport.jsp</result>
+       </action> 
        <action name="GhInfoList" class="zhf.action.GhInfoListExeAction" method="init">
           	<result name="success">/jsp/ghinfolist.jsp</result>
            	<result>/jsp/ghinfolist.jsp</result>       
@@ -57,19 +67,6 @@
            	<result name="input">/jsp/ghbooklist.jsp</result> 
            	<result>/jsp/ghbooklist.jsp</result>       
        </action>   
-   </package>
-   
-   <package name="import" extends="struts-default">
-       <action name="GhImport" class="zhf.action.GhImportAction">
-          	<result name="success">/jsp/ghimport.jsp</result>
-           	<result name="input">/jsp/ghimport.jsp</result> 
-           	<result>/jsp/ghimport.jsp</result>       
-       </action>
-       <action name="GhImportExe" class="zhf.action.GhImportExeAction">
-          	<result name="success">/jsp/ghimport.jsp</result>
-           	<result name="input">/jsp/ghimport.jsp</result> 
-           	<result>/jsp/ghimport.jsp</result>       
-       </action> 
    </package>
    
    <package name="chart" namespace="" extends="jfreechart-default"> 

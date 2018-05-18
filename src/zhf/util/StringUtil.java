@@ -5,6 +5,8 @@ import java.util.regex.Pattern;
 
 import org.apache.struts2.ServletActionContext;
 
+import zhf.common.GhCommon;
+
 public class StringUtil {
     
     /**
@@ -46,5 +48,19 @@ public class StringUtil {
 	}
 	return true;
     }
+    
+    // 取得指定索引的值
+    public static String getValueOfArray(String[] strArray, int index) {
+	String value = GhCommon.BLANK;
+	try {
+	    value = strArray[index];
+	} catch (ArrayIndexOutOfBoundsException e) {
+	    value = GhCommon.BLANK;
+	}
+	
+	return value;
+    }
+    
+    
 
 }

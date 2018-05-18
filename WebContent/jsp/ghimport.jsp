@@ -56,7 +56,11 @@
 				showErrMsg(errMsg, "importPath");
 			}
 			var result = document.getElementById("result").value;
-			if (result != "") {
+			if (result == "success") {
+			    alert("导入成功。");
+			} else if (result == "fail") {
+			    alert("导入失败！");
+			} else if (result != "") {
 				showErrMsg(result, "importPath");
 			}
 		</script>

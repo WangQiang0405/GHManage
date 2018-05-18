@@ -32,7 +32,7 @@ public class DateUtil {
 	java.sql.Date dd = null;
 
 	if (datevalue == null || "".equals(datevalue) || "-".equals(datevalue)) {
-	    datevalue = GhCommon.YYYYMMDD_DEFAULT;
+	    return null;
 	}
 	try {
 	    SimpleDateFormat fmt = new SimpleDateFormat(dateFormat);

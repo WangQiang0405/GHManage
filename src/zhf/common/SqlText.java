@@ -41,8 +41,6 @@ public class SqlText {
     /** 导入应聘者信息页面使用SQL文 **/
     // ghdetail表数据取得
     public static final String SQL_IMPORT_GH_DETAIL_S = "select * from ghdetail where anme = ?";
-    // ghdetail表数据登陆
-    public static final String SQL_IMPORT_GH_DETAIL_I = "insert into ghdetail(wsid,anme,xb,byxx,zhuanye,bysj,comments) values(?,?,?,?,?,?,?)";
 
     /** 应聘者信息一览页面使用SQL文 **/
     // ghdetail表数据取得
@@ -53,5 +51,12 @@ public class SqlText {
     /** ghdetail表使用SQL文 **/
     // ghdetail表数据全部取得
     public static final String SQL_GH_DETAIL_S = "select * from ghdetail";
+    // ghdetail表数据登陆
+    public static final String SQL_GH_DETAIL_I = "insert into ghdetail(id,pjname,name,sex,"
+    							+ "education,school,major,language,bookStatus,offerStatus,offerWReason,internFlag,"
+    							+ "sectorOrSL,reportManager,internOBD,offerOBDPlan,offerOBDActual,comments) "
+    							+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    // ghdetail表数据全部删除
+    public static final String SQL_GH_DETAIL_D = "delete from ghdetail";
 
 }

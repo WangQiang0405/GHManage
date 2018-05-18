@@ -161,7 +161,7 @@ public class ExcelRead {
 		String strLineData = (String) inputList.get(i);
 		String[] strLineDateArray = strLineData.split(GhCommon.ALARM);
 		// 姓名为空时，清除此行
-		if (strLineDateArray.length < 4) {
+		if (strLineDateArray.length < 3) {
 		    inputList.remove(i);
 		    i--;
 		}
