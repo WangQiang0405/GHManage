@@ -49,23 +49,15 @@
 		    obj.value = "3";
 		}
 		function onClickTr(id,index) {
-		    //alert(index);
-		    
 		    var curTable = document.getElementById("ghl" + index).parentNode;
-			//document.getElementById("mytable").children[0];
 		    for(var i = 1; i < curTable.children.length; i++) {
-			//alert(i);
 				if((i-1) % 2 == 1){    //ÆæÊý
-				    //curTable.children[i].className='evenRow';
 				    curTable.children[i].style.background = "#e3fcff";
 				} else {    //Å¼Êý
-			  		//curTable.children[i].className='oddRow';
 			  		curTable.children[i].style.background = "#f4f4f4";
 			    }
 			 }
 		    document.getElementById("ghl" + index).style.background = "yellow";
-		    //var obj = document.getElementById("ghl" + index);
-		    //alert(obj.cells[0].innerText);
 		}
 		</script>
 	</head>
