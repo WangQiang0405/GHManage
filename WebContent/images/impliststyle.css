@@ -194,6 +194,21 @@
 	margin-left:2px;font-size:13px;
 	color:red;
 }
+#buttomop .pageop .btnHidden{
+	background:url(../images/smallBlueButton.gif);
+	opacity:1;
+	border:none;
+	width:44px;
+	height:24px;
+	text-align:center;hidden
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+	margin-top:0px;
+	margin-left:2px;
+	font-size:13px;
+	/*color:#007b00;*/
+}
 #operate p{
 	font-size:18px;text-align:center;margin:10px auto 0 auto;position:relative;color:#666666;
 }

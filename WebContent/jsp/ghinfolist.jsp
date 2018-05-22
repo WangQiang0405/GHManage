@@ -141,7 +141,7 @@
 			</table>
 			<div id="buttomop">
 				<div class="info">
-					<span class="totalpage"><s:text name="impleeyList.gong"/><s:property value="maxPageNo"/><s:hidden id="maxPageNo" name="maxPageNo"/><s:text name="impleeyList.ye"/></span>
+					<span style="margin-left:5px;" class="totalpage"><s:text name="impleeyList.gong"/><s:property value="maxPageNo"/><s:hidden id="maxPageNo" name="maxPageNo"/><s:text name="impleeyList.ye"/></span>
 					<span class="totalnum"><s:property value="totalCount"/><s:text name="impleeyList.jilushu"/></span>
 				</div>
 				<div class="pageop">
