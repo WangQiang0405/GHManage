@@ -74,7 +74,7 @@
 						<th width="6%"><s:text name="field.internFlag"/></th>
 						<th width="26%"><s:text name="field.reportingManager"/></th>
 						<th width="14%"><s:text name="field.offerOBDPlan"/></th>
-						<th width="12%">оЙо╦пео╒</th>
+						<th width="12%"><s:text name="field.detail"/></th>
 					</tr>
 					<s:iterator id="List" value="GhBookList" status="ghl">
 						<tr id="ghl<s:property value="#ghl.index"/>"
