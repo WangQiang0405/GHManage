@@ -40,6 +40,7 @@ public class GhDetailLogic {
 		String offerStatus = StringUtil.nullToEmpty(rs.getString("offerStatus"));
 		String offerWaitingReason = StringUtil.nullToEmpty(rs.getString("offerWReason"));
 		String internFlag = StringUtil.nullToEmpty(rs.getString("internFlag"));
+		internFlag = StringUtil.internFlagConv(internFlag);
 		String sectorOrSL = StringUtil.nullToEmpty(rs.getString("sectorOrSL"));
 		String reportManager = StringUtil.nullToEmpty(rs.getString("reportManager"));
 		String internOBD = DateUtil.getDateFormat(rs.getDate("internOBD"),GhCommon.YYYYMMDD);
