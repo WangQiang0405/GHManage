@@ -92,7 +92,7 @@
 							<td><s:property value="internFlag"/></td>
 							<td><s:property value="reportManager"/></td>
 							<td><s:property value="offerOBDPlan"/></td>
-							<td><a href="javascript:void(0);" onclick="windowpopup(this)">查看</a></td>
+							<td><a href="javascript:void(0);" onclick="windowpopup('<s:property value="id"/>')">查看</a></td>
 						</tr>
 					</s:iterator>
 				</table>

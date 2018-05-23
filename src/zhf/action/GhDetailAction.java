@@ -4,28 +4,37 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import zhf.util.DBUtil;
+import zhf.logic.GhDetailLogic;
 
-public class GhDetailAction extends ActionSupport{
-	private String name;
-	public List getGhDetailList()
-	{
-		List list=DBUtil.getGhDetailList(name);
-		System.out.println(name);
-		return list;
-	}
+public class GhDetailAction extends ActionSupport {
+    private int id;
+    private String name;
+
+    public List getGhDetailList() {
 	
-	public String getName() {
-		return name;
-	}
+	GhDetailLogic lgc = new GhDetailLogic();
+	List list = lgc.getGhDetailList(id);
+	return list;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public String execute()
-	{
-		return SUCCESS;
-	}
-	
+    public void setId(int id) {
+	this.id = id;
+    }
+    
+    public String getName() {
+	return name;
+    }
+
+    public void setName(String name) {
+	this.name = name;
+    }
+
+    public String execute() {
+	return SUCCESS;
+    }
+
 }

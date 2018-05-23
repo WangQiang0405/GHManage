@@ -86,7 +86,7 @@ function getElementPos(elementId)
 	var ua = navigator.userAgent.toLowerCase();     
 	var isOpera = (ua.indexOf('opera') != -1);     
 	var isIE = (ua.indexOf('msie') != -1 && !isOpera); 
-	// not opera spoof      
+	// not opera spoof
 	var el = document.getElementById(elementId);      
 	if(el.parentNode == null || el.style.display == 'none')     
  	{	 	         
@@ -96,7 +96,7 @@ function getElementPos(elementId)
 	var pos = [];     
 	var box;
  	if(el.getBoundingClientRect)    
-	{ //IE     
+	{ // IE
         box = el.getBoundingClientRect(); 
         var scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop); 
         var scrollLeft = Math.max(document.documentElement.scrollLeft, document.body.scrollLeft); 
@@ -137,7 +137,7 @@ function getElementPos(elementId)
 	}
 	else { parent = null; } 
 	while (parent && parent.tagName != 'BODY' && parent.tagName != 'HTML')
-	{ // account for any scrolled ancestors         
+	{ // account for any scrolled ancestors
 		pos[0] -= parent.scrollLeft;         
 		pos[1] -= parent.scrollTop;		       
 		if (parent.parentNode) 
@@ -178,41 +178,41 @@ function check()
 
 
 
-function showErrMsg(msg,id)//msgΪ������Ϣ�ı�===idΪ��������ؼ�id
+function showErrMsg(msg,id)// msgΪ������Ϣ�ı�===idΪ��������ؼ�id
 {
-   //��ȡ��������ؼ���λ�á��ߴ�
+   // ��ȡ��������ؼ���λ�á��ߴ�
    tfpos=getElementPos(id);
    xby=tfpos.y+tfpos.h-1;
    xbx=tfpos.x+tfpos.w/2;
    
-   //��ʾ������Ϣ���
+   // ��ʾ������Ϣ���
    document.all.myerr.style.left=xbx-70;
    document.all.myerr.style.top=xby+18;
    document.all.myerrs.innerHTML=msg; 
    document.all.myerr.style.visibility="visible"; 
    
-   //��ʾ����ϵļ��ͼƬ
+   // ��ʾ����ϵļ��ͼƬ
    document.all.myup.style.left=xbx-40;
    document.all.myup.style.top=xby-2;  
    document.all.myup.style.visibility="visible";
    
-   //��ȡ������Ϣ���λ�á��ߴ�
+   // ��ȡ������Ϣ���λ�á��ߴ�
    bgpos=getElementPos("myerr");
    
-   //��ʾ�ڵ�span
+   // ��ʾ�ڵ�span
    document.all.errzd.style.left=xbx-70;
    document.all.errzd.style.top=xby+18;
    document.all.errzd.style.width=bgpos.w;
    document.all.errzd.style.height=bgpos.h;
    document.all.errzd.style.visibility="visible";
    
-   //�����ڵ�����
+   // �����ڵ�����
    zdcount=5;
    span=bgpos.h/zdcount;
    setTimeout("xyzd("+span+","+(xby+18)+")",0);
 }
 
-//�������ڵ���
+// �������ڵ���
 function xyzd(span,top)
 {           
    if(zdcount==0)
@@ -228,7 +228,7 @@ function xyzd(span,top)
    }           
 }
         
-//���ش�����Ϣ����		   
+// ���ش�����Ϣ����
 function hideErr()
 {
     document.all.myerr.style.visibility="hidden"; 
@@ -236,7 +236,7 @@ function hideErr()
     document.all.errzd.style.visibility="hidden";
 }
 
-var zdcount=0;//�ڵ������ؼ�����
+var zdcount=0;// �ڵ������ؼ�����
 	   
 function checkmax(ss)
 {alert(ss);
@@ -483,11 +483,14 @@ function editdepartcheck()
 	return true;
 }
 
-function windowpopup(obj){
-	var tr=obj.parentNode.parentNode;
-	//alert(tr.rowIndex);  
-alert(tr.cells[1].innerText);
-var name=tr.cells[1].innerText;
-name="1";
-	window.open ( "Ghdetail?name="+name , "_blank" , 'height=300,width=1500,top=300,left=300,toolbar=no,menubar=no,scrollbars=yes, resizable=yes,location=no, status=no') ;
+function windowpopup(id){
+    // var tr=obj.parentNode.parentNode;
+    // alert(tr.rowIndex);
+    //alert(tr.cells[1].innerText);
+    // var name=tr.cells[1].innerText;
+    // name="1";
+    alert(id);
+    var top = (screen.height - 300) / 2;
+    var left = (screen.width - 1500) / 2;
+    window.open ( "Ghdetail?id="+id , "_blank" , 'height=300,width=1500,top='+top+',left='+left+',toolbar=no,menubar=no,scrollbars=yes, resizable=yes,location=no, status=no');
 }
