@@ -489,7 +489,6 @@ function windowpopup(id){
     //alert(tr.cells[1].innerText);
     // var name=tr.cells[1].innerText;
     // name="1";
-    alert(id);
     var top = (screen.height - 300) / 2;
     var left = (screen.width - 1500) / 2;
     window.open ( "Ghdetail?id="+id , "_blank" , 'height=300,width=1500,top='+top+',left='+left+',toolbar=no,menubar=no,scrollbars=yes, resizable=yes,location=no, status=no');

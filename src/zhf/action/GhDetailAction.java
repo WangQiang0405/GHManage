@@ -8,7 +8,6 @@ import zhf.logic.GhDetailLogic;
 
 public class GhDetailAction extends ActionSupport {
     private int id;
-    private String name;
 
     public List getGhDetailList() {
 	
@@ -23,14 +22,6 @@ public class GhDetailAction extends ActionSupport {
 
     public void setId(int id) {
 	this.id = id;
-    }
-    
-    public String getName() {
-	return name;
-    }
-
-    public void setName(String name) {
-	this.name = name;
     }
 
     public String execute() {
