@@ -211,7 +211,7 @@ public class DBUtil {
 		    GhTargetTable gt = new GhTargetTable(pjname1, ghhcs);
 		    list.add(gt);
 		}
-	    } else if (actionName.equals("GhBookListAction")) {
+	    } else if (actionName.equals("GhTrackAction")) {
 		int recNum = 0;
 		String sql1 = SqlText.SQL4_GHBOOKLISTALL + sql;
 		rs = stmt.executeQuery(sql1);

@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import zhf.util.DBUtil;
 
-public class GhBookListAction extends ActionSupport {
+public class GhTrackAction extends ActionSupport {
     
     private String eventid = "0";//0：初始化；1：页数，项目改变；2：上下页;3:确定
     private int pageSpan = 5;
@@ -107,7 +107,7 @@ public class GhBookListAction extends ActionSupport {
 	    this.pageSpan = (Integer) session.get("blPageSpan");
 	}
 
-	List list = DBUtil.getTargetGhList(projecName, pageSpan, currenPageNo, "GhBookListAction");
+	List list = DBUtil.getTargetGhList(projecName, pageSpan, currenPageNo, "GhTrackAction");
 
 	return list;
     }

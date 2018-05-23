@@ -57,7 +57,7 @@
 		<div id="leftcontent">
 			<s:include value="/jsp/lefttree.jsp"/>
 		</div>
-		<s:form id="bookList"  name="bookListName" action="GhBookList" theme="simple" method="post" onsubmit="" validate="true">
+		<s:form id="bookList"  name="bookListName" action="GhTrack" theme="simple" method="post" onsubmit="" validate="true">
 		<s:hidden id="eventid" name="eventid" value="0"/>
 		<div id="maincontent">
 			<div id="topop">
