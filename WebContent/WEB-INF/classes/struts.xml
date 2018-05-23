@@ -27,9 +27,9 @@
            	<result>/jsp/ghPlanFact.jsp</result>       
        </action>  
        <action name="GhBookList" class="zhf.action.GhBookListAction">
-          	<result name="success">/jsp/ghbooklist.jsp</result>
-           	<result name="input">/jsp/ghbooklist.jsp</result> 
-           	<result>/jsp/ghbooklist.jsp</result>       
+          	<result name="success">/jsp/ghTrack.jsp</result>
+           	<result name="input">/jsp/ghTrack.jsp</result> 
+           	<result>/jsp/ghTrack.jsp</result>   
        </action>
        <action name="Ghdetail" class="zhf.action.GhDetailAction">
           	<result name="success">/jsp/ghdetail.jsp</result>
@@ -63,9 +63,9 @@
            	<result>/jsp/userauthlist.jsp</result>       
        </action>  
        <action name="GhBookList" class="zhf.action.GhBookListAction">
-          	<result name="success">/jsp/ghbooklist.jsp</result>
-           	<result name="input">/jsp/ghbooklist.jsp</result> 
-           	<result>/jsp/ghbooklist.jsp</result>       
+          	<result name="success">/jsp/ghTrack.jsp</result>
+           	<result name="input">/jsp/ghTrack.jsp</result> 
+           	<result>/jsp/ghTrack.jsp</result>       
        </action>   
    </package>
    

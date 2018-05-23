@@ -28,14 +28,14 @@ public class GhBookListAction extends ActionSupport {
     
     public void setPageSpan(int pageSpan) {
 	this.pageSpan = pageSpan;
-	ActionContext.getContext().getSession().put("pageSpan", pageSpan);
+	ActionContext.getContext().getSession().put("blPageSpan", pageSpan);
 	if (this.eventid.equals("1")) {
 	    this.setCurrenPageNo(1);
 	}
     }
 
     public int getPageSpan() {
-	Object obj = ActionContext.getContext().getSession().get("pageSpan");
+	Object obj = ActionContext.getContext().getSession().get("blPageSpan");
 	if (obj != null) {
 	    this.pageSpan = (Integer) obj;
 	}
@@ -51,8 +51,8 @@ public class GhBookListAction extends ActionSupport {
 
     public int getMaxPageNo() {
 	Map session = ActionContext.getContext().getSession();
-	if (session.get("pageSpan") != null) {
-	    this.pageSpan = (Integer) session.get("pageSpan");
+	if (session.get("blPageSpan") != null) {
+	    this.pageSpan = (Integer) session.get("blPageSpan");
 	}
 	totalMessage = this.getTotalMessage();
 	return totalMessage % pageSpan == 0 ? totalMessage / pageSpan : (totalMessage / pageSpan + 1);
@@ -60,8 +60,8 @@ public class GhBookListAction extends ActionSupport {
 
     public int getTotalMessage() {
 	Map session = ActionContext.getContext().getSession();
-	if (session.get("projectName") != null) {
-	    this.projecName = (String) session.get("projectName");
+	if (session.get("blProjectName") != null) {
+	    this.projecName = (String) session.get("blProjectName");
 	}
 	return DBUtil.getTotalRecs(projecName);
     }
@@ -78,14 +78,14 @@ public class GhBookListAction extends ActionSupport {
 
     public void setProjecName(String projectName) {
 	this.projecName = projectName;
-	ActionContext.getContext().getSession().put("projectName", projectName);
+	ActionContext.getContext().getSession().put("blProjectName", projectName);
 	if (this.eventid.equals("1")) {
 	    this.setCurrenPageNo(1);
 	}
     }
 
     public String getProjecName() {
-	Object obj = (ActionContext.getContext().getSession().get("projectName"));
+	Object obj = (ActionContext.getContext().getSession().get("blProjectName"));
 	if (obj != null) {
 	    this.projecName = (String) obj;
 	}
@@ -100,11 +100,11 @@ public class GhBookListAction extends ActionSupport {
 
     public List getGhBookList() {
 	Map session = ActionContext.getContext().getSession();
-	if (session.get("projectName") != null) {
-	    this.projecName = (String) session.get("projectName");
+	if (session.get("blProjectName") != null) {
+	    this.projecName = (String) session.get("blProjectName");
 	}
-	if (session.get("pageSpan") != null) {
-	    this.pageSpan = (Integer) session.get("pageSpan");
+	if (session.get("blPageSpan") != null) {
+	    this.pageSpan = (Integer) session.get("blPageSpan");
 	}
 
 	List list = DBUtil.getTargetGhList(projecName, pageSpan, currenPageNo, "GhBookListAction");
