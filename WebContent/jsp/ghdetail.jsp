@@ -40,7 +40,7 @@
 				</tr>
 				<s:if test="GhDetailList.size()!=0">
 				<s:iterator id="List" value="GhDetailList" status="ghdl">
-					<tr id="ghdl<s:property value="#ghdl.index"/>"
+					<tr id="ghl<s:property value="#ghdl.index"/>"
 						<s:if test="#ghdl.odd">class="oddRow"</s:if>
 						<s:else>class="evenRow"</s:else>
 						onmouseover="this.className='selectedRow';" 
