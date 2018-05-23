@@ -51,6 +51,8 @@ public class SqlText {
     /** ghdetail表使用SQL文 **/
     // ghdetail表数据全部取得
     public static final String SQL_GH_DETAIL_S = "select * from ghdetail";
+    // ghdetail列表记录条数取得
+    public static final String SQL_GH_DETAIL_S_CNT = "select count(*) from ghdetail";
     // ghdetail表数据登陆
     public static final String SQL_GH_DETAIL_I = "insert into ghdetail(id,pjname,name,sex,"
     							+ "education,school,major,language,bookStatus,offerStatus,offerWReason,internFlag,"

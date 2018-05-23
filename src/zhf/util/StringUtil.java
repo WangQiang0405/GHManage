@@ -61,6 +61,27 @@ public class StringUtil {
 	return value;
     }
     
+    // 判断字符串是否为数字和字母的组合
+    public static String nullToEmpty(String strValue) {
+	
+	if (strValue == null) {
+	    strValue = "";
+	}
+	
+	return strValue;
+    }
     
+    // internFlag转化
+    public static String internFlagConv(String internFlag) {
+	
+	String strConv = "";
+	if ("Y".equals(internFlag)) {
+	    strConv = "是";
+	} else {
+	    strConv = "否";
+	}
+	
+	return strConv;
+    }
 
 }

@@ -7,12 +7,13 @@ import java.util.Map;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import zhf.logic.GhTrackLogic;
 import zhf.util.DBUtil;
 
 public class GhTrackAction extends ActionSupport {
     
     private String eventid = "0";//0：初始化；1：页数，项目改变；2：上下页;3:确定
-    private int pageSpan = 5;
+    private int pageSpan = 10;
     private int currenPageNo = 1;
     private String projecName = "0000";
     private int maxPageNo;
@@ -44,8 +45,8 @@ public class GhTrackAction extends ActionSupport {
 
     public Map getSpanList() {
 	Map map = new HashMap();
-	map.put(5, "每页5条");
 	map.put(10, "每页10条");
+	map.put(20, "每页20条");
 	return map;
     }
 
@@ -63,7 +64,8 @@ public class GhTrackAction extends ActionSupport {
 	if (session.get("blProjectName") != null) {
 	    this.projecName = (String) session.get("blProjectName");
 	}
-	return DBUtil.getTotalRecs(projecName);
+	GhTrackLogic lgc = new GhTrackLogic();
+	return lgc.getTotalRecs(projecName);
     }
 
     public void setCurrenPageNo(int currenPageNo) {
@@ -99,6 +101,7 @@ public class GhTrackAction extends ActionSupport {
     }
 
     public List getGhBookList() {
+	
 	Map session = ActionContext.getContext().getSession();
 	if (session.get("blProjectName") != null) {
 	    this.projecName = (String) session.get("blProjectName");
@@ -107,7 +110,8 @@ public class GhTrackAction extends ActionSupport {
 	    this.pageSpan = (Integer) session.get("blPageSpan");
 	}
 
-	List list = DBUtil.getTargetGhList(projecName, pageSpan, currenPageNo, "GhTrackAction");
+	GhTrackLogic lgc = new GhTrackLogic();
+	List list = lgc.getGhDetailList(projecName, pageSpan, currenPageNo);
 
 	return list;
     }

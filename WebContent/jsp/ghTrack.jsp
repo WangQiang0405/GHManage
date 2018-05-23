@@ -65,17 +65,16 @@
 				list="ProjectList" listKey="key" listValue="value" onchange="submitOnChange();"/></H3>
 			</div>
 			<s:if test="GhBookList.size()!=0">
-				<table border="1" bgcolor="#e2e2e2" cellspacing="1" align="center" width="770px">
+				<table border="1" bgcolor="#e2e2e2" cellspacing="0" align="center" width="770px">
 					<tr class="headerClass">
-						<th>网申编号</th>
-						<th>学生姓名</th>
-						<th>处理状态</th>
-						<th>Offer状态</th>
-						<th>预定项目</th>
-						<th>是否实习</th>
-						<th>报告经理</th>
-						<th>Offer入职日期</th>
-						<th>详细信息</th>
+						<th width="13%"><s:text name="field.project"/></th>
+						<th width="9%"><s:text name="field.name"/></th>
+						<th width="6%"><s:text name="field.sex"/></th>
+						<th width="14%"><s:text name="field.offerStatus"/></th>
+						<th width="6%"><s:text name="field.internFlag"/></th>
+						<th width="26%"><s:text name="field.reportingManager"/></th>
+						<th width="14%"><s:text name="field.offerOBDPlan"/></th>
+						<th width="12%">详细信息</th>
 					</tr>
 					<s:iterator id="List" value="GhBookList" status="ghl">
 						<tr id="ghl<s:property value="#ghl.index"/>"
@@ -86,14 +85,13 @@
 							<s:if test='#ghl.odd'>'oddRow'</s:if>
 							<s:else>'evenRow'</s:else>);" 
 							>
-							<td><s:property value="wangShenId"/></td>
-							<td><s:property value="studentName"/></td>
-							<td><s:property value="chuLiSts"/></td>
-							<td><s:property value="offerSts"/></td>
-							<td><s:property value="bookByPj"/></td>
-							<td><s:property value="ghOrInt"/></td>
-							<td><s:property value="repMgr"/></td>
-							<td><s:property value="offerOnboardRq"/></td>
+							<td><s:property value="projectName"/></td>
+							<td><s:property value="name"/></td>
+							<td><s:property value="sex"/></td>
+							<td><s:property value="offerStatus"/></td>
+							<td><s:property value="internFlag"/></td>
+							<td><s:property value="reportManager"/></td>
+							<td><s:property value="offerOBDPlan"/></td>
 							<td><a href="javascript:void(0);" onclick="windowpopup(this)">查看</a></td>
 						</tr>
 					</s:iterator>

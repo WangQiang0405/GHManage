@@ -1,65 +1,66 @@
 package zhf.table;
 
 public class GhBookListTable {
-	
-	private int wangShenId;
-	private String studentName;
-	private String chuLiSts;
-	private String offerSts;
-	private String bookByPj;
-	private String ghOrInt;
-	private String repMgr;
-	private String offerOnboardRq;
-	
-		public GhBookListTable(int wangShenId,
-				               String studentName,
-				               String chuLiSts,
-				               String offerSts,
-				               String bookByPj,
-				               String ghOrInt,
-				               String repMgr,
-				               String offerOnboardRq){
-			
-			this.wangShenId = wangShenId;
-			this.studentName = studentName;
-			this.chuLiSts = chuLiSts;
-			this.offerSts = offerSts;
-			this.bookByPj = bookByPj;
-			this.ghOrInt = ghOrInt;
-			this.repMgr = repMgr;
-			this.offerOnboardRq = offerOnboardRq;
-			
-	}
-	
-	public int getWangShenId(){
-		return this.wangShenId;
-	}
-	
-	public String getStudentName(){
-		return this.studentName;
-	}
 
-	public String getChuLiSts(){
-		return this.chuLiSts;
-	}
-	
-	public String getOfferSts(){
-		return this.offerSts;
-	}
-	
-	public String getBookByPj(){
-		return this.bookByPj;
-	}
-	
-	public String getGhOrInt(){
-		return this.ghOrInt;
-	}
-	
-	public String getRepMgr(){
-		return this.repMgr;
-	}
-	
-	public String getOfferOnboardRq(){
-		return this.offerOnboardRq;
-	}
+    private int id;
+    private String projectName;
+    private String name;
+    private String sex;
+    private String offerStatus;
+    private String internFlag;
+    private String reportManager;
+    private String offerOBDPlan;
+
+    public GhBookListTable(int id, 
+	    String projectName, 
+	    String name, 
+	    String sex, 
+	    String offerStatus,
+	    String internFlag, 
+	    String reportManager, 
+	    String offerOBDPlan) {
+
+	this.id = id;
+	this.projectName = projectName;
+	this.name = name;
+	this.sex = sex;
+	this.offerStatus = offerStatus;
+	this.internFlag = internFlag;
+	this.reportManager = reportManager;
+	this.offerOBDPlan = offerOBDPlan;
+
+    }
+
+    public int getId() {
+	return this.id;
+    }
+    
+    public String getProjectName() {
+	return this.projectName;
+    }
+
+    public String getName() {
+	return this.name;
+    }
+
+    public String getSex() {
+	return this.sex;
+    }
+
+    public String getOfferStatus() {
+	return this.offerStatus;
+    }
+
+    public String getInternFlag() {
+	return this.internFlag;
+    }
+
+    public String getReportManager() {
+	return this.reportManager;
+    }
+
+    public String getOfferOBDPlan() {
+	return this.offerOBDPlan;
+    }
+
 }
