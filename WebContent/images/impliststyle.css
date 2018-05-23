@@ -173,8 +173,7 @@
 	height:24px;
 	text-align:center;
 	vertical-align:middle;
-	font-weight:bold;
-	font-size:15px;
+	font-size:14px;
 	margin-top:0px;
 	margin-left:2px;
 	font-size:13px;
@@ -188,8 +187,7 @@
 	height:24px;
 	text-align:center;
 	vertical-align:middle;
-	font-weight:bold;
-	font-size:15px;
+	font-size:14px;
 	margin-top:0px;
 	margin-left:2px;font-size:13px;
 	color:red;
@@ -244,5 +242,25 @@
 	text-align:center;
 	vertical-align:middle;
 	font-weight:bold;
+	font-size:15px;
+}
+#operate .close{
+	background:url(../images/blueButton.png);
+	opacity:1;
+	border:none;
+	width:95px;
+	height:28px;
+	text-align:center;
+	vertical-align:middle;
+	font-size:15px;
+}
+#operate .closeover{
+	background:url(../images/orangeButton.png);
+	opacity:1;
+	border:none;
+	width:95px;
+	height:28px;
+	text-align:center;
+	vertical-align:middle;
 	font-size:15px;
 }

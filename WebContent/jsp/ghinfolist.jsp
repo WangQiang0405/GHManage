@@ -84,7 +84,7 @@
 							<td>пуцШ</td>
 							<td><s:textfield id="name" name="name" cssClass="inname" onblur="trim(this)"/></td>
 							<td colspan="2"></td>
-							<td width="180px" rowspan="2"><s:submit id="submit" value="%{getText(\"search.execute\")}"
+							<td width="180px" rowspan="2"><s:submit id="submit" value="%{getText(\"botton.search\")}"
 							cssClass="search" onmouseover="this.className='searchover';" onmouseout="this.className='search';" onclick="submitOnSearch()"/></td>
 							
 						</tr>

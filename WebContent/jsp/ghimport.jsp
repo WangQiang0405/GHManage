@@ -32,7 +32,7 @@
 					<s:textfield id="importPath" name="importPath" cssClass="inuid"/>
 					<input type="button" name="inPath" value="..." onclick="openFile()"
 					class="inbutton" onmouseover="this.className='inbuttonover';" onmouseout="this.className='inbutton';"/>
-					<s:submit id="submit" value="%{getText(\"import.import\")}"
+					<s:submit id="submit" value="%{getText(\"botton.import\")}"
 					cssClass="import" onmouseover="this.className='importover';" onmouseout="this.className='import';"/>
 					<s:textfield id="result" name="result" cssStyle="display:none"/>
 				</s:form>

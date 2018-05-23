@@ -17,8 +17,8 @@
 		</script>
 	</head>
 	<body style="height:150px;">
-	<div style="border:2;">
-		<div style="margin-top:20px;">
+	<div id="container">
+		<div id="maincontent">
 			<table border="1" bgcolor="#e2e2e2" cellspacing="0" align="center" width="1580px">
 				<tr class="headerClass">
 					<th width="6%"><s:text name="field.project"/></th>
@@ -68,8 +68,9 @@
 				</s:iterator>
 				</s:if>
 			</table>
-			<div id="closebtn" style="margin-top:50px;margin-left:750px">
-				<input id="btnClose" type="button" value="¹Ø±Õ±¾Ò³" onClick="custom_close()" />
+			<div id="operate" style="margin-top:50px;margin-left:750px">
+				<input id="btnClose" type="button" value="¹Ø ±Õ" onClick="custom_close()"
+					class="close" onmouseover="this.className='closeover';" onmouseout="this.className='close';"/>
 			</div>
 		</div>
 	</div>	
