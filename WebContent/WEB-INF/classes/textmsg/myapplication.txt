@@ -50,6 +50,7 @@ label.recruitmentPlan=招聘计划
 label.recruimentPlanFact=※招聘计划与实际图表（单位：人数）
 label.unit=(单位：人数)
 botton.search=检 索
+botton.execute=决 定
 botton.import=导 入
 botton.close=关 闭
 botton.hidden=隐藏按钮

@@ -53,7 +53,20 @@
        <action name="GhInfoListExe" class="zhf.action.GhInfoListExeAction">
           	<result name="success">/jsp/ghinfolist.jsp</result>
            	<result name="fail">/jsp/ghinfolist.jsp</result> 
-       </action> 
+       </action>
+       <action name="GhSearchListinit" class="zhf.action.GhSearchAction" method="init">
+          	<result name="success">/jsp/ghSearch.jsp</result>
+           	<result name="input">/jsp/ghSearch.jsp</result> 
+           	<result>/jsp/ghSearch.jsp</result>       
+       </action>  
+       <action name="GhSearchList" class="zhf.action.GhSearchAction">
+          	<result name="success">/jsp/ghSearch.jsp</result>
+           	<result name="input">/jsp/ghSearch.jsp</result> 
+           	<!-- <result name="update" type="chain">
+          	    <param name="actionName">GhUpdate</param>
+           	</result> -->
+           	<result>/jsp/ghSearch.jsp</result>       
+       </action>
    </package>
    
    <package name="manage" extends="struts-default">
