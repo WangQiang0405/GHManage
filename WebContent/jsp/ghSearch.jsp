@@ -94,7 +94,7 @@
 		<s:hidden id="result" name="result" cssStyle="display:none"/>
 		<div id="maincontent">
 			<div id="operate">
-				<H3><img src="images/h3.gif"><s:text name="search.condition"/></H3>
+				<H3 style="margin-top:10px"><img src="images/h3.gif"><s:text name="search.condition"/></H3>
 				<table border="0px" bgcolor="" cellspacing="0" align="center" width="100%">
 					<tr>
 						<td width="5%">
@@ -120,7 +120,7 @@
 				</table>
 				<s:textfield id="result" name="result" cssStyle="display:none"/>
 			</div>
-			<H3 style="margin-top:20px"><img src="images/h3.gif"><s:text name="search.result"/></H3>
+			<H3 style="margin-top:5px"><img src="images/h3.gif"><s:text name="search.result"/></H3>
 			<table  style="border-width:thin thin thin thin" border="0" bgcolor="#e2e2e2" cellspacing="1" align="center" width="100%">
 				<tr class="headerClass" style="boder-bottom-width:1px">
 					<th width="14%">ÏîÄ¿</th>
