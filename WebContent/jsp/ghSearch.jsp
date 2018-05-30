@@ -112,7 +112,7 @@
 						<td width="3%"></td>
 						<td width="5%"><s:text name="状态"/></td>
 						<td ><s:select name="OfferStatus"
-								list="#{'0':'全部','1':'发送','2':'接受','3':'拒绝','4':'等待'}"/></td>
+								list="#{'0':'全部','1':'Sent','2':'Accept','3':'Decline','4':'Waiting'}"/></td>
 						<td width="5%" rowspan="2"><s:submit id="submit" value="%{getText(\"botton.search\")}"
 							cssClass="search" onmouseover="this.className='searchover';" onmouseout="this.className='search';" onclick="submitOnSearch()"/></td>
 					</tr>
