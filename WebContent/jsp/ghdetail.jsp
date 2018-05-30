@@ -19,7 +19,7 @@
 	<body style="height:150px;">
 	<div id="container">
 		<div id="maincontent">
-			<table border="1" bgcolor="#e2e2e2" cellspacing="0" align="center" width="1580px">
+			<table border="0" bgcolor="#e2e2e2" cellspacing="1" align="center" width="1586px">
 				<tr class="headerClass">
 					<th width="6%"><s:text name="field.project"/></th>
 					<th width="4%"><s:text name="field.name"/></th>

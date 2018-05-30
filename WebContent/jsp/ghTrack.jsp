@@ -65,7 +65,7 @@
 				list="ProjectList" listKey="key" listValue="value" onchange="submitOnChange();"/></H3>
 			</div>
 			<s:if test="GhBookList.size()!=0">
-				<table border="1" bgcolor="#e2e2e2" cellspacing="0" align="center" width="770px">
+				<table border="0" bgcolor="#e2e2e2" cellspacing="1" align="center" width="770px">
 					<tr class="headerClass">
 						<th width="13%"><s:text name="field.project"/></th>
 						<th width="9%"><s:text name="field.name"/></th>
@@ -73,8 +73,8 @@
 						<th width="14%"><s:text name="field.offerStatus"/></th>
 						<th width="6%"><s:text name="field.internFlag"/></th>
 						<th width="26%"><s:text name="field.reportingManager"/></th>
-						<th width="14%"><s:text name="field.offerOBDPlan"/></th>
-						<th width="12%"><s:text name="field.detail"/></th>
+						<th width="15%"><s:text name="field.offerOBDPlan"/></th>
+						<th width="11%"><s:text name="field.detail"/></th>
 					</tr>
 					<s:iterator id="List" value="GhBookList" status="ghl">
 						<tr id="ghl<s:property value="#ghl.index"/>"
