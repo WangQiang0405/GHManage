@@ -22,10 +22,9 @@ public class GhSearchAction extends ActionSupport implements ModelDriven {
     private int currenPageNo = 1;
     private int pageSpan = 5;
     private int maxPageNo;
-    private String wherest = "";
     private String ProjecName = "0000";
     private String OfferStatus = "0";
-    private String Ghname = "";
+    private String ghname = "";
 
     public String getResult() {
 	String temp = result;
@@ -111,12 +110,12 @@ public class GhSearchAction extends ActionSupport implements ModelDriven {
     }
 
     // 以上是调整每页显示条数，页数等处理用
-    public void setGhname(String Ghname) {
-	this.Ghname = Ghname;
+    public void setGhname(String ghname) {
+	this.ghname = ghname;
     }
 
     public String getGhname() {
-	return this.Ghname;
+	return this.ghname;
     }
 
     public void setOfferStatus(String OfferStatus) {
@@ -146,59 +145,57 @@ public class GhSearchAction extends ActionSupport implements ModelDriven {
     }
 
     public String execute() {
-	// JSP下拉列表框项目名
+	
+	//SQL条件
+	StringBuffer strWhereEdit = new StringBuffer();
+	
+	strWhereEdit.append("");
+	// 项目
 	if (!this.ProjecName.equals("0000")) {
-	    wherest = "pjname=\"" + this.ProjecName + "\"";
+	    strWhereEdit.append(" and pjname = '" + this.ProjecName + "'");
 	}
-	// JSP Gh姓名
-	if (!this.Ghname.equals("")) {
-	    if (!wherest.equals("")) {
-		wherest = wherest + " and name like \"" + this.Ghname.trim() + "\"";
-	    } else {
-		wherest = "name like \"" + this.Ghname.trim() + "\"";
-	    }
+	
+	// 姓名
+	if (!this.ghname.equals("")) {
+	    strWhereEdit.append(" and name like '%" + this.ghname + "%'");
 	}
-	// JSP OfferStatus
+	// OfferStatus
 	if (!this.OfferStatus.equals("0")) {
-	    String status;
+	    String status = "";
 	    switch (this.OfferStatus) {
-	    case "1":
-		status = "Sent";
-		break;
-	    case "2":
-		status = "Accept";
-		break;
-	    case "3":
-		status = "Decline";
-		break;
-	    case "4":
-		status = "Waiting";
-		break;
-	    default:
-		status = "";
+    	    	case "1":
+    	    	    status = "Sent";
+    	    	    break;
+    	    	case "2":
+    	    	    status = "Accept";
+    	    	    break;
+    	    	case "3":
+    	    	    status = "Decline";
+    	    	    break;
+    	    	case "4":
+    	    	    status = "Waiting";
+    	    	    break;
+    	    	default:
+    	    	    status = "";
 	    }
-	    if (!status.equals("")) {
-		if (!wherest.equals("")) {
-		    wherest = wherest + " and OfferStatus=\"" + status + "\"";
-		} else {
-		    wherest = "OfferStatus=\"" + status + "\"";
-		}
-	    }
+	    strWhereEdit.append(" and OfferStatus = '" + status + "'");
 	}
-
-	if (!this.wherest.equals("")) {
-	    wherest = " where " + wherest;
+	
+	StringBuffer strWhere = new StringBuffer();
+	if (strWhereEdit.toString().length() > 0) {
+	    strWhere.append(" where ");
+	    strWhere.append(strWhereEdit.toString().substring(4));
 	}
-
+	
 	Map session = ActionContext.getContext().getSession();
 	if (session.get("pageSpan") != null) {
 	    this.pageSpan = (Integer) session.get("pageSpan");
 	}
 	
 	GhSearchlogic lgc = new GhSearchlogic();
-	this.list = lgc.getSearchGhList(wherest, this.pageSpan, this.currenPageNo);
+	this.list = lgc.getSearchGhList(strWhere.toString(), this.pageSpan, this.currenPageNo);
 
-	this.totalMessage = lgc.getSearchGhListRecs(wherest);
+	this.totalMessage = lgc.getSearchGhListRecs(strWhere.toString());
 	ActionContext.getContext().getSession().put("totalMessage", totalMessage);
 
 	// 最大页数
@@ -230,6 +227,7 @@ public class GhSearchAction extends ActionSupport implements ModelDriven {
     }
 
     public String init() {
+	this.eventid = "0";
 	return SUCCESS;
     }
 }

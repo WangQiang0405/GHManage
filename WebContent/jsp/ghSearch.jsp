@@ -27,23 +27,34 @@
 		function submitFrom() {
 		    var obj = document.getElementById("currenPageNo");
 		    obj.value = 1;
+		    var eventid = document.getElementById("eventid");
+		    eventid.value = "2";
 		}
 		function submitPrevious() {
 		    var obj = document.getElementById("currenPageNo");
 		    obj.value = parseInt(obj.value) - 1;
+		    var eventid = document.getElementById("eventid");
+		    eventid.value = "2";
 		}
 		function submitNext() {
 		    var obj = document.getElementById("currenPageNo");
 		    obj.value = parseInt(obj.value) + 1;
+		    var eventid = document.getElementById("eventid");
+		    eventid.value = "2";
 		}
 		function submitTo() {
 		    var obj = document.getElementById("currenPageNo");
 		    var objMax = document.getElementById("maxPageNo");
 		    obj.value = objMax.value;
+		    var eventid = document.getElementById("eventid");
+		    eventid.value = "2";
 		}
 		function submitOnPagespan(){
-		    var varSearch = document.getElementById("submit");					
-		    varSearch.click();
+		    var eventid = document.getElementById("eventid");
+		    if (eventid.value != "0") {
+			    var varSearch = document.getElementById("submit");					
+			    varSearch.click();
+		    }
 		}
 		function submitOnOk() {
 		    var obj = document.getElementById("eventid");
@@ -88,7 +99,7 @@
 			<s:include value="lefttree.jsp"/>
 		</div>
 		<s:form action="GhSearchList" theme="simple" method="post" onsubmit="" validate="true">
-		<s:hidden id="eventid" name="eventid" value="0"/>
+		<s:hidden id="eventid" name="eventid"/>
 		<s:hidden id="mtid" name="mtid" value="0"/>
 		<s:hidden id="updateflg" name="updateflg" value="init"/>
 		<s:hidden id="result" name="result" cssStyle="display:none"/>
@@ -97,39 +108,38 @@
 				<H3 style="margin-top:10px"><img src="images/h3.gif"><s:text name="search.condition"/></H3>
 				<table border="0px" bgcolor="" cellspacing="0" align="center" width="100%">
 					<tr>
-						<td width="5%">
-						<s:text name="项目"/>
+						<td style="font-size: 14px">
+							<s:text name="field.project"/>
 						</td>
-						<td width="10%">
+						<td>
 							<s:select name="projecName"  
-								list="ProjectList" listKey="key" listValue="value"/>
+								list="ProjectList" listKey="key" listValue="value" style="width:120px"/>
 						</td>
-						<td colspan="4"></td>
-					</tr>
-					<tr>
-						<td width="5%">姓名</td>
-						<td width="10%"><input type="text" id="name" name="Ghname" value="${Ghname}" cssClass="inname" onblur="trim(this)"/></td>
-						<td width="3%"></td>
-						<td width="5%"><s:text name="状态"/></td>
-						<td ><s:select name="OfferStatus"
-								list="#{'0':'全部','1':'Sent','2':'Accept','3':'Decline','4':'Waiting'}"/></td>
-						<td width="5%" rowspan="2"><s:submit id="submit" value="%{getText(\"botton.search\")}"
+						<td colspan="2"></td>
+						<td width="45%" rowspan="2" ><s:submit id="submit" value="%{getText(\"botton.search\")}"
 							cssClass="search" onmouseover="this.className='searchover';" onmouseout="this.className='search';" onclick="submitOnSearch()"/></td>
 					</tr>
-					<tr></tr>
+					<tr>
+						<td style="font-size: 14px" width="6%"><s:text name="field.name"/></td>
+						<td width="20%"><s:textfield id="ghname" name="ghname" cssClass="inname" onblur="trim(this)"/></td>
+						<td style="font-size: 14px" width="10%"><s:text name="field.offerStatus"/></td>
+						<td ><s:select name="OfferStatus"
+								list="#{'0':'全部','1':'Sent','2':'Accept','3':'Decline','4':'Waiting'}"
+								style="width:100px"/></td>
+					</tr>
 				</table>
 				<s:textfield id="result" name="result" cssStyle="display:none"/>
 			</div>
 			<H3 style="margin-top:5px"><img src="images/h3.gif"><s:text name="search.result"/></H3>
 			<table  style="border-width:thin thin thin thin" border="0" bgcolor="#e2e2e2" cellspacing="1" align="center" width="100%">
 				<tr class="headerClass" style="boder-bottom-width:1px">
-					<th width="14%">项目</th>
-					<th width="12%">姓名</th>
-					<th width="6%">性别</th>
-					<th width="19%">毕业学校</th>
-					<th width="29%">专业</th>
-					<th width="10%">语言</th>
-					<th width="10%">状态</th>
+					<th width="14%"><s:text name="field.project"/></th>
+					<th width="12%"><s:text name="field.name"/></th>
+					<th width="6%"><s:text name="field.sex"/></th>
+					<th width="19%"><s:text name="field.graduatedSchool"/></th>
+					<th width="29%"><s:text name="field.major"/></th>
+					<th width="10%"><s:text name="field.language"/></th>
+					<th width="10%"><s:text name="field.offerStatus"/></th>
 				</tr>
 				<s:if test="GhSearchList.size()!=0">
 					<s:iterator id="List" value="GhSearchList" status="ghl">
@@ -165,12 +175,21 @@
 					<s:select name="pageSpan" id="pagespan"
 						list="spanList" listKey="key" listValue="value" onchange="submitOnPagespan();"/>
 					<span class="shangye">
+						<s:if test="eventid==0">
+							<s:submit id="submit" value=" "
+								cssClass="from" onmouseout="this.className='from';"/>
+							<s:submit id="submit" value=" "
+								cssClass="previous" onmouseout="this.className='previous';"/>
+							<s:submit id="submit" value=" "
+								cssClass="next" onmouseout="this.className='next';"/>
+							<s:submit id="submit" value=" "
+								cssClass="to" onmouseout="this.className='to';"/>
+						</s:if>
 						<s:if test="GhSearchList.size()!=0&&currenPageNo==1">
 							<s:submit id="submit" value=" "
 								cssClass="from" onmouseout="this.className='from';"/>
 							<s:submit id="submit" value=" "
 								cssClass="previous" onmouseout="this.className='previous';"/>
-							<!-- <a href="GhInfoListExe.action?currenPageNo=<s:property value="currenPageNo-1"/>&eventid='2'"><s:text name="impleeyList.shangye"/></a> -->
 						</s:if>
 						<s:if test="currenPageNo>1">
 							<s:submit id="submit" value=" " onclick="submitFrom()"
@@ -197,8 +216,14 @@
 					<span class="tiaozhuan"><s:text name="impleeyList.tiaozhuan"/></span>
 					<s:textfield id="currenPageNo" name="currenPageNo" cssClass="yefield" onmouseover="this.select();"/>
 					<span class="ye"><s:text name="impleeyList.ye"/></span>
-					<s:submit value="%{getText(\"impleeyList.queding\")}" cssClass="queding" 
-						onmouseover="this.className='quedingover';" onmouseout="this.className='queding';" onclick="submitOnOk()"/>
+					<s:if test="eventid==0">
+						<s:submit value="%{getText(\"impleeyList.queding\")}" cssClass="queding" 
+							onmouseover="this.className='quedingover';" onmouseout="this.className='queding';" onclick="return false;"/>
+					</s:if>
+					<s:else>
+						<s:submit value="%{getText(\"impleeyList.queding\")}" cssClass="queding" 
+							onmouseover="this.className='quedingover';" onmouseout="this.className='queding';" onclick="submitOnOk()"/>
+					</s:else>
 				</div>
 			</div>
 			<div id="foot" style="margin-top:20px">

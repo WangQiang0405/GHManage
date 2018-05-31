@@ -215,7 +215,7 @@
 	width:100px;maxlength:10;
 }
 #operate .inname{
-	width:100px;maxlength:5;
+	width:120px;maxlength:5;font-size=12px;
 }
 #operate .inschool{
 	width:180px;maxlength:15;
