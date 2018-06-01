@@ -66,7 +66,7 @@
 			    </div>
 			    <div style="margin-top:10px">
 			    <s:select name="projecName" label="%{getText(\"projectList.xuanzhexiangmu\")}" labelposition="left" 
-				list="ProjectList" listKey="key" listValue="value" onchange="submitOnChange();"/>
+				list="ProjectList" listKey="key" listValue="value" style="width:120px" onchange="submitOnChange();"/>
 			    </div>
 			</div>
 			<s:if test="GhBookList.size()!=0">
