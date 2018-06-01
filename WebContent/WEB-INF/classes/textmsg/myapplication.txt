@@ -6,6 +6,7 @@ search.errtype=【MSG01S03】网申编号请输入数字或者字母！
 search.errmaxlenname=【MSG01S04】姓名输入过长，请确认是否超过5个字！
 search.errmaxlenschool=【MSG01S05】毕业学校输入过长，请确认是否超过15个字！
 search.errmaxlentype=【MSG01S06】专业输入过长，请确认是否超过10个字！
+execute.errselect=请从检索结果列表中选择要更新的数据！
 mainmanage.title=管理主页
 top.title=GH招募管理系统
 top.info=你好，欢迎光临GH招募管理系统

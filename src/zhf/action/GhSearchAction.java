@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
+import zhf.common.GhCommon;
 import zhf.logic.GhSearchlogic;
 import zhf.util.DBUtil;
 
@@ -146,6 +147,14 @@ public class GhSearchAction extends ActionSupport implements ModelDriven {
 
     public String execute() {
 	
+	this.result = "";
+	if ("4".equals(this.eventid)) {
+	    if (this.selectid.equals(new BigDecimal(0))) {
+		this.result = this.getText("execute.errselect");
+		return GhCommon.FAIL;
+	    }
+	}
+	
 	//SQL条件
 	StringBuffer strWhereEdit = new StringBuffer();
 	
@@ -207,22 +216,7 @@ public class GhSearchAction extends ActionSupport implements ModelDriven {
 	    ActionContext.getContext().getSession().put("updateflg", "init");
 	    this.setUpdateflg("update");
 	}
-	this.result = "";
-	if ("4".equals(this.eventid)) {
-	    if (this.selectid.equals(new BigDecimal(0))) {
-		this.result = "请选择更新目标数据！";
-		return SUCCESS;
-	    }
 
-	    if ("init".equals(this.updateflg)) {
-		ActionContext.getContext().getSession().put("updateflg", "update");
-		this.setUpdateflg("update");
-		return "update";
-	    } else if ("update".equals(this.updateflg)) {
-		this.result = "请选择更新目标数据！";
-		return SUCCESS;
-	    }
-	}
 	return SUCCESS;
     }
 
