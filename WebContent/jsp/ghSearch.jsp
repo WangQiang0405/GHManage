@@ -173,7 +173,7 @@
 					<s:select name="pageSpan" id="pagespan"
 						list="spanList" listKey="key" listValue="value" onchange="submitOnPagespan();"/>
 					<span class="shangye">
-						<s:if test="eventid==0">
+						<s:if test="eventid==0||GhSearchList.size()==0">
 							<s:submit id="submit" value=" "
 								cssClass="from" onmouseout="this.className='from';"/>
 							<s:submit id="submit" value=" "
