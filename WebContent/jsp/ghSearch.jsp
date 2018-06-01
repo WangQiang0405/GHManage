@@ -6,7 +6,7 @@
 		<link href="images/style.css" rel="stylesheet" type="text/css"/>
 		<link href="images/mainstyle.css" rel="stylesheet" type="text/css"/>
 		<link href="images/impliststyle.css" rel="stylesheet" type="text/css"/>
-		<script language="JavaScript" src="images/manage.js"></script>
+		<script language="JavaScript" src="js/manage.js"></script>
 		<script language="JavaScript">
 		function mymouseout(id,styleclass)
 		{
@@ -60,9 +60,9 @@
 		    var obj = document.getElementById("eventid");
 		    obj.value = "3";
 		}
-		function mtupdate(mtid,index){
-			var obj1 = document.getElementById("mtid");
-		    obj1.value = mtid;
+		function mtupdate(id,index){
+			var obj1 = document.getElementById("selectid");
+		    obj1.value = id;
 		    var obj2 = document.getElementById("updateflg");
 		    obj2.value = "init";
 		    
@@ -77,15 +77,13 @@
 		    document.getElementById("ghl" + index).style.background = "yellow";
 		}
 		function update(){
-			if (document.getElementById("mtid").value == 0){
-		    	var obj2 = document.getElementById("updateflg");
-			    obj2.value = "null";
-			    alert("请选择更新目标数据！");
-		    }
-		    else{
+			if (document.getElementById("selectid").value == 0){
+				showErrMsg("请从检索结果列表中选择要更新的数据！","execute");
+				return false;
+		    } else {
 		    	var obj = document.getElementById("eventid");
 			    obj.value = "4";
-		    	window.location.href="GhUpdate.action?id="+document.getElementById("mtid");
+		    	window.location.href="GhUpdate.action?id="+document.getElementById("selectid");
 		    }
 		}
 		</script>
@@ -100,7 +98,7 @@
 		</div>
 		<s:form action="GhSearchList" theme="simple" method="post" onsubmit="" validate="true">
 		<s:hidden id="eventid" name="eventid"/>
-		<s:hidden id="mtid" name="mtid" value="0"/>
+		<s:hidden id="selectid" name="selectid" value="0"/>
 		<s:hidden id="updateflg" name="updateflg" value="init"/>
 		<s:hidden id="result" name="result" cssStyle="display:none"/>
 		<div id="maincontent">
@@ -229,8 +227,8 @@
 			<div id="foot" style="margin-top:20px">
 				<table border="0" align="center" >
 					<tr>
-						<td ><s:submit value="%{getText(\"botton.execute\")}"
-								cssClass="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" 
+						<td ><input type="button" id="execute" name="execute" value="决 定"
+								class="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" 
 								onclick="update()" />
 						</td>
 					</tr>
@@ -239,11 +237,27 @@
 		</div>
 		</s:form>
 	</div>	
+		<!-- 用来浮动显示提示信息的容器 -->
+	  <table id="myerr" width="120" border="0" class="jd" bgcolor="black" cellspacing="1" onclick="hideErr();">
+		  <tr bgcolor="white"  valign="bottom">
+		    	<td id="myerrs" align="left"></td>
+		  </tr>
+	  </table>
+	  <!-- 错误信息气球的尖角 -->
+	  <img class="jd" src="images/up.gif" id="myup" onclick="hideErr();" /> 	  
+	  <!-- 错误信息气球逐渐出现的遮挡物 -->
+	  <span id="errzd" style="z-index:2;visibility:hidden;position:absolute;left:20;top:30;font-size:1px;background-color:white"/>	
+		
 		<script language="JavaScript">
+			errMsg="<s:fielderror template="myfielderror"/>";
+	        if(errMsg!="")
+	        {//若有错误消息则调用错误信息气球显示
+	           showErrMsg(errMsg,"submit");                   
+	        }
 			var result=document.getElementById("result").value;
 			if(result!="")
 			{	
-				alert(result);
+				showErrMsg(result,"execute");
 			}
 		</script>
 	</body>

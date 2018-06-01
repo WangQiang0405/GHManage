@@ -15,7 +15,7 @@ import zhf.util.DBUtil;
 public class GhSearchAction extends ActionSupport implements ModelDriven {
     private String result = "";
     private String updateflg = "init";
-    private BigDecimal mtid = new BigDecimal(0);
+    private BigDecimal selectid = new BigDecimal(0);
     private String eventid = "0";// 0：初始化；1：检索,表示件数；2：上下页;3:确定;4:更新
     private List list;
     private int totalMessage = 0;
@@ -41,15 +41,15 @@ public class GhSearchAction extends ActionSupport implements ModelDriven {
     }
 
     public Object getModel() {
-	return this.mtid;
+	return this.selectid;
     }
 
-    public void setMtid(BigDecimal mtid) {
-	this.mtid = mtid;
+    public void setSelectid(BigDecimal selectid) {
+	this.selectid = selectid;
     }
 
-    public BigDecimal getMtid() {
-	return this.mtid;
+    public BigDecimal getSelectid() {
+	return this.selectid;
     }
 
     public void setEventid(String eventid) {
@@ -209,7 +209,7 @@ public class GhSearchAction extends ActionSupport implements ModelDriven {
 	}
 	this.result = "";
 	if ("4".equals(this.eventid)) {
-	    if (this.mtid.equals(new BigDecimal(0))) {
+	    if (this.selectid.equals(new BigDecimal(0))) {
 		this.result = "请选择更新目标数据！";
 		return SUCCESS;
 	    }
