@@ -60,7 +60,7 @@
 		    var obj = document.getElementById("eventid");
 		    obj.value = "3";
 		}
-		function mtupdate(id,index){
+		function trOnClick(id,index){
 			var obj1 = document.getElementById("selectid");
 		    obj1.value = id;
 		    var obj2 = document.getElementById("updateflg");
@@ -83,7 +83,7 @@
 		    } else {
 		    	var obj = document.getElementById("eventid");
 			    obj.value = "4";
-		    	window.location.href="GhUpdate.action?id="+document.getElementById("selectid");
+		    	window.location.href="GhUpdate.action?id=" + document.getElementById("selectid").value;
 		    }
 		}
 		</script>
@@ -148,7 +148,7 @@
 								onmouseout="mymouseout('ghl<s:property value='#ghl.index'/>',
 							<s:if test='#ghl.odd'>'oddRow'</s:if>
 							<s:else>'evenRow'</s:else>);"
-								onclick="mtupdate('<s:property value="id"/>',
+								onclick="trOnClick('<s:property value="id"/>',
 								'<s:property value='#ghl.index'/>')"
 									style="boder-bottom-width:1px"
 							>

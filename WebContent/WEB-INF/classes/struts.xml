@@ -62,10 +62,15 @@
        <action name="GhSearchList" class="zhf.action.GhSearchAction">
           	<result name="success">/jsp/ghSearch.jsp</result>
            	<result name="input">/jsp/ghSearch.jsp</result> 
-           	<!-- <result name="update" type="chain">
+           	<result name="update" type="chain">
           	    <param name="actionName">GhUpdate</param>
-           	</result> -->
+           	</result>
            	<result>/jsp/ghSearch.jsp</result>       
+       </action>
+       <action name="GhUpdate" class="zhf.action.GhUpdateAction">
+       		<result name="success">/jsp/ghUpdate.jsp</result>
+           	<result name="input">/jsp/ghUpdate.jsp</result> 
+       		<result>/jsp/ghUpdate.jsp</result>
        </action>
    </package>
    

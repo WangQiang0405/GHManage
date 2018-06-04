@@ -2,17 +2,20 @@
 	visibility:hidden;position:absolute;z-index:1;
 }
  .headerClass{
- 	height: 25px;text-align: center;color:#404040;background: #c7e9ad;font-size:14px;
+ 	height: 26px;text-align: center;color:#404040;background: #c7e9ad;font-size:14px;
  }
  .evenRow{
- 	height: 23px;background:#e3fcff;text-align:center;font-size:14px;color:#404040
+ 	height: 24px;background:#e3fcff;text-align:center;font-size:14px;color:#404040
  }
 
  .oddRow{
- 	height: 23px;background:#f4f4f4;text-align:center;font-size:14px;color:#404040
+ 	height: 24px;background:#f4f4f4;text-align:center;font-size:14px;color:#404040
  }
  .selectedRow{
- 	background:white;height: 23px;text-align:center;font-size:14px;
+ 	height: 24px;background:white;text-align:center;font-size:14px;
+ }
+ .updatedRow{
+ 	height: 24px;background:#f9f195;text-align:center;font-size:14px;color:#404040
  }
  #topop{
  	width:780px;height:25px;float:left;font-size:14px;margin-top:5px;
