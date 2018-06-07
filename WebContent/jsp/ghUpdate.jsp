@@ -71,51 +71,60 @@
 		</div>
 		<s:form action="GhUpdate" theme="simple" method="post" onsubmit="" validate="true">
 		<s:hidden id="eventid" name="eventid" value="0"/>
+		<s:hidden id="list" name="list"/>
 		<div id="maincontent">
 			<div id="operate">
-				<H3 style="margin-top:10px"><img src="images/h3.gif"><s:text name="label.recruitmentStateRevise"/></H3>
-				<table border="0" bgcolor="#e2e2e2" cellspacing="1" align="center" width="100%">
-					<tr class="headerClass">
-						<th width="19%"></th>
-						<th width="39%"><s:text name="field.unrevise"/></th>
-						<th width="39%"><s:text name="field.revised"/></th>
-					</tr>
-					<tr>
-						<td class="evenRow"><s:text name="field.project"/></td>
-						<td class="oddRow"></td>
-						<td class="updatedRow"><s:textfield id="wsid" name="wsid" cssClass="inid" onblur="trim(this);toUpperCase(this)"/></td>
-					</tr>
-					<tr>
-						<td class="evenRow"><s:text name="field.offerStatus"/></td>
-						<td class="oddRow"></td>
-						<td class="updatedRow"><s:textfield id="name" name="name" cssClass="inname" onblur="trim(this)"/></td>
-					</tr>
-					<tr>
-						<td class="evenRow"><s:text name="field.offerWaitingReason"/></td>
-						<td class="oddRow"></td>
-						<td class="updatedRow"><s:textfield id="school" name="school" cssClass="inschool" onblur="trim(this)"/></td>
-					</tr>
-					<tr>
-						<td class="evenRow"><s:text name="field.internFlag"/></td>
-						<td class="oddRow"></td>
-						<td class="updatedRow"><s:textfield id="school" name="school" cssClass="inschool" onblur="trim(this)"/></td>
-					</tr>
-					<tr>
-						<td class="evenRow"><s:text name="field.internOBD"/></td>
-						<td class="oddRow"></td>
-						<td class="updatedRow"><s:textfield id="school" name="school" cssClass="inschool" onblur="trim(this)"/></td>
-					</tr>
-					<tr>
-						<td class="evenRow"><s:text name="field.offerOBDPlan"/></td>
-						<td class="oddRow"></td>
-						<td class="updatedRow"><s:textfield id="school" name="school" cssClass="inschool" onblur="trim(this)"/></td>
-					</tr>
-					<tr>
-						<td class="evenRow"><s:text name="field.offerOBDActual"/></td>
-						<td class="oddRow"></td>
-						<td class="updatedRow"><s:textfield id="school" name="school" cssClass="inschool" onblur="trim(this)"/></td>
-					</tr>
-				</table>
+				<s:if test="List.size()!=0">
+					<s:iterator id="st" value="list" status="ghl">
+						<H3 style="margin-top:10px"><img src="images/h3.gif"><s:text name="label.recruitmentStateRevise"/></H3>
+						<table border="0" bgcolor="#e2e2e2" cellspacing="1" align="center" width="100%">
+							<tr class="headerClass">
+								<th width="19%"></th>
+								<th width="39%"><s:text name="field.unrevise"/></th>
+								<th width="39%"><s:text name="field.revised"/></th>
+							</tr>
+							<tr>
+								<td class="evenRow"><s:text name="field.project"/></td>
+								<td class="oddRow"><s:property value="pjname"/></td>
+								<td class="updatedRow"><s:select name="projecName"  
+									list="ProjectList" listKey="key" listValue="value" style="width:150px"/></td>
+							</tr>
+							<tr>
+								<td class="evenRow"><s:text name="field.offerStatus"/></td>
+								<td class="oddRow"><s:property value="offerStatus"/></td>
+								<td class="updatedRow"><s:select name="selOfferStatus"
+									list="selOfferStatusList" listKey="key" listValue="value" style="width:150px"/></td>
+							</tr>
+							<tr>
+								<td class="evenRow"><s:text name="field.offerWaitingReason"/></td>
+								<td class="oddRow"><s:property value="offerWaitingReason"/></td>
+								<td class="updatedRow"><s:select name="selOfferWaitingReason"  
+									list="selOfferWaitingReasonList" listKey="key" listValue="value" style="width:150px"/></td>
+							</tr>
+							<tr>
+								<td class="evenRow"><s:text name="field.internFlag"/></td>
+								<td class="oddRow"><s:property value="internFlag"/></td>
+								<td class="updatedRow"><s:select name="selInternFlag"
+									list="selInternFlagList" listKey="key" listValue="value" style="width:150px"/></td>
+							</tr>
+							<tr>
+								<td class="evenRow"><s:text name="field.internOBD"/></td>
+								<td class="oddRow"><s:property value="internOBD"/></td>
+								<td class="updatedRow"><s:textfield id="selInternOBD" name="selInternOBD" cssClass="inschool" onblur="trim(this)"/></td>
+							</tr>
+							<tr>
+								<td class="evenRow"><s:text name="field.offerOBDPlan"/></td>
+								<td class="oddRow"><s:property value="offerOBDPlan"/></td>
+								<td class="updatedRow"><s:textfield id="selOfferOBDPlan" name="selOfferOBDPlan" cssClass="inschool" onblur="trim(this)"/></td>
+							</tr>
+							<tr>
+								<td class="evenRow"><s:text name="field.offerOBDActual"/></td>
+								<td class="oddRow"><s:property value="offerOBDActual"/></td>
+								<td class="updatedRow"><s:textfield id="selOfferOBDActual" name="selOfferOBDActual" cssClass="inschool" onblur="trim(this)"/></td>
+							</tr>
+						</table>
+					</s:iterator>
+				</s:if>
 			</div>
 			<div id="buttomop">
 			</div>

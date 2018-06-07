@@ -67,6 +67,11 @@
            	</result>
            	<result>/jsp/ghSearch.jsp</result>       
        </action>
+       <action name="GhUpdateInit" class="zhf.action.GhUpdateAction" method="init">
+       		<result name="success">/jsp/ghUpdate.jsp</result>
+           	<result name="input">/jsp/ghUpdate.jsp</result> 
+       		<result>/jsp/ghUpdate.jsp</result>
+       </action>
        <action name="GhUpdate" class="zhf.action.GhUpdateAction">
        		<result name="success">/jsp/ghUpdate.jsp</result>
            	<result name="input">/jsp/ghUpdate.jsp</result> 

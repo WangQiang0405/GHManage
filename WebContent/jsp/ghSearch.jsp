@@ -83,7 +83,7 @@
 		    } else {
 		    	var obj = document.getElementById("eventid");
 			    obj.value = "4";
-		    	window.location.href="GhUpdate.action?id=" + document.getElementById("selectid").value;
+		    	window.location.href="GhUpdateInit.action?id=" + document.getElementById("selectid").value;
 		    }
 		}
 		</script>
