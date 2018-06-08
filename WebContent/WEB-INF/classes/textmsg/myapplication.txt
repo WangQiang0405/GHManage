@@ -10,6 +10,7 @@ execute.errselect=请从检索结果列表中选择要更新的数据！
 update.errtypeInternOBD=《实习日》，请确认是否以“yyyy-MM-dd”的形式进行了输入或者是否为合法日期！
 update.errtypeOfferOBDPlan=《Offer计划日》，请确认是否以“yyyy-MM-dd”的形式进行输入或者是否为合法日期！
 update.errtypeOfferOBDActual=《Offer实际日》请确认是否以“yyyy-MM-dd”的形式进行输入或者是否为合法日期！
+update.errtypeCompare=修正前后一致，没有发现有需要修正的项目，请确认！
 mainmanage.title=管理主页
 top.title=GH招募管理系统
 top.info=你好，欢迎光临GH招募管理系统

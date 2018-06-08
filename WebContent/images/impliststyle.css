@@ -223,6 +223,9 @@
 #operate .inschool{
 	width:180px;maxlength:15;
 }
+#operate .indate{
+	width:150px;maxlength:15;
+}
 #operate .intype{
 	width:120px;maxlength:10;
 }

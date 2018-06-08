@@ -1,7 +1,5 @@
 package zhf.table;
 
-import java.math.BigDecimal;
-
 public class GhUpdateTable {
     private String pjname;
     private String offerStatus;
@@ -18,6 +16,7 @@ public class GhUpdateTable {
 	    String internOBD,
 	    String offerOBDPlan,
 	    String offerOBDActual) {
+	
 	this.pjname = pjname;
 	this.offerStatus = offerStatus;
 	this.offerWaitingReason = offerWaitingReason;
@@ -26,11 +25,11 @@ public class GhUpdateTable {
 	this.offerOBDPlan = offerOBDPlan;
 	this.offerOBDActual = offerOBDActual;
     }
-
+    
     public String getPjname() {
 	return this.pjname;
     }
-
+    
     public String getOfferStatus() {
 	return this.offerStatus;
     }

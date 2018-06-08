@@ -87,42 +87,42 @@
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.project"/></td>
-								<td class="oddRow"><s:property value="pjname"/></td>
+								<td class="oddRow"><s:property value="pjname"/><s:hidden id="pjname" name="pjname"/></td>
 								<td class="updatedRow"><s:select name="projecName"  
 									list="ProjectList" listKey="key" listValue="value" style="width:150px"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.offerStatus"/></td>
-								<td class="oddRow"><s:property value="offerStatus"/></td>
+								<td class="oddRow"><s:property value="offerStatus"/><s:hidden id="offerStatus" name="offerStatus"/></td>
 								<td class="updatedRow"><s:select name="selOfferStatus"
 									list="selOfferStatusList" listKey="key" listValue="value" style="width:150px"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.offerWaitingReason"/></td>
-								<td class="oddRow"><s:property value="offerWaitingReason"/></td>
+								<td class="oddRow"><s:property value="offerWaitingReason"/><s:hidden id="offerWaitingReason" name="offerWaitingReason"/></td>
 								<td class="updatedRow"><s:select name="selOfferWaitingReason"  
 									list="selOfferWaitingReasonList" listKey="key" listValue="value" style="width:150px"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.internFlag"/></td>
-								<td class="oddRow"><s:property value="internFlag"/></td>
+								<td class="oddRow"><s:property value="internFlag"/><s:hidden id="internFlag" name="internFlag"/></td>
 								<td class="updatedRow"><s:select name="selInternFlag"
 									list="selInternFlagList" listKey="key" listValue="value" style="width:150px"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.internOBD"/></td>
-								<td class="oddRow"><s:property value="internOBD"/></td>
-								<td class="updatedRow"><s:textfield id="selInternOBD" name="selInternOBD" cssClass="inschool" onblur="trim(this)"/></td>
+								<td class="oddRow"><s:property value="internOBD"/><s:hidden id="internOBD" name="internOBD"/></td>
+								<td class="updatedRow"><s:textfield id="selInternOBD" name="selInternOBD" cssClass="indate" onblur="trim(this)"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.offerOBDPlan"/></td>
-								<td class="oddRow"><s:property value="offerOBDPlan"/></td>
-								<td class="updatedRow"><s:textfield id="selOfferOBDPlan" name="selOfferOBDPlan" cssClass="inschool" onblur="trim(this)"/></td>
+								<td class="oddRow"><s:property value="offerOBDPlan"/><s:hidden id="offerOBDPlan" name="offerOBDPlan"/></td>
+								<td class="updatedRow"><s:textfield id="selOfferOBDPlan" name="selOfferOBDPlan" cssClass="indate" onblur="trim(this)"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.offerOBDActual"/></td>
-								<td class="oddRow"><s:property value="offerOBDActual"/></td>
-								<td class="updatedRow"><s:textfield id="selOfferOBDActual" name="selOfferOBDActual" cssClass="inschool" onblur="trim(this)"/></td>
+								<td class="oddRow"><s:property value="offerOBDActual"/><s:hidden id="offerOBDActual" name="offerOBDActual"/></td>
+								<td class="updatedRow"><s:textfield id="selOfferOBDActual" name="selOfferOBDActual" cssClass="indate" onblur="trim(this)"/></td>
 							</tr>
 						</table>
 					</s:iterator>
