@@ -1,5 +1,7 @@
 package zhf.util;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -71,17 +73,157 @@ public class StringUtil {
 	return strValue;
     }
     
-    // internFlag转化
+    // 获取OfferStatus
+    public static Map getOfferStatusMap() {
+	
+	Map map = new HashMap();
+	GhCommon.OfferStatusEnum[] enums = GhCommon.OfferStatusEnum.values(); // 获得枚举对象数组
+        // 遍历枚举对象
+        for (GhCommon.OfferStatusEnum offerStatusEnum : enums) {
+            map.put(offerStatusEnum.getCd(), offerStatusEnum.getValue());
+        }
+	
+	return map;
+    }
+    
+    // offerStatus转化(根据Cd取值)
+    public static String offerStatusCdToValue(String cd) {
+	
+	String value = "";
+	// 获得枚举对象数组
+	GhCommon.OfferStatusEnum[] offerStatusEnums = GhCommon.OfferStatusEnum.values();
+        // 遍历枚举对象
+        for (GhCommon.OfferStatusEnum offerStatusEnum : offerStatusEnums) {
+            if (offerStatusEnum.getCd().equals(cd)) {
+        	value = offerStatusEnum.getValue();
+            }
+        }
+	
+	return value;
+    }
+    
+    // offerStatus转化(根据值取Cd)
+    public static String offerStatusValueToCd(String value) {
+	
+	String cd = "";
+	GhCommon.OfferStatusEnum[] offerStatusEnums = GhCommon.OfferStatusEnum.values(); // 获得枚举对象数组
+        // 遍历枚举对象
+        for (GhCommon.OfferStatusEnum offerStatusEnum : offerStatusEnums) {
+            if (offerStatusEnum.getValue().equals(value)) {
+        	cd = offerStatusEnum.getCd();
+            }
+        }
+	
+	return cd;
+    }
+    
+    
+    // 获取OfferWaitingReason
+    public static Map getOfferWaitingReasonMap() {
+	
+	Map map = new HashMap();
+	GhCommon.OfferWaitingReasonEnum[] enums = GhCommon.OfferWaitingReasonEnum.values(); // 获得枚举对象数组
+        // 遍历枚举对象
+        for (GhCommon.OfferWaitingReasonEnum offerWReasonEnum : enums) {
+            map.put(offerWReasonEnum.getCd(), offerWReasonEnum.getValue());
+        }
+	
+	return map;
+    }
+    
+    // offerWaitingReason转化(根据Cd取值)
+    public static String offerWaitingReasonCdToValue(String cd) {
+	
+	String value = "";
+	GhCommon.OfferWaitingReasonEnum[] offerWReasonEnums = GhCommon.OfferWaitingReasonEnum.values(); // 获得枚举对象数组
+        // 遍历枚举对象
+        for (GhCommon.OfferWaitingReasonEnum offerWReasonEnum : offerWReasonEnums) {
+            if (offerWReasonEnum.getCd().equals(cd)) {
+        	value = offerWReasonEnum.getValue();
+            }
+        }
+	
+	return value;
+    }
+    
+    // offerWaitingReason转化(根据值取Cd)
+    public static String offerWaitingReasonValueToCd(String value) {
+	
+	String cd = "";
+	GhCommon.OfferWaitingReasonEnum[] offerWReasonEnums = GhCommon.OfferWaitingReasonEnum.values(); // 获得枚举对象数组
+        // 遍历枚举对象
+        for (GhCommon.OfferWaitingReasonEnum offerWReasonEnum : offerWReasonEnums) {
+            if (offerWReasonEnum.getValue().equals(value)) {
+        	cd = offerWReasonEnum.getCd();
+            }
+        }
+	
+	return cd;
+    }
+    
+    // 获取InternFlag
+    public static Map getInternFlagMap() {
+	
+	Map map = new HashMap();
+	GhCommon.InternFlagEnum[] enums = GhCommon.InternFlagEnum.values(); // 获得枚举对象数组
+        // 遍历枚举对象
+        for (GhCommon.InternFlagEnum internFlagEnum : enums) {
+            map.put(internFlagEnum.getCd(), internFlagEnum.getDisplay());
+        }
+	
+	return map;
+    }
+    
+    // internFlag转化(根据Cd取值)
+    public static String internFlagCdToValue(String cd) {
+	
+	String value = "";
+	GhCommon.InternFlagEnum[] internFlagEnums = GhCommon.InternFlagEnum.values(); // 获得枚举对象数组
+        // 遍历枚举对象
+        for (GhCommon.InternFlagEnum internFlagEnum : internFlagEnums) {
+            if (internFlagEnum.getCd().equals(cd)) {
+        	value = internFlagEnum.getValue();
+            }
+        }
+	
+	return value;
+    }
+    
+    // internFlag转化(根据值取Cd)
+    public static String internFlagValueToCd(String value) {
+	
+	String cd = "";
+	GhCommon.InternFlagEnum[] internFlagEnums = GhCommon.InternFlagEnum.values(); // 获得枚举对象数组
+        // 遍历枚举对象
+        for (GhCommon.InternFlagEnum internFlagEnum : internFlagEnums) {
+            if (internFlagEnum.getDisplay().equals(value)) {
+        	cd = internFlagEnum.getCd();
+            }
+        }
+	
+	return cd;
+    }
+    
+    // internFlag转化(根据值取Display)
     public static String internFlagConv(String internFlag) {
 	
-	String strConv = "";
-	if ("Y".equals(internFlag)) {
-	    strConv = "是";
-	} else {
-	    strConv = "否";
-	}
+	String display = "";
+	GhCommon.InternFlagEnum[] internFlagEnums = GhCommon.InternFlagEnum.values(); // 获得枚举对象数组
+        // 遍历枚举对象
+        for (GhCommon.InternFlagEnum internFlagEnum : internFlagEnums) {
+            if (internFlagEnum.getValue().equals(internFlag)) {
+        	display = internFlagEnum.getDisplay();
+            }
+        }
 	
-	return strConv;
+	return display;
     }
+    
+    
 
+    
+    
+
+    
+    
 }

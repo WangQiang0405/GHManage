@@ -1,15 +1,18 @@
 package zhf.action;
 
-import java.util.HashMap;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import zhf.common.GhCommon;
+import zhf.logic.GhImportLogic;
 import zhf.logic.GhUpdatelogic;
 import zhf.table.GhUpdateTable;
 import zhf.util.DBUtil;
+import zhf.util.DateUtil;
+import zhf.util.StringUtil;
 
 public class GhUpdateAction extends ActionSupport {
     private String id;
@@ -21,9 +24,9 @@ public class GhUpdateAction extends ActionSupport {
     private String selInternOBD = "";
     private String selOfferOBDPlan = "";
     private String selOfferOBDActual = "";
+    private String result = "";
 
     public void setId(String id) {
-	
 	this.id = id;
     }
 
@@ -34,11 +37,15 @@ public class GhUpdateAction extends ActionSupport {
     public void setModel(String id) {
 	this.id = id;
     }
-    
+
+    public void setList(List st) {
+	this.list = st;
+    }
+
     public List getList() {
 	return list;
     }
-    
+
     public void setProjecName(String projecName) {
 	this.projecName = projecName;
     }
@@ -52,7 +59,7 @@ public class GhUpdateAction extends ActionSupport {
 	map.put("0000", "");
 	return map;
     }
-    
+
     public void setSelOfferStatus(String selOfferStatus) {
 	this.selOfferStatus = selOfferStatus;
     }
@@ -60,17 +67,12 @@ public class GhUpdateAction extends ActionSupport {
     public String getSelOfferStatus() {
 	return this.selOfferStatus;
     }
-    
+
     public Map getSelOfferStatusList() {
-	Map map = new HashMap();
-	GhCommon.OfferStatusEnum[] enums = GhCommon.OfferStatusEnum.values(); // 获得枚举对象数组
-        // 遍历枚举对象
-        for (GhCommon.OfferStatusEnum offerStatusEnum : enums) {
-            map.put(offerStatusEnum.getCd(), offerStatusEnum.getValue());
-        }
+	Map map = StringUtil.getOfferStatusMap();
 	return map;
     }
-    
+
     public void setSelOfferWaitingReason(String selOfferWaitingReason) {
 	this.selOfferWaitingReason = selOfferWaitingReason;
     }
@@ -78,18 +80,12 @@ public class GhUpdateAction extends ActionSupport {
     public String getSelOfferWaitingReason() {
 	return this.selOfferWaitingReason;
     }
-    
+
     public Map getSelOfferWaitingReasonList() {
-	Map map = new HashMap();
-	GhCommon.OfferWaitingReasonEnum[] enums = GhCommon.OfferWaitingReasonEnum.values(); // 获得枚举对象数组
-        // 遍历枚举对象
-        for (GhCommon.OfferWaitingReasonEnum offerWReasonEnum : enums) {
-            map.put(offerWReasonEnum.getCd(), offerWReasonEnum.getValue());
-        }
-	
+	Map map = StringUtil.getOfferWaitingReasonMap();
 	return map;
     }
-    
+
     public void setSelInternFlag(String selInternFlag) {
 	this.selInternFlag = selInternFlag;
     }
@@ -97,18 +93,12 @@ public class GhUpdateAction extends ActionSupport {
     public String getSelInternFlag() {
 	return this.selInternFlag;
     }
-    
-    public Map getSelInternFlagList() {
-	Map map = new HashMap();
-	GhCommon.InternFlagEnum[] enums = GhCommon.InternFlagEnum.values(); // 获得枚举对象数组
-        // 遍历枚举对象
-        for (GhCommon.InternFlagEnum internFlagEnum : enums) {
-            map.put(internFlagEnum.getCd(), internFlagEnum.getValue());
-        }
 
+    public Map getSelInternFlagList() {
+	Map map = StringUtil.getInternFlagMap();
 	return map;
     }
-    
+
     public void setSelInternOBD(String selInternOBD) {
 	this.selInternOBD = selInternOBD;
     }
@@ -116,7 +106,7 @@ public class GhUpdateAction extends ActionSupport {
     public String getSelInternOBD() {
 	return this.selInternOBD;
     }
-    
+
     public void setSelOfferOBDPlan(String selOfferOBDPlan) {
 	this.selOfferOBDPlan = selOfferOBDPlan;
     }
@@ -124,7 +114,7 @@ public class GhUpdateAction extends ActionSupport {
     public String getSelOfferOBDPlan() {
 	return this.selOfferOBDPlan;
     }
-    
+
     public void setSelOfferOBDActual(String selOfferOBDActual) {
 	this.selOfferOBDActual = selOfferOBDActual;
     }
@@ -133,65 +123,89 @@ public class GhUpdateAction extends ActionSupport {
 	return this.selOfferOBDActual;
     }
 
+    public String getResult() {
+	String temp = this.result;
+	this.result = "";
+	return temp;
+    }
+
     public String init() {
-	System.out.println(this.id);
-	
-	//Where条件
+
+	// Where条件
 	String where = " where id = '" + this.id + "'";
 	GhUpdatelogic lgc = new GhUpdatelogic();
 	this.list = lgc.getGhInfoList(where);
-	
-	GhUpdateTable tbl = (GhUpdateTable)this.list.get(0);
-	
+
+	GhUpdateTable tbl = (GhUpdateTable) this.list.get(0);
+
 	// 项目
 	this.projecName = tbl.getPjname();
-	
 	// Offer状态
-	String offerStatus = "0";
-	GhCommon.OfferStatusEnum[] offerStatusEnums = GhCommon.OfferStatusEnum.values(); // 获得枚举对象数组
-        // 遍历枚举对象
-        for (GhCommon.OfferStatusEnum offerStatusEnum : offerStatusEnums) {
-            if (offerStatusEnum.getValue().equals(tbl.getOfferStatus())) {
-        	offerStatus = offerStatusEnum.getCd();
-            }
-        }
-	this.selOfferStatus = offerStatus;
-	
+	this.selOfferStatus = StringUtil.offerStatusValueToCd(tbl.getOfferStatus());
 	// Offer等待理由
-	String offerWaitingReason = "0";
-	GhCommon.OfferWaitingReasonEnum[] offerWReasonEnums = GhCommon.OfferWaitingReasonEnum.values(); // 获得枚举对象数组
-        // 遍历枚举对象
-        for (GhCommon.OfferWaitingReasonEnum offerWReasonEnum : offerWReasonEnums) {
-            if (offerWReasonEnum.getValue().equals(tbl.getOfferWaitingReason())) {
-        	offerWaitingReason = offerWReasonEnum.getCd();
-            }
-        }
-        this.selOfferWaitingReason = offerWaitingReason;
-        
-        // 实习
-	String internFlag = "0";
-	GhCommon.InternFlagEnum[] internFlagEnums = GhCommon.InternFlagEnum.values(); // 获得枚举对象数组
-        // 遍历枚举对象
-        for (GhCommon.InternFlagEnum internFlagEnum : internFlagEnums) {
-            if (internFlagEnum.getValue().equals(tbl.getInternFlag())) {
-        	internFlag = internFlagEnum.getCd();
-            }
-        }
-        this.selInternFlag = internFlag;
-        
+	this.selOfferWaitingReason = StringUtil.offerWaitingReasonValueToCd(tbl.getOfferWaitingReason());
+	// 实习
+	this.selInternFlag = StringUtil.internFlagValueToCd(tbl.getInternFlag());
 	// 实习日
 	this.selInternOBD = tbl.getInternOBD();
 	// Offer计划日
 	this.selOfferOBDPlan = tbl.getOfferOBDPlan();
 	// Offer实际日
 	this.selOfferOBDActual = tbl.getOfferOBDActual();
-	
+
 	return SUCCESS;
     }
-    
+
     public String execute() {
-	
+
+	String exeResult = GhCommon.SUCCESS;
+
+	/** 输入确认进行实施 START **/
+	// 实习日
+	if (!"".equals(this.selInternOBD)) {
+	    // 输入非日期类型时，错误
+	    if (!DateUtil.isDateFormat(this.selInternOBD, GhCommon.YYYYMMDD)) {
+		this.result = this.getText("update.errtypeInternOBD");
+		exeResult = GhCommon.FAIL;
+		return exeResult;
+	    }
+	}
+	// Offer计划日
+	if (!"".equals(this.selOfferOBDPlan)) {
+	    // 输入非日期类型时，错误
+	    if (!DateUtil.isDateFormat(this.selOfferOBDPlan, GhCommon.YYYYMMDD)) {
+		this.result = this.getText("update.errtypeOfferOBDPlan");
+		exeResult = GhCommon.FAIL;
+		return exeResult;
+	    }
+	}
+	// Offer实际日
+	if (!"".equals(this.selOfferOBDActual)) {
+	    // 输入非日期类型时，错误
+	    if (!DateUtil.isDateFormat(this.selOfferOBDActual, GhCommon.YYYYMMDD)) {
+		this.result = this.getText("update.errtypeOfferOBDActual");
+		exeResult = GhCommon.FAIL;
+		return exeResult;
+	    }
+	}
+	/** 输入确认进行实施 END **/
+
+	/** ghdetail表数据修正 START **/
+	try {
+	    GhUpdatelogic lgc = new GhUpdatelogic();
+	    this.result = lgc.UpdateDetail(this.projecName, this.selOfferStatus, this.selOfferWaitingReason,
+		    this.selInternFlag, this.selInternOBD, this.selOfferOBDPlan, this.selOfferOBDActual, this.id);
+	    if (this.result.equals(SUCCESS)) {
+		// Where条件
+		String where = " where id = '" + this.id + "'";
+		this.list = lgc.getGhInfoList(where);
+	    }
+	} catch (SQLException e) {
+	    e.printStackTrace();
+	}
+	/** ghdetail表数据修正 END **/
+
 	return SUCCESS;
-	
+
     }
 }

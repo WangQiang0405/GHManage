@@ -1,27 +1,24 @@
 package zhf.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import zhf.common.GhCommon;
 
 public class DateUtil {
 
     // 日期类型的判断
-    public static boolean isDateString(String datevalue, String dateFormat) {
+    public static boolean isDateFormat(String datevalue, String dateFormat) {
 
 	if (datevalue == null || "".equals(datevalue)) {
 	    return false;
 	}
 	try {
 	    SimpleDateFormat fmt = new SimpleDateFormat(dateFormat);
-	    Date dd = fmt.parse(datevalue);
-	    if (datevalue.equals(fmt.format(dd))) {
-		return true;
-	    } else {
-		return false;
-	    }
-	} catch (Exception e) {
+	    fmt.setLenient(false);
+	    fmt.parse(datevalue);
+	    //if (datevalue.equals(fmt.format(dd))) {
+	    return true;
+	    
+	} catch (ParseException e) {
 	    return false;
 	}
     }

@@ -117,19 +117,21 @@ public class GhCommon {
     public static enum InternFlagEnum {
 
 	// 空
-	EMPTY("0", ""),
+	EMPTY("0", "", ""),
 	// 是
-	YES("1", "是"),
+	YES("1", "Y", "是"),
 	// 否
-	NO("2", "否");
+	NO("2", "N", "否");
 
 	private String cd;
 	private String value;
+	private String display;
 
 	// 构造方法
-	private InternFlagEnum(String cd, String value) {
+	private InternFlagEnum(String cd, String value, String display) {
 	    this.cd = cd;
 	    this.value = value;
+	    this.display = display;
 	}
 
 	public String getCd() {
@@ -138,6 +140,10 @@ public class GhCommon {
 
 	public String getValue() {
 	    return value;
+	}
+	
+	public String getDisplay() {
+	    return display;
 	}
     }
 

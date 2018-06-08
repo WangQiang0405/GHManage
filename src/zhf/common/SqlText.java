@@ -58,6 +58,14 @@ public class SqlText {
     							+ "education,school,major,language,bookStatus,offerStatus,offerWReason,internFlag,"
     							+ "sectorOrSL,reportManager,internOBD,offerOBDPlan,offerOBDActual,comments) "
     							+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    // ghdetail表数据修正
+    public static final String SQL_GH_DETAIL_U = "update ghdetail "
+    							+ "set pjname = ?, "
+    							+ "offerStatus = ? , offerWReason = ? , "
+    							+ "internFlag = ? , "
+    							+ "internOBD = ? , offerOBDPlan = ? , offerOBDActual = ? "
+    							+ "where id = ?";
+    							
     // ghdetail表数据全部删除
     public static final String SQL_GH_DETAIL_D = "delete from ghdetail";
 

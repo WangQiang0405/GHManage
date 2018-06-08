@@ -19,7 +19,7 @@
 			var objValue = obj.value;
 			obj.value = objValue.toUpperCase();
 		}
-		function submitOnSearch() {
+		function update() {
 		    var obj = document.getElementById("eventid");
 		    obj.value = "1";
 		}
@@ -70,8 +70,10 @@
 			<s:include value="/jsp/lefttree.jsp"/>
 		</div>
 		<s:form action="GhUpdate" theme="simple" method="post" onsubmit="" validate="true">
-		<s:hidden id="eventid" name="eventid" value="0"/>
+		<s:hidden id="id" name="id"/>
 		<s:hidden id="list" name="list"/>
+		<s:hidden id="eventid" name="eventid"/>
+		<s:hidden id="result" name="result"/>
 		<div id="maincontent">
 			<div id="operate">
 				<s:if test="List.size()!=0">
@@ -130,14 +132,12 @@
 			</div>
 			<div id="foot" style="margin-top:20px">
 				<div style="float:left;margin-left:33%">
-					<input type="button" id="return" name="return" value="返 回"
-						class="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" 
-						onclick="update()" />
+			    	<s:submit id="back" value="%{getText(\"botton.back\")}"
+						cssClass="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" onclick=""/>
 			    </div>
 			    <div style="float:right;margin-right:33%">
-					<input type="button" id="update" name="update" value="修 正"
-						class="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" 
-						onclick="update()" />
+			    	<s:submit id="update" value="%{getText(\"botton.update\")}"
+						cssClass="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" onclick="update()"/>
 			    </div>
 			</div>
 		</div>
@@ -160,18 +160,12 @@
 				showErrMsg(errMsg, "submit");
 			}
 			var result = document.getElementById("result").value;
-			if (result != "") {
-			    if (result.indexOf("MSG01S01") >= 0
-				    || result.indexOf("MSG01S02") >= 0
-				    || result.indexOf("MSG01S03") >= 0) { 
-					showErrMsg(result, "wsid");
-			    } else if (result.indexOf("MSG01S04") >= 0) {
-					showErrMsg(result, "name");
-				} else if (result.indexOf("MSG01S05") >= 0) {
-				    showErrMsg(result, "school");
-				} else if (result.indexOf("MSG01S06") >= 0) {
-				    showErrMsg(result, "type");
-				}
+			if (result == "success") {
+			    alert("更新成功。");
+			} else if (result == "fail") {
+			    alert("更新失败！");
+			} else if (result != "") {
+				showErrMsg(result, "update");
 			}
 		</script>
 	</body>

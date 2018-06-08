@@ -74,7 +74,8 @@
        </action>
        <action name="GhUpdate" class="zhf.action.GhUpdateAction">
        		<result name="success">/jsp/ghUpdate.jsp</result>
-           	<result name="input">/jsp/ghUpdate.jsp</result> 
+           	<result name="input">/jsp/ghUpdate.jsp</result>
+           	<result name="fail">/jsp/ghUpdate.jsp</result> 
        		<result>/jsp/ghUpdate.jsp</result>
        </action>
    </package>
