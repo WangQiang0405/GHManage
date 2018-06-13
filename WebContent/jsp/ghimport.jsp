@@ -3,10 +3,10 @@
 <html>
 	<head>
 		<title><s:text name="import.title"/></title>
-		<link href="images/style.css" rel="stylesheet" type="text/css"/>
-		<link href="images/mainstyle.css" rel="stylesheet" type="text/css"/>
-		<link href="images/impliststyle.css" rel="stylesheet" type="text/css"/>
-		<link href="images/importStyle.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="css/mainstyle.css" rel="stylesheet" type="text/css"/>
+		<link href="css/impliststyle.css" rel="stylesheet" type="text/css"/>
+		<link href="css/importStyle.css" rel="stylesheet" type="text/css"/>
 		<script language="JavaScript" src="js/manage.js"></script>
 		<script language="JavaScript">
 		function openFile(){

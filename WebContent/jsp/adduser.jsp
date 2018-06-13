@@ -3,9 +3,9 @@
 <html>
 	<head><meta http-equiv="Content-Type" content="text/html; charset=GBK"/>
 		<title><s:text name="mainmanage.title"/></title>
-		<link href="images/style.css" rel="stylesheet" type="text/css"/>
-		<link href="images/mainstyle.css" rel="stylesheet" type="text/css"/>
-		<link href="images/addgh.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="css/mainstyle.css" rel="stylesheet" type="text/css"/>
+		<link href="css/addgh.css" rel="stylesheet" type="text/css"/>
 		<script language="JavaScript" src="js/manage.js"></script>
 		<s:head/>
 	</head>

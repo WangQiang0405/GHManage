@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>top.jsp</title>
-		<link href="images/topstyle.css" rel="stylesheet" type="text/css"/>
+		<link href="css/topstyle.css" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript" src="js/top.js"></script>
 		<script language="JavaScript">
 			window.onload=realtime;

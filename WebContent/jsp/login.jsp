@@ -3,8 +3,8 @@
 <html>
 	<head>
 		<title><s:text name="login.title"/></title>
-		<link href="images/style.css" rel="stylesheet" type="text/css"/>
-		<link href="images/loginStyle.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="css/loginStyle.css" rel="stylesheet" type="text/css"/>
 		<script language="JavaScript" src="js/manage.js"></script>
 	</head>
 	<body>

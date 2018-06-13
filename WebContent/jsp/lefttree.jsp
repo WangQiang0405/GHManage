@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<title>¸ß¼¶Á´½Ó</title>
-		<link href="images/treestyle.css" rel="stylesheet" type="text/css"/>
+		<link href="css/treestyle.css" rel="stylesheet" type="text/css"/>
 		<script language="JavaScript">
 			function change(num)
 			{

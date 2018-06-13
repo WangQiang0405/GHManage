@@ -3,9 +3,9 @@
 <html>
 	<head>
 		<title><s:text name="mainmanage.title"/></title>
-		<link href="images/style.css" rel="stylesheet" type="text/css"/>
-		<link href="images/mainstyle.css" rel="stylesheet" type="text/css"/>
-		<link href="images/impliststyle.css" rel="stylesheet" type="text/css"/>
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="css/mainstyle.css" rel="stylesheet" type="text/css"/>
+		<link href="css/impliststyle.css" rel="stylesheet" type="text/css"/>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="expires" content="0">  

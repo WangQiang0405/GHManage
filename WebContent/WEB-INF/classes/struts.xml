@@ -45,14 +45,6 @@
           	<result name="fail">/jsp/ghimport.jsp</result>
            	<result name="input">/jsp/ghimport.jsp</result>
            	<result>/jsp/ghimport.jsp</result>
-       </action> 
-       <action name="GhInfoList" class="zhf.action.GhInfoListExeAction" method="init">
-          	<result name="success">/jsp/ghinfolist.jsp</result>
-           	<result>/jsp/ghinfolist.jsp</result>       
-       </action>
-       <action name="GhInfoListExe" class="zhf.action.GhInfoListExeAction">
-          	<result name="success">/jsp/ghinfolist.jsp</result>
-           	<result name="fail">/jsp/ghinfolist.jsp</result> 
        </action>
        <action name="GhSearchListinit" class="zhf.action.GhSearchAction" method="init">
           	<result name="success">/jsp/ghSearch.jsp</result>
