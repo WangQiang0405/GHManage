@@ -46,12 +46,12 @@
            	<result name="input">/jsp/ghimport.jsp</result>
            	<result>/jsp/ghimport.jsp</result>
        </action>
-       <action name="GhSearchListinit" class="zhf.action.GhSearchAction" method="init">
+       <action name="GhSearchInit" class="zhf.action.GhSearchAction" method="init">
           	<result name="success">/jsp/ghSearch.jsp</result>
            	<result name="input">/jsp/ghSearch.jsp</result> 
            	<result>/jsp/ghSearch.jsp</result>       
        </action>  
-       <action name="GhSearchList" class="zhf.action.GhSearchAction">
+       <action name="GhSearch" class="zhf.action.GhSearchAction">
           	<result name="success">/jsp/ghSearch.jsp</result>
           	<result name="fail">/jsp/ghSearch.jsp</result>
            	<result name="input">/jsp/ghSearch.jsp</result>

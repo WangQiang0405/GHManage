@@ -22,7 +22,7 @@
 		function backExe(){
 	    	var obj = document.getElementById("eventid");
 		    obj.value = "5";
-	    	window.location.href="GhSearchList.action?eventid=" + document.getElementById("eventid").value;
+	    	window.location.href="GhSearch.action?eventid=" + document.getElementById("eventid").value;
 		}
 		</script>
 	</head>

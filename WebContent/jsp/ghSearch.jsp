@@ -93,7 +93,7 @@
 		<div id="leftcontent">
 			<s:include value="lefttree.jsp"/>
 		</div>
-		<s:form action="GhSearchList" theme="simple" method="post" onsubmit="" validate="true">
+		<s:form action="GhSearch" theme="simple" method="post" onsubmit="" validate="true">
 		<s:hidden id="eventid" name="eventid"/>
 		<s:hidden id="selectid" name="selectid"/>
 		<s:hidden id="selRowIndex" name="selRowIndex"/>
