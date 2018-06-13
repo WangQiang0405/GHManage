@@ -5,7 +5,7 @@
 		<title><s:text name="mainmanage.title"/></title>
 		<link href="css/style.css" rel="stylesheet" type="text/css"/>
 		<link href="css/mainstyle.css" rel="stylesheet" type="text/css"/>
-		<link href="css/impliststyle.css" rel="stylesheet" type="text/css"/>
+		<link href="css/commonStyle.css" rel="stylesheet" type="text/css"/>
 		<script language="JavaScript" src="js/manage.js"></script>
 		<script language="JavaScript">
 		function mymouseout(id,styleclass) {
