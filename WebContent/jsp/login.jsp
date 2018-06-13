@@ -29,7 +29,8 @@
 						<s:textfield id="yanzhengma" name="yanzhengma" cssClass="inyanzhengma"/>
 						<img id="yanzhengmatu" src="./jsp/yanzhengma.jsp">
 						<a href="#" onclick="change();"><s:text name="login.change"/></a>
-						<s:submit id="submit" value="%{getText(\"login.login\")}" cssClass="logins"/>
+						<s:submit id="submit" value="%{getText(\"botton.login\")}" cssClass="logins" 
+							onmouseover="this.className='loginsover';" onmouseout="this.className='logins';"/>
 						<s:textfield id="result" name="result" cssStyle="display:none"/>
 					</s:form>
 				</div>

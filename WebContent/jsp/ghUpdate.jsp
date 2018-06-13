@@ -2,7 +2,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html>
 	<head>
-		<title><s:text name="mainmanage.title"/></title>
+		<title><s:text name="update.title"/></title>
 		<link href="css/style.css" rel="stylesheet" type="text/css"/>
 		<link href="css/mainstyle.css" rel="stylesheet" type="text/css"/>
 		<link href="css/commonStyle.css" rel="stylesheet" type="text/css"/>

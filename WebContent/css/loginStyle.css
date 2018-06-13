@@ -27,13 +27,13 @@ body {
 	font-size:18px;text-align:center;margin:10px auto 0 auto;position:relative;color:#666666;
 }
 #operate .uid{
-	position:absolute;margin-left:200px;margin-top:12px;font-size:15px;color:#666666;
+	position:absolute;margin-left:240px;margin-top:12px;font-size:15px;color:#666666;
 }
 #operate .pwd{
-	position:absolute;margin-left:212px;margin-top:41px;font-size:15px;color:#666666;
+	position:absolute;margin-left:253px;margin-top:41px;font-size:15px;color:#666666;
 }
 #operate .yanzhengma{
-	position:absolute;margin-left:200px;margin-top:71px;font-size:15px;color:#666666;
+	position:absolute;margin-left:240px;margin-top:71px;font-size:15px;color:#666666;
 }
 #operate .inuid{
 	height:20px;position:absolute;margin-top:10px;margin-left:300px;width:200px;
@@ -45,7 +45,28 @@ body {
 	height:20px;position:absolute;margin-top:68px;margin-left:300px;width:80px;
 }
 #operate .logins{
-	width:60px;position:absolute;margin-top:91px;margin-left:300px;
+	background:url(../images/smallBlueButton.gif);
+	opacity:1;
+	border:none;
+	width:43px;
+	height:24px;
+	text-align:center;
+	vertical-align:middle;
+	margin-top:91px;
+	margin-left:300px;
+	font-size:14px;
+}
+#operate .loginsover{
+	background:url(../images/smallOrangeButton.gif);
+	opacity:1;
+	border:none;
+	width:43px;
+	height:24px;
+	text-align:center;
+	vertical-align:middle;
+	margin-top:91px;
+	margin-left:300px;font-size:14px;
+	color:red;
 }
 #operate img{
 	position:absolute;margin-top:68px;margin-left:400px;

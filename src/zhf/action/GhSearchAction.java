@@ -159,7 +159,7 @@ public class GhSearchAction extends ActionSupport implements ModelDriven {
 	this.result = "";
 	if ("4".equals(this.eventid)) {
 	    if (this.selectid.equals(new BigDecimal(0))) {
-		this.result = this.getText("execute.errselect");
+		this.result = this.getText("search.errselect");
 		return GhCommon.FAIL;
 	    }
 	}
