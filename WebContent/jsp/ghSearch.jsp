@@ -6,6 +6,9 @@
 		<link href="images/style.css" rel="stylesheet" type="text/css"/>
 		<link href="images/mainstyle.css" rel="stylesheet" type="text/css"/>
 		<link href="images/impliststyle.css" rel="stylesheet" type="text/css"/>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">  
 		<script language="JavaScript" src="js/manage.js"></script>
 		<script language="JavaScript">
 		function mymouseout(id,styleclass)
@@ -61,10 +64,10 @@
 		    obj.value = "3";
 		}
 		function trOnClick(id,index){
-			var obj1 = document.getElementById("selectid");
-		    obj1.value = id;
-		    var obj2 = document.getElementById("updateflg");
-		    obj2.value = "init";
+			var selId = document.getElementById("selectid");
+			selId.value = id;
+		    var selRowIndex = document.getElementById("selRowIndex");
+		    selRowIndex.value = index;
 		    
 		    var curTable = document.getElementById("ghl" + index).parentNode;
 		    for(var i = 1; i < curTable.children.length; i++) {
@@ -77,14 +80,8 @@
 		    document.getElementById("ghl" + index).style.background = "yellow";
 		}
 		function update(){
-			if (document.getElementById("selectid").value == 0){
-				showErrMsg("请从检索结果列表中选择要更新的数据！","execute");
-				return false;
-		    } else {
-		    	var obj = document.getElementById("eventid");
-			    obj.value = "4";
-		    	window.location.href="GhUpdateInit.action?id=" + document.getElementById("selectid").value;
-		    }
+		    var obj = document.getElementById("eventid");
+			obj.value = "4";
 		}
 		</script>
 	</head>
@@ -98,8 +95,8 @@
 		</div>
 		<s:form action="GhSearchList" theme="simple" method="post" onsubmit="" validate="true">
 		<s:hidden id="eventid" name="eventid"/>
-		<s:hidden id="selectid" name="selectid" value="0"/>
-		<s:hidden id="updateflg" name="updateflg" value="init"/>
+		<s:hidden id="selectid" name="selectid"/>
+		<s:hidden id="selRowIndex" name="selRowIndex"/>
 		<s:hidden id="result" name="result" cssStyle="display:none"/>
 		<div id="maincontent">
 			<div id="operate">
@@ -139,8 +136,8 @@
 					<th width="10%"><s:text name="field.language"/></th>
 					<th width="10%"><s:text name="field.offerStatus"/></th>
 				</tr>
-				<s:if test="GhSearchList.size()!=0">
-					<s:iterator id="List" value="GhSearchList" status="ghl">
+				<s:if test="ghSearchList.size()!=0">
+					<s:iterator id="ghSearchList" value="ghSearchList" status="ghl">
 						<tr id="ghl<s:property value="#ghl.index"/>" 
 							<s:if test="#ghl.odd">class="oddRow"</s:if>
 							<s:else>class="evenRow"</s:else>
@@ -150,15 +147,16 @@
 							<s:else>'evenRow'</s:else>);"
 								onclick="trOnClick('<s:property value="id"/>',
 								'<s:property value='#ghl.index'/>')"
-									style="boder-bottom-width:1px"
 							>
-							<td><s:property value="pjname"/></td>
-							<td><s:property value="name"/></td>
-							<td><s:property value="sex"/></td>	
-							<td><s:property value="school"/></td>	
-							<td><s:property value="major"/></td>	
-							<td><s:property value="language"/></td>	
-							<td><s:property value="offerStatus"/></td>					
+							<td><s:property value="pjname"/>
+								<s:hidden name="ghSearchList[%{#ghl.index}].id" value="%{ghSearchList[#ghl.index].id}"/>
+								<s:hidden name="ghSearchList[%{#ghl.index}].pjname" value="%{ghSearchList[#ghl.index].pjname}"/></td>
+							<td><s:property value="name"/><s:hidden name="ghSearchList[%{#ghl.index}].name" value="%{ghSearchList[#ghl.index].name}"/></td>
+							<td><s:property value="sex"/><s:hidden name="ghSearchList[%{#ghl.index}].sex" value="%{ghSearchList[#ghl.index].sex}"/></td>	
+							<td><s:property value="school"/><s:hidden name="ghSearchList[%{#ghl.index}].school" value="%{ghSearchList[#ghl.index].school}"/></td>	
+							<td><s:property value="major"/><s:hidden name="ghSearchList[%{#ghl.index}].major" value="%{ghSearchList[#ghl.index].major}"/></td>	
+							<td><s:property value="language"/><s:hidden name="ghSearchList[%{#ghl.index}].language" value="%{ghSearchList[#ghl.index].language}"/></td>	
+							<td><s:property value="offerStatus"/><s:hidden name="ghSearchList[%{#ghl.index}].offerStatus" value="%{ghSearchList[#ghl.index].offerStatus}"/></td>
 						</tr>
 					</s:iterator>
 				</s:if>
@@ -167,13 +165,13 @@
 				<div class="info">
 					<span class="totalMessage"><s:text name="impleeyList.gong"/><s:property value="maxPageNo"/>
 					<s:hidden id="maxPageNo" name="maxPageNo"/><s:text name="impleeyList.ye"/></span>
-					<span class="totalnum"><s:property value="totalMessage"/><s:text name="impleeyList.jilushu"/></span>
+					<span class="totalnum"><s:property value="totalMessage"/><s:hidden id="totalMessage" name="totalMessage"/><s:text name="impleeyList.jilushu"/></span>
 				</div>
 				<div class="pageop">
 					<s:select name="pageSpan" id="pagespan"
 						list="spanList" listKey="key" listValue="value" onchange="submitOnPagespan();"/>
 					<span class="shangye">
-						<s:if test="eventid==0||GhSearchList.size()==0">
+						<s:if test="eventid==0||ghSearchList.size()==0">
 							<s:submit id="submit" value=" "
 								cssClass="from" onmouseout="this.className='from';"/>
 							<s:submit id="submit" value=" "
@@ -183,7 +181,7 @@
 							<s:submit id="submit" value=" "
 								cssClass="to" onmouseout="this.className='to';"/>
 						</s:if>
-						<s:if test="GhSearchList.size()!=0&&currenPageNo==1">
+						<s:if test="ghSearchList.size()!=0&&currenPageNo==1">
 							<s:submit id="submit" value=" "
 								cssClass="from" onmouseout="this.className='from';"/>
 							<s:submit id="submit" value=" "
@@ -227,7 +225,7 @@
 			<div id="foot" style="margin-top:20px">
 				<table border="0" align="center" >
 					<tr>
-						<td ><input type="button" id="execute" name="execute" value="决 定"
+						<td ><s:submit id="execute" name="execute" value="决 定"
 								class="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" 
 								onclick="update()" />
 						</td>
@@ -259,6 +257,14 @@
 			{	
 				showErrMsg(result,"execute");
 			}
+			function InitFromBack(){
+			    var obj = document.getElementById("eventid");
+				if (obj.value == "5") {
+					var selRowIndex = document.getElementById("selRowIndex");
+					document.getElementById("ghl" + selRowIndex.value).style.background = "yellow";
+				}
+			}
+			window.body.onload = InitFromBack(); 
 		</script>
 	</body>
 </html>

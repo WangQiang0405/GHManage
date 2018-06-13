@@ -1,5 +1,6 @@
 package zhf.action;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +9,6 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import zhf.common.GhCommon;
-import zhf.logic.GhImportLogic;
 import zhf.logic.GhUpdatelogic;
 import zhf.table.GhUpdateTable;
 import zhf.util.DBUtil;
@@ -16,7 +16,8 @@ import zhf.util.DateUtil;
 import zhf.util.StringUtil;
 
 public class GhUpdateAction extends ActionSupport {
-    private String id;
+    private BigDecimal id;
+    private String eventid;
     private List list;
     private String projecName = "0000";
     private String selOfferStatus = "0";
@@ -27,16 +28,24 @@ public class GhUpdateAction extends ActionSupport {
     private String selOfferOBDActual = "";
     private String result = "";
 
-    public void setId(String id) {
+    public void setId(BigDecimal id) {
 	this.id = id;
     }
 
-    public String getId() {
+    public BigDecimal getId() {
 	return this.id;
     }
 
-    public void setModel(String id) {
+    public void setModel(BigDecimal id) {
 	this.id = id;
+    }
+    
+    public void setEventid(String eventid) {
+	this.eventid = eventid;
+    }
+
+    public String getEventid() {
+	return this.eventid;
     }
 
     public void setList(List st) {
@@ -133,6 +142,8 @@ public class GhUpdateAction extends ActionSupport {
     public String init() {
 
 	// WhereÌõ¼þ
+	Map pram = (Map)ActionContext.getContext().getSession().get("GH_SEARCH_PRAM");
+	this.id = (BigDecimal)pram.get("SELECT_ID");
 	String where = " where id = '" + this.id + "'";
 	GhUpdatelogic lgc = new GhUpdatelogic();
 	this.list = lgc.getGhInfoList(where);

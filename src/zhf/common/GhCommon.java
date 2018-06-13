@@ -12,6 +12,8 @@ public class GhCommon {
     public static final String SUCCESS = "success";
     // Ê§°Ü
     public static final String FAIL = "fail";
+    // ÐÞÕý
+    public static final String UPDATE = "update";
     // Áã
     public static final String ZERO = "0";
     // Ò¼

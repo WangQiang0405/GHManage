@@ -1,5 +1,6 @@
 package zhf.logic;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import zhf.common.ExcelRead;
 import zhf.common.GhCommon;
 import zhf.common.SqlText;
 import zhf.table.GhUpdateTable;
@@ -66,7 +66,7 @@ public class GhUpdatelogic {
 	    String internOBD,
 	    String offerOBDPlan,
 	    String offerOBDActual,
-	    String id) throws SQLException {
+	    BigDecimal id) throws SQLException {
 
 	String result = GhCommon.SUCCESS;
 	int intRusult = 0;
@@ -98,7 +98,7 @@ public class GhUpdatelogic {
 	    // Offer实际日
 	    pstmtU.setDate(7, DateUtil.getDateFormat(offerOBDActual, GhCommon.YYYYMMDD));
 	    // id
-	    pstmtU.setInt(8, Integer.parseInt(id));
+	    pstmtU.setBigDecimal(8, id);
 
 	    // ghdetail表数据修正
 	    intRusult = pstmtU.executeUpdate();

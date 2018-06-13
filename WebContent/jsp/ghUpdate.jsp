@@ -15,49 +15,14 @@
 			var objValue = obj.value;
 			obj.value = objValue.replace(/(^\s*)|(\s*$)/g, "");
 		}
-		function toUpperCase(obj) {
-			var objValue = obj.value;
-			obj.value = objValue.toUpperCase();
-		}
-		function update() {
+		function updateExe() {
 		    var obj = document.getElementById("eventid");
 		    obj.value = "1";
 		}
-		function submitFrom() {
-		    var obj = document.getElementById("currenPageNo");
-		    obj.value = 1;
-		}
-		function submitPrevious() {
-		    var obj = document.getElementById("currenPageNo");
-		    obj.value = parseInt(obj.value) - 1;
-		}
-		function submitNext() {
-		    var obj = document.getElementById("currenPageNo");
-		    obj.value = parseInt(obj.value) + 1;
-		}
-		function submitTo() {
-		    var obj = document.getElementById("currenPageNo");
-		    var objMax = document.getElementById("maxPageNo");
-		    obj.value = objMax.value;
-		}
-		function submitOnPagespan(){
-		    var varSearch = document.getElementById("submit");					
-		    varSearch.click();
-		}
-		function submitOnOk() {
-		    var obj = document.getElementById("eventid");
-		    obj.value = "3";
-		}
-		function onClickTr(id,index) {
-		    var curTable = document.getElementById("ghl" + index).parentNode;
-		    for(var i = 1; i < curTable.children.length; i++) {
-				if((i-1) % 2 == 1){    //ÆæÊý
-				    curTable.children[i].style.background = "#e3fcff";
-				} else {    //Å¼Êý
-			  		curTable.children[i].style.background = "#f4f4f4";
-			    }
-			 }
-		    document.getElementById("ghl" + index).style.background = "yellow";
+		function backExe(){
+	    	var obj = document.getElementById("eventid");
+		    obj.value = "5";
+	    	window.location.href="GhSearchList.action?eventid=" + document.getElementById("eventid").value;
 		}
 		</script>
 	</head>
@@ -132,12 +97,12 @@
 			</div>
 			<div id="foot" style="margin-top:20px">
 				<div style="float:left;margin-left:33%">
-			    	<s:submit id="back" value="%{getText(\"botton.back\")}"
-						cssClass="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" onclick=""/>
+			    	<input type="button" id="back" value="·µ »Ø"
+						class="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" onclick="backExe()"/>
 			    </div>
 			    <div style="float:right;margin-right:33%">
 			    	<s:submit id="update" value="%{getText(\"botton.update\")}"
-						cssClass="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" onclick="update()"/>
+						class="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" onclick="updateExe()"/>
 			    </div>
 			</div>
 		</div>
