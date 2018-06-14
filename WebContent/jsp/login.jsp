@@ -5,7 +5,9 @@
 		<title><s:text name="login.title"/></title>
 		<link href="css/style.css" rel="stylesheet" type="text/css"/>
 		<link href="css/loginStyle.css" rel="stylesheet" type="text/css"/>
-		<script language="JavaScript" src="js/manage.js"></script>
+		<script language="JavaScript" src="js/manage.js">
+		
+		</script>
 	</head>
 	<body>
 		<div id="container">
@@ -57,6 +59,27 @@
 			if(result!="")
 			{	
 				showErrMsg(result,"yanzhengma");
+			}
+			function check() {
+				var uidstr=document.getElementById("uid").value.trim();
+				if(uidstr=="")
+				{
+					showErrMsg("请输入用户名！","uid");
+					return false;
+				}
+				var pwdstr=document.getElementById("pwd").value.trim();
+				if(pwdstr=="")
+				{
+					showErrMsg("请输入密码！","pwd");
+					return false;
+				}
+				var yanzhengmastr=document.getElementById("yanzhengma").value.trim();
+				if(yanzhengmastr=="")
+				{
+					showErrMsg("请输入验证码！","yanzhengma");
+					return false;
+				}
+				return true;
 			}
 		</script>
 	</body>

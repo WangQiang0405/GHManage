@@ -18,7 +18,7 @@ import zhf.util.StringUtil;
 public class GhUpdateAction extends ActionSupport {
     private BigDecimal id;
     private String eventid;
-    private List list;
+    private List<GhUpdateTable> list;
     private String projecName = "0000";
     private String selOfferStatus = "0";
     private String selOfferWaitingReason = "0";
@@ -39,7 +39,7 @@ public class GhUpdateAction extends ActionSupport {
     public void setModel(BigDecimal id) {
 	this.id = id;
     }
-    
+
     public void setEventid(String eventid) {
 	this.eventid = eventid;
     }
@@ -48,11 +48,11 @@ public class GhUpdateAction extends ActionSupport {
 	return this.eventid;
     }
 
-    public void setList(List st) {
+    public void setList(List<GhUpdateTable> st) {
 	this.list = st;
     }
 
-    public List getList() {
+    public List<GhUpdateTable> getList() {
 	return list;
     }
 
@@ -142,13 +142,12 @@ public class GhUpdateAction extends ActionSupport {
     public String init() {
 
 	// Where条件
-	Map pram = (Map)ActionContext.getContext().getSession().get("GH_SEARCH_PRAM");
-	this.id = (BigDecimal)pram.get("SELECT_ID");
+	Map pram = (Map) ActionContext.getContext().getSession().get("GH_SEARCH_PRAM");
+	this.id = (BigDecimal) pram.get("SELECT_ID");
 	String where = " where id = '" + this.id + "'";
 	GhUpdatelogic lgc = new GhUpdatelogic();
 	this.list = lgc.getGhInfoList(where);
-	ActionContext.getContext().getSession().put("GhInfoListInit", this.list);
-	
+
 	GhUpdateTable tbl = (GhUpdateTable) this.list.get(0);
 
 	// 项目
@@ -174,47 +173,43 @@ public class GhUpdateAction extends ActionSupport {
 	String exeResult = GhCommon.SUCCESS;
 
 	/** 输入确认进行实施 START **/
-	// Offer实际日
-	if (!"".equals(this.selOfferOBDActual)) {
-	    // 输入非日期类型时，错误
-	    if (!DateUtil.isDateFormat(this.selOfferOBDActual, GhCommon.YYYYMMDD)) {
-		this.result = this.getText("update.errtypeOfferOBDActual");
-		exeResult = GhCommon.FAIL;
-	    }
-	}
-
-	// Offer计划日
-	if (!"".equals(this.selOfferOBDPlan)) {
-	    // 输入非日期类型时，错误
-	    if (!DateUtil.isDateFormat(this.selOfferOBDPlan, GhCommon.YYYYMMDD)) {
-		this.result = this.getText("update.errtypeOfferOBDPlan");
-		exeResult = GhCommon.FAIL;
-	    }
-	}
-	
-	// 实习日
+	// 实习日错误时，返回
 	if (!"".equals(this.selInternOBD)) {
 	    // 输入非日期类型时，错误
 	    if (!DateUtil.isDateFormat(this.selInternOBD, GhCommon.YYYYMMDD)) {
 		this.result = this.getText("update.errtypeInternOBD");
 		exeResult = GhCommon.FAIL;
+		return exeResult;
 	    }
 	}
-	
-	//错误时，返回
-	if (exeResult.equals(GhCommon.FAIL)) {
-	    this.list = (List)ActionContext.getContext().getSession().get("GhInfoListInit");
-	    return exeResult;
+
+	// Offer计划日错误时，返回
+	if (!"".equals(this.selOfferOBDPlan)) {
+	    // 输入非日期类型时，错误
+	    if (!DateUtil.isDateFormat(this.selOfferOBDPlan, GhCommon.YYYYMMDD)) {
+		this.result = this.getText("update.errtypeOfferOBDPlan");
+		exeResult = GhCommon.FAIL;
+		return exeResult;
+	    }
 	}
-	
+
+	// Offer实际日错误时，返回
+	if (!"".equals(this.selOfferOBDActual)) {
+	    // 输入非日期类型时，错误
+	    if (!DateUtil.isDateFormat(this.selOfferOBDActual, GhCommon.YYYYMMDD)) {
+		this.result = this.getText("update.errtypeOfferOBDActual");
+		exeResult = GhCommon.FAIL;
+		return exeResult;
+	    }
+	}
+
 	// 没有任何修正时，错误
 	if (!chkUpdated()) {
-	    this.list = (List)ActionContext.getContext().getSession().get("GhInfoListInit");
 	    this.result = this.getText("update.errtypeCompare");
 	    exeResult = GhCommon.FAIL;
 	    return exeResult;
 	}
-	
+
 	/** 输入确认进行实施 END **/
 
 	/** ghdetail表数据修正 START **/
@@ -226,7 +221,6 @@ public class GhUpdateAction extends ActionSupport {
 		// Where条件
 		String where = " where id = '" + this.id + "'";
 		this.list = lgc.getGhInfoList(where);
-		ActionContext.getContext().getSession().put("GhInfoListInit", this.list);
 	    }
 	} catch (SQLException e) {
 	    e.printStackTrace();
@@ -236,27 +230,26 @@ public class GhUpdateAction extends ActionSupport {
 	return SUCCESS;
 
     }
-    
+
     private boolean chkUpdated() {
-	
+
 	boolean isUpdated = true;
-	List curList = (List)ActionContext.getContext().getSession().get("GhInfoListInit");
-	GhUpdateTable tbl = (GhUpdateTable) curList.get(0);
-	
-	
-	if ((tbl.getPjname().equals(this.projecName))
-		&& (StringUtil.offerStatusValueToCd(tbl.getOfferStatus()).equals(this.selOfferStatus))
-		&& (StringUtil.offerWaitingReasonValueToCd(tbl.getOfferWaitingReason()).equals(this.selOfferWaitingReason))
-		&& (StringUtil.internFlagValueToCd(tbl.getInternFlag()).equals(this.selInternFlag))
-		&& (tbl.getInternOBD().equals(this.selInternOBD))
-		&& (tbl.getOfferOBDPlan().equals(this.selOfferOBDPlan))
-		&& (tbl.getOfferOBDActual().equals(this.selOfferOBDActual))
-		) {
-	    
-	    isUpdated = false;
+	if (this.list != null && this.list.size() > 0) {
+	    GhUpdateTable tbl = (GhUpdateTable) this.list.get(0);
+	    if ((tbl.getPjname().equals(this.projecName))
+		    && (StringUtil.offerStatusValueToCd(tbl.getOfferStatus()).equals(this.selOfferStatus))
+		    && (StringUtil.offerWaitingReasonValueToCd(tbl.getOfferWaitingReason())
+			    .equals(this.selOfferWaitingReason))
+		    && (StringUtil.internFlagValueToCd(tbl.getInternFlag()).equals(this.selInternFlag))
+		    && (tbl.getInternOBD().equals(this.selInternOBD))
+		    && (tbl.getOfferOBDPlan().equals(this.selOfferOBDPlan))
+		    && (tbl.getOfferOBDActual().equals(this.selOfferOBDActual))) {
+
+		isUpdated = false;
+	    }
 	}
-	
+
 	return isUpdated;
     }
-    
+
 }

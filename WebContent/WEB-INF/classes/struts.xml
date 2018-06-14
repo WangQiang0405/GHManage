@@ -93,6 +93,18 @@
                 <param name="height">450</param>
             </result>
         </action>
+        <action name="pieChartMf" class="zhf.action.CreateJFreeChartPieMf">
+            <result type="chart">
+                <param name="width">380</param>
+                <param name="height">250</param>
+            </result>
+        </action>
+        <action name="pieChartPj" class="zhf.action.CreateJFreeChartPiePj">
+            <result type="chart">
+                <param name="width">380</param>
+                <param name="height">250</param>
+            </result>
+        </action>
    </package>
    
    

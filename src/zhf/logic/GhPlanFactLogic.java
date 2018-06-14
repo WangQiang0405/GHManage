@@ -78,4 +78,60 @@ public class GhPlanFactLogic {
 	return totalRecs;
 
     }
+    
+    public static int getGhsexmaleCounts() {
+	int totalRecs = 0;
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	try {
+	    conn = DBUtil.getConnection();
+	    stmt = conn.createStatement();
+
+	    String sql = SqlText.SQL_PLANFACT_MALECOUNT_S;
+	    rs = stmt.executeQuery(sql);
+
+	    if (rs.next()) {
+		totalRecs = rs.getInt(1);
+	    }
+
+	} catch (Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    // 释放资源
+	    DBUtil.closeResultSet(rs);
+	    DBUtil.closeStatement(stmt);
+	    DBUtil.closeConnection(conn);
+	}
+
+	return totalRecs;
+    }
+    
+    public static int getGhsexfemaleCounts() {
+	int totalRecs = 0;
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	try {
+	    conn = DBUtil.getConnection();
+	    stmt = conn.createStatement();
+
+	    String sql = SqlText.SQL_PLANFACT_FEMALECOUNT_S;
+	    rs = stmt.executeQuery(sql);
+
+	    if (rs.next()) {
+		totalRecs = rs.getInt(1);
+	    }
+
+	} catch (Exception e) {
+	    e.printStackTrace();
+	} finally {
+	    // 释放资源
+	    DBUtil.closeResultSet(rs);
+	    DBUtil.closeStatement(stmt);
+	    DBUtil.closeConnection(conn);
+	}
+
+	return totalRecs;
+    }
 }

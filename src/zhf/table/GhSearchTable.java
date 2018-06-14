@@ -15,7 +15,7 @@ public class GhSearchTable {
 
     public GhSearchTable(BigDecimal id, String pjname, String name, String sex, String education, String school,
 	    String major, String language, String offerStatus) {
-	super();
+	
 	this.id = id;
 	this.pjname = pjname;
 	this.name = name;

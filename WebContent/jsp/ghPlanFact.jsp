@@ -59,6 +59,12 @@
 			</s:else>
 			<div id="chart" style="margin-top: 20px">
 				<img src="barChart.action"/>
+				<br>
+				<div style="float:left">
+				<img src="pieChartMf.action"/>
+				</div>
+				<div style="float:right">
+				<img src="pieChartPj.action"/>
 			</div>
 		</div>
 	</div>	

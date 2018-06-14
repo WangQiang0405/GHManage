@@ -36,7 +36,8 @@ public class SqlText {
     /** 计划与实际页面使用SQL文 **/
     // ghdetail列表实际人数记录条数取得
     public static final String SQL_PLANFACT_GH_DETAIL_S = "select count(*) from ghdetail where offerStatus = 'accept'";
-
+    public static final String SQL_PLANFACT_MALECOUNT_S = "select count(*) from ghdetail where sex = '男' and offerStatus = 'accept'";
+    public static final String SQL_PLANFACT_FEMALECOUNT_S = "select count(*) from ghdetail where sex = '女' and offerStatus = 'accept'";
     
     /** 导入应聘者信息页面使用SQL文 **/
     // ghdetail表数据取得

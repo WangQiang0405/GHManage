@@ -36,7 +36,6 @@
 		</div>
 		<s:form action="GhUpdate" theme="simple" method="post" onsubmit="" validate="true">
 		<s:hidden id="id" name="id"/>
-		<s:hidden id="list" name="list"/>
 		<s:hidden id="eventid" name="eventid"/>
 		<s:hidden id="result" name="result"/>
 		<div id="maincontent">
@@ -52,41 +51,55 @@
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.project"/></td>
-								<td class="oddRow"><s:property value="pjname"/><s:hidden id="pjname" name="pjname"/></td>
+								<td class="oddRow"><s:property value="pjname"/>
+									<s:hidden name="list[%{#ghl.index}].pjname" value="%{list[#ghl.index].pjname}"/>
+								</td>
 								<td class="updatedRow"><s:select name="projecName"  
 									list="ProjectList" listKey="key" listValue="value" style="width:150px"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.offerStatus"/></td>
-								<td class="oddRow"><s:property value="offerStatus"/><s:hidden id="offerStatus" name="offerStatus"/></td>
+								<td class="oddRow"><s:property value="offerStatus"/>
+									<s:hidden name="list[%{#ghl.index}].offerStatus" value="%{list[#ghl.index].offerStatus}"/>
+								</td>
 								<td class="updatedRow"><s:select name="selOfferStatus"
 									list="selOfferStatusList" listKey="key" listValue="value" style="width:150px"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.offerWaitingReason"/></td>
-								<td class="oddRow"><s:property value="offerWaitingReason"/><s:hidden id="offerWaitingReason" name="offerWaitingReason"/></td>
+								<td class="oddRow"><s:property value="offerWaitingReason"/>
+									<s:hidden name="list[%{#ghl.index}].offerWaitingReason" value="%{list[#ghl.index].offerWaitingReason}"/>
+								</td>
 								<td class="updatedRow"><s:select name="selOfferWaitingReason"  
 									list="selOfferWaitingReasonList" listKey="key" listValue="value" style="width:150px"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.internFlag"/></td>
-								<td class="oddRow"><s:property value="internFlag"/><s:hidden id="internFlag" name="internFlag"/></td>
+								<td class="oddRow"><s:property value="internFlag"/>
+									<s:hidden name="list[%{#ghl.index}].internFlag" value="%{list[#ghl.index].internFlag}"/>
+								</td>
 								<td class="updatedRow"><s:select name="selInternFlag"
 									list="selInternFlagList" listKey="key" listValue="value" style="width:150px"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.internOBD"/></td>
-								<td class="oddRow"><s:property value="internOBD"/><s:hidden id="internOBD" name="internOBD"/></td>
+								<td class="oddRow"><s:property value="internOBD"/>
+									<s:hidden name="list[%{#ghl.index}].internOBD" value="%{list[#ghl.index].internOBD}"/>
+								</td>
 								<td class="updatedRow"><s:textfield id="selInternOBD" name="selInternOBD" cssClass="indate" onblur="trim(this)"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.offerOBDPlan"/></td>
-								<td class="oddRow"><s:property value="offerOBDPlan"/><s:hidden id="offerOBDPlan" name="offerOBDPlan"/></td>
+								<td class="oddRow"><s:property value="offerOBDPlan"/>
+									<s:hidden name="list[%{#ghl.index}].offerOBDPlan" value="%{list[#ghl.index].offerOBDPlan}"/>
+								</td>
 								<td class="updatedRow"><s:textfield id="selOfferOBDPlan" name="selOfferOBDPlan" cssClass="indate" onblur="trim(this)"/></td>
 							</tr>
 							<tr>
 								<td class="evenRow"><s:text name="field.offerOBDActual"/></td>
-								<td class="oddRow"><s:property value="offerOBDActual"/><s:hidden id="offerOBDActual" name="offerOBDActual"/></td>
+								<td class="oddRow"><s:property value="offerOBDActual"/>
+									<s:hidden name="list[%{#ghl.index}].offerOBDActual" value="%{list[#ghl.index].offerOBDActual}"/>
+								</td>
 								<td class="updatedRow"><s:textfield id="selOfferOBDActual" name="selOfferOBDActual" cssClass="indate" onblur="trim(this)"/></td>
 							</tr>
 						</table>

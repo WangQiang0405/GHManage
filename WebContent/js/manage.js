@@ -1,7 +1,8 @@
 String.prototype.trim = function()
 {
   return this.replace(/(^\s*)|(\s*$)/g, "");
-}  
+}
+
 function changePic(pic)
 {
 	var com=document.getElementById(pic);
@@ -65,12 +66,12 @@ function changepwd()
 	{
 		if(newpwd!=renewpwd)
 		{
-			alert("��������������벻ƥ��");
+			alert("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷氩黄ワ拷锟�");
 			return false;
 		}
 		if(!pat.exec(newpwd))
 		{
-			alert("������ֻ����6~12λ��ĸ���������");
+			alert("锟斤拷锟斤拷锟斤拷只锟斤拷锟斤拷6~12位锟斤拷母锟斤拷锟斤拷锟斤拷锟斤拷锟�");
 			return false;
 		}
 	}
@@ -151,68 +152,42 @@ function getElementPos(elementId)
 	}
 	return {x:pos[0],y:pos[1],w:pos[2],h:pos[3]}; 
 }
-function check()
+
+function showErrMsg(msg,id)// msg为锟斤拷锟斤拷锟斤拷息锟侥憋拷===id为锟斤拷锟斤拷锟斤拷锟斤拷丶锟絠d
 {
-	var uidstr=document.getElementById("uid").value.trim();
-	if(uidstr=="")
-	{
-		showErrMsg("�û�������Ϊ��","uid");
-		return false;
-	}
-	var pwdstr=document.getElementById("pwd").value.trim();
-	if(pwdstr=="")
-	{
-		showErrMsg("���벻��Ϊ��","pwd");
-		return false;
-	}
-	var yanzhengmastr=document.getElementById("yanzhengma").value.trim();
-	if(yanzhengmastr=="")
-	{
-		showErrMsg("��������֤��","yanzhengma");
-		return false;
-	}
-	return true;
-	
-}
-
-
-
-
-function showErrMsg(msg,id)// msgΪ������Ϣ�ı�===idΪ��������ؼ�id
-{
-   // ��ȡ��������ؼ���λ�á��ߴ�
+   // 锟斤拷取锟斤拷锟斤拷锟斤拷锟斤拷丶锟斤拷锟轿伙拷谩锟斤拷叽锟�
    tfpos=getElementPos(id);
    xby=tfpos.y+tfpos.h-1;
    xbx=tfpos.x+tfpos.w/2;
    
-   // ��ʾ������Ϣ���
+   // 锟斤拷示锟斤拷锟斤拷锟斤拷息锟斤拷锟�
    document.all.myerr.style.left=xbx-70;
    document.all.myerr.style.top=xby+18;
    document.all.myerrs.innerHTML=msg; 
    document.all.myerr.style.visibility="visible"; 
    
-   // ��ʾ����ϵļ��ͼƬ
+   // 锟斤拷示锟斤拷锟斤拷系募锟斤拷图片
    document.all.myup.style.left=xbx-40;
    document.all.myup.style.top=xby-2;  
    document.all.myup.style.visibility="visible";
    
-   // ��ȡ������Ϣ���λ�á��ߴ�
+   // 锟斤拷取锟斤拷锟斤拷锟斤拷息锟斤拷锟轿伙拷谩锟斤拷叽锟�
    bgpos=getElementPos("myerr");
    
-   // ��ʾ�ڵ�span
+   // 锟斤拷示锟节碉拷span
    document.all.errzd.style.left=xbx-70;
    document.all.errzd.style.top=xby+18;
    document.all.errzd.style.width=bgpos.w;
    document.all.errzd.style.height=bgpos.h;
    document.all.errzd.style.visibility="visible";
    
-   // �����ڵ�����
+   // 锟斤拷锟斤拷锟节碉拷锟斤拷锟斤拷
    zdcount=5;
    span=bgpos.h/zdcount;
    setTimeout("xyzd("+span+","+(xby+18)+")",0);
 }
 
-// �������ڵ���
+// 锟斤拷锟斤拷锟斤拷锟节碉拷锟斤拷
 function xyzd(span,top)
 {           
    if(zdcount==0)
@@ -228,7 +203,7 @@ function xyzd(span,top)
    }           
 }
         
-// ���ش�����Ϣ����
+// 锟斤拷锟截达拷锟斤拷锟斤拷息锟斤拷锟斤拷
 function hideErr()
 {
     document.all.myerr.style.visibility="hidden"; 
@@ -236,7 +211,7 @@ function hideErr()
     document.all.errzd.style.visibility="hidden";
 }
 
-var zdcount=0;// �ڵ������ؼ�����
+var zdcount=0;// 锟节碉拷锟斤拷锟斤拷锟截硷拷锟斤拷锟斤拷
 	   
 function checkmax(ss)
 {alert(ss);
@@ -244,7 +219,7 @@ function checkmax(ss)
 	var tiaoye=document.getElementById(inid).value.trim();
 	if(tiaoye>totalPage)
 	{
-		showErrMsg("�������ҳ��",inid);
+		showErrMsg("锟斤拷锟斤拷锟斤拷锟揭筹拷锟�",inid);
 	}return false;
 } 
 
@@ -255,14 +230,14 @@ function addimpcheck()
 	var pat=/^[0-9]{6,12}$/;
 	if(impId=="")
 	{
-		document.getElementById("impIderr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ����Ų���Ϊ��";
+		document.getElementById("impIderr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷锟斤拷挪锟斤拷锟轿拷锟�";
 		result=false;
 	}
 	else
 	{
 		if(!pat.exec(impId))
 		{
-			document.getElementById("impIderr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>�����6��10λ�������";
+			document.getElementById("impIderr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>锟斤拷锟斤拷锟�6锟斤拷10位锟斤拷锟斤拷锟斤拷锟�";
 			result=false;
 		}
 		else
@@ -274,7 +249,7 @@ function addimpcheck()
 	var impName=document.getElementById("impName").value.trim();
 	if(impName=="")
 	{
-		document.getElementById("impNameerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ����������Ϊ��";
+		document.getElementById("impNameerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
@@ -286,14 +261,14 @@ function addimpcheck()
 	    pat=/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
 	if(impEmail=="")
 	{
-		document.getElementById("impEmailerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ�����䲻��Ϊ��";
+		document.getElementById("impEmailerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷锟斤拷锟戒不锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
 	{
 		if(!pat.exec(impEmail))
 		{
-			document.getElementById("impEmailerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>�����ʽ����ȷ";
+			document.getElementById("impEmailerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>锟斤拷锟斤拷锟绞斤拷锟斤拷锟饺�";
 			result=false;
 		}
 		else
@@ -307,14 +282,14 @@ function addimpcheck()
 	    pat=/^[0-9]{6,15}$/;
 	if(impTel=="")
 	{
-		document.getElementById("impTelerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ���绰����Ϊ��";
+		document.getElementById("impTelerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷锟界话锟斤拷锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
 	{
 		if(!pat.exec(impTel))
 		{
-			document.getElementById("impTelerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>�绰��ʽ����ȷ";
+			document.getElementById("impTelerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>锟界话锟斤拷式锟斤拷锟斤拷确";
 			result=false;
 		}
 		else
@@ -325,7 +300,7 @@ function addimpcheck()
 	var impRoll=document.getElementById("impRoll").value.trim();
 	if(impRoll=="")
 	{
-		document.getElementById("impRollerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ��ְλ����Ϊ��";
+		document.getElementById("impRollerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷职位锟斤拷锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
@@ -336,14 +311,14 @@ function addimpcheck()
 	    pat=/^\d+(\.\d+)?$/;
 	if(impSalary=="")
 	{
-		document.getElementById("impSalaryerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ������н�ʲ���Ϊ��";
+		document.getElementById("impSalaryerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷锟斤拷锟斤拷薪锟绞诧拷锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
 	{
 		if(!pat.exec(impSalary))
 		{
-			document.getElementById("impSalaryerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>����н�ʸ�ʽ����ȷ";
+			document.getElementById("impSalaryerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>锟斤拷锟斤拷薪锟绞革拷式锟斤拷锟斤拷确";
 			result=false;
 		}
 		else
@@ -356,7 +331,7 @@ function addimpcheck()
 	var impBio=document.getElementById("impBio").value.trim();
 	if(impBio=="")
 	{
-		document.getElementById("impBioerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ����������Ϊ��";
+		document.getElementById("impBioerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
@@ -372,7 +347,7 @@ function editimpcheck()
 	var impName=document.getElementById("impName").value.trim();
 	if(impName=="")
 	{
-		document.getElementById("impNameerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ����������Ϊ��";
+		document.getElementById("impNameerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
@@ -384,14 +359,14 @@ function editimpcheck()
 	    var pat=/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
 	if(impEmail=="")
 	{
-		document.getElementById("impEmailerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ�����䲻��Ϊ��";
+		document.getElementById("impEmailerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷锟斤拷锟戒不锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
 	{
 		if(!pat.exec(impEmail))
 		{
-			document.getElementById("impEmailerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>�����ʽ����ȷ";
+			document.getElementById("impEmailerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>锟斤拷锟斤拷锟绞斤拷锟斤拷锟饺�";
 			result=false;
 		}
 		else
@@ -405,14 +380,14 @@ function editimpcheck()
 	    pat=/^[0-9]{6,15}$/;
 	if(impTel=="")
 	{
-		document.getElementById("impTelerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ���绰����Ϊ��";
+		document.getElementById("impTelerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷锟界话锟斤拷锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
 	{
 		if(!pat.exec(impTel))
 		{
-			document.getElementById("impTelerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>�绰��ʽ����ȷ";
+			document.getElementById("impTelerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>锟界话锟斤拷式锟斤拷锟斤拷确";
 			result=false;
 		}
 		else
@@ -423,7 +398,7 @@ function editimpcheck()
 	var impRoll=document.getElementById("impRoll").value.trim();
 	if(impRoll=="")
 	{
-		document.getElementById("impRollerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ��ְλ����Ϊ��";
+		document.getElementById("impRollerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷职位锟斤拷锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
@@ -434,14 +409,14 @@ function editimpcheck()
 	    pat=/^\d+(\.\d+)?$/;
 	if(impSalary=="")
 	{
-		document.getElementById("impSalaryerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ������н�ʲ���Ϊ��";
+		document.getElementById("impSalaryerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷锟斤拷锟斤拷薪锟绞诧拷锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
 	{
 		if(!pat.exec(impSalary))
 		{
-			document.getElementById("impSalaryerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>����н�ʸ�ʽ����ȷ";
+			document.getElementById("impSalaryerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>锟斤拷锟斤拷薪锟绞革拷式锟斤拷锟斤拷确";
 			result=false;
 		}
 		else
@@ -454,7 +429,7 @@ function editimpcheck()
 	var impBio=document.getElementById("impBio").value.trim();
 	if(impBio=="")
 	{
-		document.getElementById("impBioerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>ְ����������Ϊ��";
+		document.getElementById("impBioerr").innerHTML="<img style=\"width:12px;height:12px;\" src=\"images/cuo.gif\"/>职锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷为锟斤拷";
 		result=false;
 	}
 	else
@@ -470,14 +445,14 @@ function editdepartcheck()
 	var departName=document.getElementById("departName").value.trim();
 	if(departName=="")
 	{
-		alert("�������Ʋ���Ϊ��");
+		alert("锟斤拷锟斤拷锟斤拷锟狡诧拷锟斤拷为锟斤拷");
 		return false;
 	}
 	
 	var departDescrip=document.getElementById("departDescrip").value.trim();
 	if(departDescrip=="")
 	{
-		alert("������������Ϊ��");
+		alert("锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷为锟斤拷");
 		return false;
 	}
 	return true;
