@@ -111,14 +111,14 @@
 								list="ProjectList" listKey="key" listValue="value" style="width:120px"/>
 						</td>
 						<td colspan="2"></td>
-						<td width="45%" rowspan="2" ><s:submit id="submit" value="%{getText(\"botton.search\")}"
+						<td width="68%" rowspan="2" ><s:submit id="submit" value="%{getText(\"botton.search\")}"
 							cssClass="search" onmouseover="this.className='searchover';" onmouseout="this.className='search';" onclick="submitOnSearch()"/></td>
 					</tr>
 					<tr>
-						<td style="font-size: 14px" width="6%"><s:text name="field.name"/></td>
-						<td width="20%"><s:textfield id="ghname" name="ghname" cssClass="inname" onblur="trim(this)"/></td>
-						<td style="font-size: 14px" width="10%"><s:text name="field.offerStatus"/></td>
-						<td ><s:select name="OfferStatus"
+						<td style="font-size: 14px" width="4%"><s:text name="field.name"/></td>
+						<td width="10%"><s:textfield id="ghname" name="ghname" cssClass="inname" onblur="trim(this)"/></td>
+						<td style="font-size: 14px" width="6%"><s:text name="field.offerStatus"/></td>
+						<td width="10%"><s:select name="OfferStatus"
 								list="#{'0':'全部','1':'Sent','2':'Accept','3':'Decline','4':'Waiting'}"
 								style="width:100px"/></td>
 					</tr>
@@ -129,7 +129,7 @@
 			<table  style="border-width:thin thin thin thin" border="0" bgcolor="#e2e2e2" cellspacing="1" align="center" width="100%">
 				<tr class="headerClass" style="boder-bottom-width:1px">
 					<th width="14%"><s:text name="field.project"/></th>
-					<th width="12%"><s:text name="field.name"/></th>
+					<th width="11%"><s:text name="field.name"/></th>
 					<th width="6%"><s:text name="field.sex"/></th>
 					<th width="19%"><s:text name="field.graduatedSchool"/></th>
 					<th width="29%"><s:text name="field.major"/></th>
@@ -222,7 +222,7 @@
 					</s:else>
 				</div>
 			</div>
-			<div id="foot" style="margin-top:20px">
+			<div id="foot">
 				<table border="0" align="center" >
 					<tr>
 						<td ><s:submit id="execute" name="execute" value="决 定"

@@ -8,14 +8,14 @@ body{
 	text-align:center;min-width:980px;background-color:white;
 }
 #container{
-	width:980px;margin:0 auto;text-align:left;background-color:white;
+	width:98%;margin:0 auto;text-align:left;background-color:white;
 }
 #tophead{
-	float:left;width:980px;margin:0 0;height:100px;
+	float:left;width:100%;margin:0 0;height:100px;
 }
 #leftcontent{
-	float:left;width:200px;margin-top:3px;
+	float:left;width:12%;margin-top:3px;margin-left:1%;
 }
 #maincontent{
-	float:right;width:780px;margin-top:3px;
+	float:right;width:86%;margin-top:3px;margin-right:1%;
 }

@@ -60,11 +60,11 @@
 		<s:form id="bookList"  name="bookListName" action="GhTrack" theme="simple" method="post" onsubmit="" validate="true">
 		<s:hidden id="eventid" name="eventid" value="0"/>
 		<div id="maincontent">
-			<div id="operate">
+			<div id="operate" style="margin-top:10px">
 				<div style="float:left">
-			    <H3 style=""><img src="images/h3.gif"><s:text name="projectList.xuanzhexiangmu"/>&nbsp;</H3>
+			    <H3><img src="images/h3.gif"><s:text name="projectList.xuanzhexiangmu"/>&nbsp;</H3>
 			    </div>
-			    <div style="margin-top:10px">
+			    <div>
 			    <s:select name="projecName" label="%{getText(\"projectList.xuanzhexiangmu\")}" labelposition="left" 
 				list="ProjectList" listKey="key" listValue="value" style="width:120px" onchange="submitOnChange();"/>
 			    </div>
