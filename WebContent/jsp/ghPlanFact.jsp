@@ -66,6 +66,7 @@
 				<div style="float:right">
 				<img src="pieChartPj.action"/>
 			</div>
+			</div>
 		</div>
 	</div>	
 	</body>

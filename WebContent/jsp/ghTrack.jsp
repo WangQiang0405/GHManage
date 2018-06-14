@@ -156,6 +156,6 @@
 			</s:else>
 		</div>
 	</s:form>
-	</div>	
+	</div>
 	</body>
 </html>
