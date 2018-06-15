@@ -48,7 +48,7 @@
 		<div id="leftTree">
 			<ul>	
 				<li><a href="#" onclick="change(1);" id="li1" class="kai">招聘状况</a></li>
-				<li id="li11" style="display:block;" class="son"><a class="sons" href="GhTargetList.action">计划与实际</a></li>
+				<li id="li11" style="display:block;" class="son"><a class="sons" href="GhTarget.action">计划与实际</a></li>
 				<li id="li12" style="display:block;" class="son"><a class="sons" href="GhTrack.action">实时跟踪</a></li>
 				<li id="li13" style="display:block;" class="son"><a class="sons" href="GhSearchInit.action">修正</a></li>
 				

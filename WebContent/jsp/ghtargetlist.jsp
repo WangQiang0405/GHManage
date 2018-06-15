@@ -24,7 +24,7 @@
 		</div>
 		<div id="maincontent">
 			<div id="topop">
-				<s:form action="GhTargetList" >
+				<s:form action="GhTarget" >
 				<s:select name="projecName" label="%{getText(\"projectList.xuanzhexiangmu\")}" labelposition="left" 
 				list="ProjectList" listKey="key" listValue="value" onchange="this.form.submit();"/>
 				</s:form>			

@@ -27,7 +27,7 @@ public class GhPlanFactLogic {
 	    stmt = conn.createStatement();
 	    String sql = pjname.equals("0000") ? "" : " where pjname = '" + pjname + "'";
 
-	    if (actionName.equals("GhTargetListAction")) {
+	    if (actionName.equals("GhTargetAction")) {
 		String sql1 = SqlText.SQL3_GHTARGETALL + sql;
 		rs = stmt.executeQuery(sql1);
 		while (rs.next()) {

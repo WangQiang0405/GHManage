@@ -8,7 +8,7 @@
        <action name="GhLogin" class="zhf.action.GhLoginAction">
           	<result name="success">/jsp/login.jsp</result>
           	<result name="personal" type="redirectAction">
-          	    <param name="actionName">GhTargetList</param>
+          	    <param name="actionName">GhTarget</param>
            	</result>
           	<result name="manage" type="redirectAction">
                 <param name="actionName">GhUserAuth</param>
@@ -21,7 +21,7 @@
    </package>
    
    <package name="personal" extends="struts-default">
-       <action name="GhTargetList" class="zhf.action.GhTargetListAction">
+       <action name="GhTarget" class="zhf.action.GhTargetAction">
           	<result name="success">/jsp/ghPlanFact.jsp</result>
            	<result name="input">/jsp/ghPlanFact.jsp</result> 
            	<result>/jsp/ghPlanFact.jsp</result>       

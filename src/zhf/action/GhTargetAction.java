@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import zhf.logic.GhPlanFactLogic;
 import zhf.util.DBUtil;
 
-public class GhTargetListAction extends ActionSupport {
+public class GhTargetAction extends ActionSupport {
 
     private String ProjecName = "0000";
 
@@ -40,7 +40,7 @@ public class GhTargetListAction extends ActionSupport {
 	}
 
 	GhPlanFactLogic lgc = new GhPlanFactLogic();
-	List list = lgc.getTargetGhList(ProjecName, 0, 0, "GhTargetListAction");
+	List list = lgc.getTargetGhList(ProjecName, 0, 0, "GhTargetAction");
 	return list;
     }
 
