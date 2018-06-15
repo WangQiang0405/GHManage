@@ -11,11 +11,11 @@
           	    <param name="actionName">GhTargetList</param>
            	</result>
           	<result name="manage" type="redirectAction">
-                <param name="actionName">UserAuthList</param>
+                <param name="actionName">GhUserAuth</param>
           	</result>
           	<result name="input">/jsp/login.jsp</result>    
        </action>
-       <action name="zhuXiao" class="zhf.action.ZhuXiaoAction">
+       <action name="GhZhuXiao" class="zhf.action.GhZhuXiaoAction">
             <result name="success">/jsp/login.jsp</result>
        </action>
    </package>
@@ -74,7 +74,7 @@
    </package>
    
    <package name="manage" extends="struts-default">
-       <action name="UserAuthList" class="zhf.action.UserAuthListAction">
+       <action name="GhUserAuth" class="zhf.action.GhUserAuthAction">
           	<result name="success">/jsp/userauthlist.jsp</result>
            	<result name="input">/jsp/userauthlist.jsp</result> 
            	<result>/jsp/userauthlist.jsp</result>       

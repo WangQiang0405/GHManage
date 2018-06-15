@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import zhf.logic.GhUserAuthLogic;
 
-public class UserAuthListAction extends ActionSupport {
+public class GhUserAuthAction extends ActionSupport {
     private int pageSpan = 5;
     private int currenPageNo = 1;
     // private String departId="0000";

@@ -48,7 +48,7 @@
 		<div id="leftTree">
 			<ul>	
 				<li><a href="#" onclick="change(1);" id="li1" class="kai">信息管理</a></li>
-				<li id="li11" style="display:block;" class="son"><a class="sons" href="UserAuthList.action">用户权限变更</a></li>
+				<li id="li11" style="display:block;" class="son"><a class="sons" href="GhUserAuth.action">用户权限变更</a></li>
 				<li id="li12" style="display:block;" class="son"><a class="sons" href="GhTrack.action">学生信息追加</a></li>
 				<li id="li13" style="display:block;" class="son"><a class="sons" href="GhJhSjGap.action">学生信息修改</a></li>
 								

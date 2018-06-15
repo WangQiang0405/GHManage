@@ -24,7 +24,7 @@
 		</div>
 		<div id="maincontent">
 			<div id="topop">
-				<s:form action="UserAuthList" >
+				<s:form action="GhUserAuth" >
 				<s:select name="userId" label="%{getText(\"userIdList.xuanzheyonghu\")}" labelposition="left" 
 				list="UserList" listKey="key" listValue="value" onchange="this.form.submit();"/>
 				</s:form>
@@ -64,22 +64,22 @@
 				<span class="totalnum"><s:property value="totalMessage"/><s:text name="impleeyList.jilushu"/></span>
 				</div>
 				<div class="pageop">
-				<s:form action="UserAuthList" >
+				<s:form action="GhUserAuth" >
 				<s:select name="pageSpan" id="pagespan"
 				list="spanList" listKey="key" listValue="value" onchange="this.form.submit();"/>
 				</s:form>
 				<span class="shangye">
 					<s:if test="currenPageNo>1">
-						<a href="UserAuthList.action?currenPageNo=<s:property value="currenPageNo-1"/>"><s:text name="impleeyList.shangye"/></a>
+						<a href="GhUserAuth.action?currenPageNo=<s:property value="currenPageNo-1"/>"><s:text name="impleeyList.shangye"/></a>
 					</s:if>
 				</span>
 				<span class="xiaye">
 				<s:if test="currenPageNo<maxPageNo">
-					<a href="UserAuthList.action?currenPageNo=<s:property value="currenPageNo+1"/>"><s:text name="impleeyList.xiaye"/></a>
+					<a href="GhUserAuth.action?currenPageNo=<s:property value="currenPageNo+1"/>"><s:text name="impleeyList.xiaye"/></a>
 				</s:if>
 				</span>
 				
-				<s:form action="UserAuthList" theme="simple" >
+				<s:form action="GhUserAuth" theme="simple" >
 					<span class="tiaozhuan"><s:text name="impleeyList.tiaozhuan"/></span>
 					<s:textfield id="tiaoye" name="currenPageNo" cssClass="yefield" onmouseover="this.select();"/><span class="ye"><s:text name="impleeyList.ye"/></span>
 					<s:submit value="%{getText(\"impleeyList.queding\")}" cssClass="queding" 
