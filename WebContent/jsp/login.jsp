@@ -21,7 +21,7 @@
 				</div>
 				
 				<div id="operate">
-					<s:form action="login" theme="simple" method="post" onsubmit="return check();" validate="true">
+					<s:form action="GhLogin" theme="simple" method="post" onsubmit="return check();" validate="true">
 						<p><s:text name="login.info"/></p>
 						<span class="uid"><s:text name="login.name"/></span>
 						<s:textfield id="uid" name="uid" cssClass="inuid"/>

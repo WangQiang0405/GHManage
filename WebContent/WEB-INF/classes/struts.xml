@@ -5,7 +5,7 @@
 <struts>
 	
    <package name="login" extends="struts-default">
-       <action name="login" class="zhf.action.LoginAction">
+       <action name="GhLogin" class="zhf.action.GhLoginAction">
           	<result name="success">/jsp/login.jsp</result>
           	<result name="personal" type="redirectAction">
           	    <param name="actionName">GhTargetList</param>

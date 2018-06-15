@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.validator.annotations.Validation;
 import zhf.logic.GhLoginLogic;
 
 @Validation()
-public class LoginAction extends ActionSupport {
+public class GhLoginAction extends ActionSupport {
     private String uid = "";
     private String pwd = "";
     private String yanzhengma;
