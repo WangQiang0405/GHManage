@@ -23,19 +23,27 @@
 		<div id="leftcontent">
 			<s:include value="/jsp/lefttree.jsp"/>
 		</div>
-		<div id="maincontent">
-			<H3 style="margin-top:10px"><img src="images/h3.gif"><s:text name="import.head"/></H3>
-			<div id="operate">
-				<s:form action="GhImportExe" theme="simple" method="post" onsubmit="" validate="true">
-					<input type="file" id="file" accept=".xls,.xlsx" style="display:none"> 
-					<s:textfield id="importPath" name="importPath" cssClass="inuid"/>
-					<input type="button" name="inPath" value="..." onclick="openFile()"
-					class="inbutton" onmouseover="this.className='inbuttonover';" onmouseout="this.className='inbutton';"/>
-					<s:submit id="submit" value="%{getText(\"botton.import\")}"
-					cssClass="import" onmouseover="this.className='importover';" onmouseout="this.className='import';"/>
-					<s:textfield id="result" name="result" cssStyle="display:none"/>
-				</s:form>
+		<div id="maincontent" style="text-align:center">
+			<s:form action="GhImportExe" theme="simple" method="post" onsubmit="" validate="true">
+			<H3 style="margin-top:30px"><s:text name="import.head"/></H3>
+			<div id="operate" style="text-align:center">
+				<input type="file" id="file" accept=".xls,.xlsx" style="display:none"> 
+				<s:textfield id="importPath" name="importPath" cssClass="inPath"/>
+				<input type="button" name="inPath" value="..." onclick="openFile()"
+				class="inbutton" onmouseover="this.className='inbuttonover';" onmouseout="this.className='inbutton';"/>
+				<s:textfield id="result" name="result" cssStyle="display:none"/>
 			</div>
+			<div id="foot">
+				<table border="0" align="center">
+					<tr>
+						<td>
+							<s:submit id="submit" value="%{getText(\"botton.import\")}"
+								cssClass="import" onmouseover="this.className='importover';" onmouseout="this.className='import';"/>
+						</td>
+					</tr>
+				</table>
+			</div>
+			</s:form>
 		</div>
 	</div>
 		<!-- 用来浮动显示提示信息的容器 -->

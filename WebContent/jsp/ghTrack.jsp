@@ -8,45 +8,44 @@
 		<link href="css/commonStyle.css" rel="stylesheet" type="text/css"/>
 		<script language="JavaScript" src="js/manage.js"></script>
 		<script language="JavaScript">
-		function mymouseout(id,styleclass) {
-			document.getElementById(id).className=styleclass;
-		}
-		function submitFrom() {
-		    var obj = document.getElementById("eventid");
-		    obj.value = "2";
-		    var obj = document.getElementById("currenPageNo");
-		    obj.value = 1;
-		}
-		function submitPrevious() {
-		    var obj = document.getElementById("eventid");
-		    obj.value = "2";
-		    var obj = document.getElementById("currenPageNo");
-		    obj.value = parseInt(obj.value) - 1;
-		}
-		function submitNext() {
-		    var obj = document.getElementById("eventid");
-		    obj.value = "2";
-		    var obj = document.getElementById("currenPageNo");
-		    obj.value = parseInt(obj.value) + 1;
-		}
-		function submitTo() {
-		    var obj = document.getElementById("eventid");
-		    obj.value = "2";
-		    var obj = document.getElementById("currenPageNo");
-		    var objMax = document.getElementById("maxPageNo");
-		    obj.value = objMax.value;
-		}
-		function submitOnOk() {
-		    var obj = document.getElementById("eventid");
-		    obj.value = "3";
-		}
-		function submitOnChange(){
-		    var objEvent = document.getElementById("eventid");
-		    objEvent.value = "1";
-		    var objClick = document.getElementById("submitSearch");
-		    objClick.click();
-		}
-		
+			function mymouseout(id,styleclass) {
+				document.getElementById(id).className=styleclass;
+			}
+			function submitFrom() {
+			    var obj = document.getElementById("eventid");
+			    obj.value = "2";
+			    var obj = document.getElementById("currenPageNo");
+			    obj.value = 1;
+			}
+			function submitPrevious() {
+			    var obj = document.getElementById("eventid");
+			    obj.value = "2";
+			    var obj = document.getElementById("currenPageNo");
+			    obj.value = parseInt(obj.value) - 1;
+			}
+			function submitNext() {
+			    var obj = document.getElementById("eventid");
+			    obj.value = "2";
+			    var obj = document.getElementById("currenPageNo");
+			    obj.value = parseInt(obj.value) + 1;
+			}
+			function submitTo() {
+			    var obj = document.getElementById("eventid");
+			    obj.value = "2";
+			    var obj = document.getElementById("currenPageNo");
+			    var objMax = document.getElementById("maxPageNo");
+			    obj.value = objMax.value;
+			}
+			function submitOnOk() {
+			    var obj = document.getElementById("eventid");
+			    obj.value = "3";
+			}
+			function submitOnChange(){
+			    var objEvent = document.getElementById("eventid");
+			    objEvent.value = "1";
+			    var objClick = document.getElementById("submitSearch");
+			    objClick.click();
+			}
 		</script>
 	</head>
 	<body>
@@ -58,7 +57,7 @@
 			<s:include value="/jsp/lefttree.jsp"/>
 		</div>
 		<s:form id="bookList"  name="bookListName" action="GhTrack" theme="simple" method="post" onsubmit="" validate="true">
-		<s:hidden id="eventid" name="eventid" value="0"/>
+		<s:hidden id="eventid" name="eventid"/>
 		<div id="maincontent">
 			<div id="operate" style="margin-top:10px">
 				<div style="float:left">
@@ -70,15 +69,15 @@
 			    </div>
 			</div>
 			<s:if test="GhBookList.size()!=0">
-				<table border="0" bgcolor="#e2e2e2" cellspacing="1" align="center" width="770px">
+				<table border="0" bgcolor="#e2e2e2" cellspacing="1" align="center" width="100%">
 					<tr class="headerClass">
 						<th width="13%"><s:text name="field.project"/></th>
-						<th width="9%"><s:text name="field.name"/></th>
+						<th width="8%"><s:text name="field.name"/></th>
 						<th width="6%"><s:text name="field.sex"/></th>
-						<th width="14%"><s:text name="field.offerStatus"/></th>
+						<th width="12%"><s:text name="field.offerStatus"/></th>
 						<th width="6%"><s:text name="field.internFlag"/></th>
 						<th width="26%"><s:text name="field.reportingManager"/></th>
-						<th width="15%"><s:text name="field.offerOBDPlan"/></th>
+						<th width="13%"><s:text name="field.offerOBDPlan"/></th>
 						<th width="11%"><s:text name="field.detail"/></th>
 					</tr>
 					<s:iterator id="List" value="GhBookList" status="ghl">
@@ -148,7 +147,7 @@
 				<s:submit id="submitSearch" value="%{getText(\"botton.hidden\")}" cssClass="btnHidden" style="display:none"/>
 				
 				</div>
-				</div>	
+				</div>
 				
 			</s:if>
 			<s:else>

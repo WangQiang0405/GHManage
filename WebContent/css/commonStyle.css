@@ -232,63 +232,31 @@
 #operate .inuid{
 	height:20px;position:absolute;margin-top:5px;margin-left:10px;width:500px;
 }
+#operate .inPath{
+	height:25px;margin-top:20px;width:50%;
+}
 #operate .inbutton{
 	background:url(../images/smallBlueButton.gif);
 	opacity:1;
 	border:none;
-	width:44px;
+	width:43px;
 	height:24px;
 	text-align:center;
 	vertical-align:middle;
 	font-weight:bold;
 	font-size:15px;
 	/*position:relative;*/
-	margin-top:2px;
-	margin-left:515px;
-	vertical-align:middle;
-	text-align:center;
 }
 #operate .inbuttonover{
 	background:url(../images/smallOrangeButton.gif);
 	opacity:1;
 	border:none;
-	width:44px;
+	width:43px;
 	height:24px;
 	text-align:center;
 	vertical-align:middle;
 	font-weight:bold;
 	font-size:15px;
-	/*position:relative;*/
-	margin-top:2px;
-	margin-left:515px;
-	vertical-align:middle;
-	text-align:center;
-}
-#operate .import{
-	background:url(../images/blueButton.png);
-	opacity:1;
-	border:none;
-	width:94px;
-	height:28px;
-	text-align:center;
-	vertical-align:middle;
-	font-weight:bold;
-	font-size:15px;
-	margin-top:10px;
-	margin-left:220px;
-}
-#operate .importOver{
-	background:url(../images/orangeButton.png);
-	opacity:1;
-	border:none;
-	width:94px;
-	height:28px;
-	text-align:center;
-	vertical-align:middle;
-	font-weight:bold;
-	font-size:15px;
-	margin-top:10px;
-	margin-left:220px;
 }
 #operate .search{
 	background:url(../images/blueButton.png);
@@ -347,6 +315,28 @@
 	font-size:15px;
 }
 #foot .footsearchover{
+	background:url(../images/orangeButton.png);
+	opacity:1;
+	border:none;
+	width:94px;
+	height:28px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+}
+#foot .import{
+	background:url(../images/blueButton.png);
+	opacity:1;
+	border:none;
+	width:94px;
+	height:28px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:15px;
+}
+#foot .importOver{
 	background:url(../images/orangeButton.png);
 	opacity:1;
 	border:none;

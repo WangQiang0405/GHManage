@@ -15,7 +15,7 @@
 				<h1><i><s:text name="top.title"/></i></h1>
 			</div>
 			<div id="simpleinfo">
-				<p><span><s:text name="top.info"/></span><span id="time"></span><a href="zhuXiao.action">ÍË³öµÇÂ¼</a></p>
+				<p><span><s:text name="top.info"/></span><span id="time"></span><a href="zhuXiao.action">ÍË³ö</a></p>
 			</div>
 		</div>
 	</body>

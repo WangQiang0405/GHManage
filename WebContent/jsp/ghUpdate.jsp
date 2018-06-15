@@ -108,7 +108,7 @@
 			</div>
 			<div id="buttomop">
 			</div>
-			<div id="foot" style="margin-top:20px">
+			<div id="foot">
 				<div style="float:left;margin-left:33%">
 			    	<input type="button" id="back" value="·µ »Ø"
 						class="footsearch" onmouseover="this.className='footsearchover';" onmouseout="this.className='footsearch';" onclick="backExe()"/>
