@@ -36,6 +36,15 @@ public class GhImportLogic {
 
 	try {
 	    
+	    /** 读入Excel数据Check **/
+	    ExcelRead ex = new ExcelRead();
+	    List<String> lstExcelData = ex.exportListFromExcel(filePath, "GH Details");
+	    // 清除空白行
+	    ex.listBlankLineClear(lstExcelData);
+	    if (lstExcelData == null || lstExcelData.size() == 0) {
+		result = GhCommon.FAIL;
+		return result;
+	    }
 	    /** ghdetail表数据删除 **/
 	    // 获取DB连接
 	    conn = DBUtil.getConnection();
@@ -52,10 +61,6 @@ public class GhImportLogic {
 	    /** 从Excel中读入数据后，插入到ghdetail表中 **/
 	    // 从Excel中读入数据
 	    pstmtI = conn.prepareStatement(strSqlGhdetailI);
-	    ExcelRead ex = new ExcelRead();
-	    List<String> lstExcelData = ex.exportListFromExcel(filePath, "GH Details");
-	    // 清除空白行
-	    ex.listBlankLineClear(lstExcelData);
 	    // 把Excel数据循环登陆到ghdetail表中
 	    for (int i = 0; i < lstExcelData.size(); i++) {
 		String strLineData = (String) lstExcelData.get(i);

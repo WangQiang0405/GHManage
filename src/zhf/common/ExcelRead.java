@@ -68,73 +68,73 @@ public class ExcelRead {
 	    // 同时支持Excel 2003、2007
 	    fs = new FileInputStream(file); // 文件流
 	    Workbook workbook = getWorkbok(fs, file);
-
 	    // 获取要遍历的Sheet
-	    Sheet sheet = workbook.getSheet(sheetName); 
+	    Sheet sheet = workbook.getSheet(sheetName);
 
 	    // 为跳过第一行目录设置count
 	    int count = 0;
 	    StringBuffer rowValue = null;
-
-	    for (Row row : sheet) {
-		// 跳过第一行的目录
-		if (count == 0) {
-		    count++;
-		    continue;
-		}
-		rowValue = new StringBuffer();
-		for (Cell cell : row) {
-		    if (cell.toString() == null) {
+	    if (sheet != null) {
+		for (Row row : sheet) {
+		    // 跳过第一行的目录
+		    if (count == 0) {
+			count++;
 			continue;
 		    }
-		    int cellType = cell.getCellType();
-		    String cellValue = "";
-		    switch (cellType) {
-		    case Cell.CELL_TYPE_STRING: // 文本
-			cellValue = cell.getRichStringCellValue().getString();
-			break;
-		    case Cell.CELL_TYPE_NUMERIC: // 数字、日期
-			// 日期格式
-			short style = cell.getCellStyle().getDataFormat();
-			if (DateUtil.isCellDateFormatted(cell)) {
-			    cellValue = fmt.format(cell.getDateCellValue());
-			} else if (style == 178) {// yyyy年MM月dd日
-			    cellValue = fmt.format(cell.getDateCellValue());
-			} else {
+		    rowValue = new StringBuffer();
+		    for (Cell cell : row) {
+			if (cell.toString() == null) {
+			    continue;
+			}
+			int cellType = cell.getCellType();
+			String cellValue = "";
+			switch (cellType) {
+			case Cell.CELL_TYPE_STRING: // 文本
+			    cellValue = cell.getRichStringCellValue().getString();
+			    break;
+			case Cell.CELL_TYPE_NUMERIC: // 数字、日期
+			    // 日期格式
+			    short style = cell.getCellStyle().getDataFormat();
+			    if (DateUtil.isCellDateFormatted(cell)) {
+				cellValue = fmt.format(cell.getDateCellValue());
+			    } else if (style == 178) {// yyyy年MM月dd日
+				cellValue = fmt.format(cell.getDateCellValue());
+			    } else {
+				cell.setCellType(Cell.CELL_TYPE_STRING);
+				cellValue = String.valueOf(cell.getRichStringCellValue().getString());
+			    }
+			    break;
+			case Cell.CELL_TYPE_FORMULA: // 公式
+			    // 得到对应单元格的公式
+			    // cellValue = cell.getCellFormula() + "#";
+			    // 得到对应单元格的字符串
 			    cell.setCellType(Cell.CELL_TYPE_STRING);
 			    cellValue = String.valueOf(cell.getRichStringCellValue().getString());
+			    break;
+			case Cell.CELL_TYPE_BOOLEAN: // 布尔型
+			    cellValue = String.valueOf(cell.getBooleanCellValue());
+			    break;
+			case Cell.CELL_TYPE_BLANK: // 空白
+			    cellValue = cell.getStringCellValue();
+			    break;
+			case Cell.CELL_TYPE_ERROR: // 错误
+			    cellValue = GhCommon.BLANK;
+			    break;
+			default:
+			    cellValue = GhCommon.BLANK;
+			    break;
 			}
-			break;
-		    case Cell.CELL_TYPE_FORMULA: // 公式
-			// 得到对应单元格的公式
-			// cellValue = cell.getCellFormula() + "#";
-			// 得到对应单元格的字符串
-			cell.setCellType(Cell.CELL_TYPE_STRING);
-			cellValue = String.valueOf(cell.getRichStringCellValue().getString());
-			break;
-		    case Cell.CELL_TYPE_BOOLEAN: // 布尔型
-			cellValue = String.valueOf(cell.getBooleanCellValue());
-			break;
-		    case Cell.CELL_TYPE_BLANK: // 空白
-			cellValue = cell.getStringCellValue();
-			break;
-		    case Cell.CELL_TYPE_ERROR: // 错误
-			cellValue = GhCommon.BLANK;
-			break;
-		    default:
-			cellValue = GhCommon.BLANK;
-			break;
+			// System.out.print(cellValue);
+			rowValue.append(cellValue);
+			rowValue.append(GhCommon.ALARM);
 		    }
-		    // System.out.print(cellValue);
-		    rowValue.append(cellValue);
-		    rowValue.append(GhCommon.ALARM);
+		    String strRowValue = rowValue.toString();
+		    // System.out.println(strRowValue);
+		    int intRowValueLen = strRowValue.length();
+		    strRowValue = strRowValue.substring(0, intRowValueLen - 1);
+		    lstExcelData.add(strRowValue);
+		    // System.out.println(strRowValue);
 		}
-		String strRowValue = rowValue.toString();
-		// System.out.println(strRowValue);
-		int intRowValueLen = strRowValue.length();
-		strRowValue = strRowValue.substring(0, intRowValueLen - 1);
-		lstExcelData.add(strRowValue);
-		// System.out.println(strRowValue);
 	    }
 
 	    // 關閉文件
