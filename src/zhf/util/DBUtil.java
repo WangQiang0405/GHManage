@@ -1,22 +1,15 @@
 package zhf.util;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import zhf.common.SqlText;
-import zhf.table.GhBookListTable;
-import zhf.table.GhDetailTable;
-import zhf.table.GhTargetTable;
-import zhf.table.UserInfoTable;
 
 public class DBUtil {
 
@@ -81,46 +74,6 @@ public class DBUtil {
 	}
     }
 
-    // 用户登录时验证
-    public static String[] login(String user, String pwd) {
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
-
-	String[] userinfo = new String[2];// impinfo[0]:0表示没有这个用户，1表示管理员，2表示普通用户
-
-	try {
-	    conn = getConnection();
-	    pstmt = conn.prepareStatement(SqlText.SQL1_LOGIN);
-	    pstmt.setString(1, user);
-	    pstmt.setString(2, pwd);
-	    rs = pstmt.executeQuery();
-	    if (rs.next()) {
-		userinfo[0] = rs.getInt("usertype") + "";
-		userinfo[1] = rs.getString("userid");
-	    } else {
-		userinfo[0] = "0";
-	    }
-	} catch (SQLException e) {
-	    e.printStackTrace();
-	} finally {
-	    try {
-		if (conn != null) {
-		    conn.close();
-		}
-		if (pstmt != null) {
-		    pstmt.close();
-		}
-		if (rs != null) {
-		    rs.close();
-		}
-	    } catch (SQLException e) {
-		e.printStackTrace();
-	    }
-	}
-	return userinfo;
-    }
-
     // 获取Project Name 列表
     public static Map getProjectList() {
 	Map map = new HashMap();
@@ -154,228 +107,6 @@ public class DBUtil {
 	    }
 	}
 	return map;
-    }
-
-    // 获取UserName 列表
-    public static Map getUserList() {
-	Map map = new HashMap();
-	Connection conn = null;
-	Statement stmt = null;
-	ResultSet rs = null;
-
-	try {
-	    conn = getConnection();
-	    stmt = conn.createStatement();
-	    rs = stmt.executeQuery(SqlText.SQL7_USER_NAMET_LIST);
-	    while (rs.next()) {
-		String uid = rs.getString("userid");
-		map.put(uid, uid);
-	    }
-	} catch (Exception e) {
-	    e.printStackTrace();
-	} finally {
-	    try {
-		if (conn != null) {
-		    conn.close();
-		}
-		if (stmt != null) {
-		    stmt.close();
-		}
-		if (rs != null) {
-		    rs.close();
-		}
-	    } catch (SQLException e) {
-		e.printStackTrace();
-	    }
-	}
-	return map;
-    }
-
-    // 获取各种list数据全部信息
-    public static List getTargetGhList(String pjname, int ps, int cp, String actionName) {
-	ArrayList list = new ArrayList();
-	Connection conn = null;
-	Statement stmt = null;
-	ResultSet rs = null;
-	try {
-	    conn = getConnection();
-	    stmt = conn.createStatement();
-	    String sql = pjname.equals("0000") ? "" : " where pjname = '" + pjname + "'";
-
-	    if (actionName.equals("GhTargetListAction")) {
-		String sql1 = SqlText.SQL3_GHTARGETALL + sql;
-		rs = stmt.executeQuery(sql1);
-		while (rs.next()) {
-		    String pjname1 = rs.getString("pjname");
-		    int ghhcs = rs.getInt(2);
-		    GhTargetTable gt = new GhTargetTable(pjname1, ghhcs);
-		    list.add(gt);
-		}
-	    } else if (actionName.equals("GhTrackAction")) {
-		int recNum = 0;
-		String sql1 = SqlText.SQL4_GHBOOKLISTALL + sql;
-		rs = stmt.executeQuery(sql1);
-		if (cp != 1) {
-		    rs.absolute((cp - 1) * ps);
-		}
-		while (recNum < ps && rs.next()) {
-		    int wsID = rs.getInt("wsid");
-		    String ghName = rs.getString("name");
-		    String chuLiZt = rs.getString("procstatus");
-		    String offerZt = rs.getString("offerstatus");
-		    String yudingPj = rs.getString("pjname");
-		    String ghorIntern = rs.getString("ghinflag");
-		    String reportMgr = rs.getString("pem");
-		    String onboardRqinOffer = rs.getDate("offeronbdate").toString();
-
-		    recNum++;
-
-		    GhBookListTable gl = new GhBookListTable(wsID, ghName, chuLiZt, offerZt, yudingPj, ghorIntern,
-			    reportMgr, onboardRqinOffer);
-		    list.add(gl);
-		}
-	    }
-	} catch (Exception e) {
-	    e.printStackTrace();
-	} finally {
-	    try {
-		if (conn != null) {
-		    conn.close();
-		}
-		if (stmt != null) {
-		    stmt.close();
-		}
-		if (rs != null) {
-		    rs.close();
-		}
-	    } catch (SQLException e) {
-		e.printStackTrace();
-	    }
-	}
-
-	return list;
-
-    }
-
-    // 获取User list数据全部信息
-    public static List getUserList(String uid, int ps, int cp) {
-	ArrayList list = new ArrayList();
-	Connection conn = null;
-	Statement stmt = null;
-	ResultSet rs = null;
-	try {
-	    conn = getConnection();
-	    stmt = conn.createStatement();
-	    String sql = uid.equals("0000") ? "" : " where userid = '" + uid + "'";
-
-	    String sql1 = SqlText.SQL8_USERINFOGETALL + sql;
-	    rs = stmt.executeQuery(sql1);
-	    int recNum = 0;
-	    if (cp != 1) {
-		rs.absolute((cp - 1) * ps);
-	    }
-	    while (recNum < ps && rs.next()) {
-		String userId = rs.getString("userid");
-		String userPwd = rs.getString("pwd");
-		String userType = rs.getInt("usertype") == 1 ? "管理员" : "普通用户";
-		recNum++;
-
-		UserInfoTable ul = new UserInfoTable(userId, userPwd, userType);
-		list.add(ul);
-	    }
-
-	} catch (Exception e) {
-	    e.printStackTrace();
-	} finally {
-	    try {
-		if (conn != null) {
-		    conn.close();
-		}
-		if (stmt != null) {
-		    stmt.close();
-		}
-		if (rs != null) {
-		    rs.close();
-		}
-	    } catch (SQLException e) {
-		e.printStackTrace();
-	    }
-	}
-
-	return list;
-
-    }
-
-    // 查询GHBookinglist里面符合条件的记录数
-    public static int getTotalRecs(String pjname) {
-	int totalRecs = 0;
-	Connection conn = null;
-	Statement stmt = null;
-	ResultSet rs = null;
-
-	try {
-	    conn = getConnection();
-	    stmt = conn.createStatement();
-	    String sql = pjname.equals("0000") ? "" : " where pjname = '" + pjname + "'";
-	    String sql1 = SqlText.SQL5_GHBOOKLISTRECS + sql;
-	    rs = stmt.executeQuery(sql1);
-	    if (rs.next()) {
-		totalRecs = rs.getInt(1);
-	    }
-	} catch (SQLException e) {
-	    e.printStackTrace();
-	} finally {
-	    try {
-		if (conn != null) {
-		    conn.close();
-		}
-		if (stmt != null) {
-		    stmt.close();
-		}
-		if (rs != null) {
-		    rs.close();
-		}
-	    } catch (SQLException e) {
-		e.printStackTrace();
-	    }
-	}
-	return totalRecs;
-    }
-
-    // 查询用户list里面符合条件的记录数
-    public static int getTotalUserRecs(String userId) {
-	int totalRecs = 0;
-	Connection conn = null;
-	Statement stmt = null;
-	ResultSet rs = null;
-
-	try {
-	    conn = getConnection();
-	    stmt = conn.createStatement();
-	    String sql = userId.equals("0000") ? "" : " where userid = '" + userId + "'";
-	    String sql1 = SqlText.SQL6_USERINFORRECS + sql;
-	    rs = stmt.executeQuery(sql1);
-	    if (rs.next()) {
-		totalRecs = rs.getInt(1);
-	    }
-	} catch (SQLException e) {
-	    e.printStackTrace();
-	} finally {
-	    try {
-		if (conn != null) {
-		    conn.close();
-		}
-		if (stmt != null) {
-		    stmt.close();
-		}
-		if (rs != null) {
-		    rs.close();
-		}
-	    } catch (SQLException e) {
-		e.printStackTrace();
-	    }
-	}
-	return totalRecs;
     }
 
 }

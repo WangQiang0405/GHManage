@@ -135,6 +135,7 @@ public class CreateJFreeChartBarAction extends ActionSupport {
      */
     public static CategoryDataset createDataset() {
 
+	GhPlanFactLogic lgc = new GhPlanFactLogic();
 	/*
 	 * 图片数据
 	 */
@@ -142,7 +143,7 @@ public class CreateJFreeChartBarAction extends ActionSupport {
 	String[] rowKeys = { "计划", "实际", "差" };
 	// String []colKeys = {"Aflac&Mitsui", "Metlife", "SJNK", "TMNF"};
 	@SuppressWarnings("rawtypes")
-	List list1 = GhPlanFactLogic.getUserList();
+	List list1 = lgc.getUserList();
 	// x轴数据
 	String colKeys[] = new String[list1.size()];
 	int ghhcs[] = new int[list1.size()];
@@ -156,12 +157,12 @@ public class CreateJFreeChartBarAction extends ActionSupport {
 	double ghrecs[] = new double[list1.size()];
 	// 柱体数据
 	double[][] data = new double[3][list1.size()];
-
+	
 	for (int i = 0; i < list1.size(); i++) {
 	    GhTargetTable gt = (GhTargetTable) list1.get(i);
 	    ghhcs[i] = gt.getGhhcs();
 	    data[0][i] = ghhcs[i];
-	    ghrecs[i] = GhPlanFactLogic.getGhactualcsRecs(colKeys[i]);
+	    ghrecs[i] = lgc.getGhactualcsRecs(colKeys[i]);
 	    data[1][i] = ghrecs[i];
 	    data[2][i] = data[0][i] - data[1][i];
 	}
