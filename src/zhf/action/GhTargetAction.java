@@ -40,7 +40,7 @@ public class GhTargetAction extends ActionSupport {
 	}
 
 	GhPlanFactLogic lgc = new GhPlanFactLogic();
-	List list = lgc.getTargetGhList(ProjecName, 0, 0, "GhTargetAction");
+	List list = lgc.getTargetGhList(ProjecName, 0, 0);
 	return list;
     }
 

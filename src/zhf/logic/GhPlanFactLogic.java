@@ -17,7 +17,7 @@ import zhf.util.DBUtil;
 public class GhPlanFactLogic {
 
     // 获取各种list数据全部信息
-    public List getTargetGhList(String pjname, int ps, int cp, String actionName) {
+    public List getTargetGhList(String pjname, int ps, int cp) {
 	List list = new ArrayList();
 	Connection conn = null;
 	Statement stmt = null;
@@ -27,38 +27,18 @@ public class GhPlanFactLogic {
 	    stmt = conn.createStatement();
 	    String sql = pjname.equals("0000") ? "" : " where pjname = '" + pjname + "'";
 
-	    if (actionName.equals("GhTargetAction")) {
-		String sql1 = SqlText.SQL3_GHTARGETALL + sql;
-		rs = stmt.executeQuery(sql1);
-		while (rs.next()) {
-		    String pjname1 = rs.getString("pjname");
-		    int ghhcs = rs.getInt(2);
-		    GhTargetTable gt = new GhTargetTable(pjname1, ghhcs);
-		    list.add(gt);
-		}
-	    } else if (actionName.equals("GhTrackAction")) {
-		int recNum = 0;
-		String sql1 = SqlText.SQL4_GHBOOKLISTALL + sql;
-		rs = stmt.executeQuery(sql1);
-		if (cp != 1) {
-		    rs.absolute((cp - 1) * ps);
-		}
-		while (recNum < ps && rs.next()) {
-		    int wsID = rs.getInt("wsid");
-		    String ghName = rs.getString("name");
-		    String chuLiZt = rs.getString("procstatus");
-		    String offerZt = rs.getString("offerstatus");
-		    String yudingPj = rs.getString("pjname");
-		    String ghorIntern = rs.getString("ghinflag");
-		    String reportMgr = rs.getString("pem");
-		    String onboardRqinOffer = rs.getDate("offeronbdate").toString();
-
-		    recNum++;
-
-		    GhBookListTable gl = new GhBookListTable(wsID, ghName, chuLiZt, offerZt, yudingPj, ghorIntern,
-			    reportMgr, onboardRqinOffer);
-		    list.add(gl);
-		}
+	    String sql1 = SqlText.SQL3_GHTARGETALL + sql;
+	    rs = stmt.executeQuery(sql1);
+	    while (rs.next()) {
+		String pjname1 = rs.getString("pjname");
+		//计划
+		int ghhcs = rs.getInt(2);
+		//实际
+		int fact = getGhactualcsRecs(pjname1);
+		//差
+		int difference = ghhcs - fact;
+		GhTargetTable gt = new GhTargetTable(pjname1, ghhcs, fact, difference);
+		list.add(gt);
 	    }
 	} catch (Exception e) {
 	    e.printStackTrace();
@@ -89,7 +69,11 @@ public class GhPlanFactLogic {
 
 		String pjname1 = rs.getString("pjname");
 		int ghhcs = rs.getInt(2);
-		GhTargetTable gt = new GhTargetTable(pjname1, ghhcs);
+		//实际
+		int fact = getGhactualcsRecs(pjname1);
+		//差
+		int difference = ghhcs - fact;
+		GhTargetTable gt = new GhTargetTable(pjname1, ghhcs,fact,difference);
 		list.add(gt);
 
 	    }

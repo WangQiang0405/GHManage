@@ -90,7 +90,7 @@
         <action name="barChart" class="zhf.action.CreateJFreeChartBarAction">
             <result type="chart">
                 <param name="width">780</param>
-                <param name="height">450</param>
+                <param name="height">505</param>
             </result>
         </action>
         <action name="pieChartMf" class="zhf.action.CreateJFreeChartPieMf">

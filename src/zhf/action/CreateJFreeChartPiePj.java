@@ -32,7 +32,7 @@ public class CreateJFreeChartPiePj extends ActionSupport {
     public static final Font font = new Font("宋体", Font.BOLD, 13);
 
     private static PieDataset createDataset() {
-	
+
 	GhPlanFactLogic lgc = new GhPlanFactLogic();
 	DefaultPieDataset defaultpiedataset = new DefaultPieDataset();
 	double aflac_mitsui = lgc.getGhactualcsRecs("Aflac&Mitsui");
@@ -50,12 +50,12 @@ public class CreateJFreeChartPiePj extends ActionSupport {
 	return defaultpiedataset;
     }
 
-    private static JFreeChart createPie2DChart(PieDataset piedataset) {
-	JFreeChart jfreechart = ChartFactory.createPieChart("项目比例", piedataset, true, true, false);
+    private JFreeChart createPie2DChart(PieDataset piedataset) {
+	JFreeChart jfreechart = ChartFactory.createPieChart(this.getText("label.projectratio"), piedataset, true, true, false);
 	// 得到标题
 	TextTitle texttitle = jfreechart.getTitle();
 	// 标题
-	texttitle.setFont(font);
+	texttitle.setFont(new Font("黑体", Font.LAYOUT_LEFT_TO_RIGHT, 22));
 	texttitle.setToolTipText("A title tooltip!");
 	// 得到绘图区
 	PiePlot pieplot = (PiePlot) jfreechart.getPlot();

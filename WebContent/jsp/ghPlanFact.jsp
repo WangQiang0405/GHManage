@@ -33,11 +33,13 @@
 		    </div>
 			<s:if test="GhTargetList.size()!=0">
 				
-				<table border="1" bgcolor="#e2e2e2" cellspacing="0" align="center" width="770px">
+				<table border="0" bgcolor="#e2e2e2" cellspacing="1" align="center" width="100%">
 				
 					<tr class="headerClass">
-						<th><s:text name="field.project"/></th>
-						<th><s:text name="field.membersPlan"/></th>
+						<th width="50%"><s:text name="field.project"/></th>
+						<th width="20%"><s:text name="field.membersPlan"/></th>
+						<th width="20%"><s:text name="field.membersFact"/></th>
+						<th width="10%"><font style="color:red;font-weight:bold"><s:text name="field.membersDifference"/></font></th>
 					</tr>
 					<s:iterator id="List" value="GhTargetList" status="ghl">
 						<tr id="ghl<s:property value="#ghl.index"/>"
@@ -48,7 +50,9 @@
 							<s:if test='#ghl.odd'>'oddRow'</s:if>
 							<s:else>'evenRow'</s:else>);">
 							<td><s:property value="pjname"/></td>
-							<td><s:property value="ghhcs"/></td>							
+							<td><s:property value="ghhcs"/></td>
+							<td><s:property value="fact"/></td>
+							<td><font style="color:red;font-weight:bold"><s:property value="difference"/></font></td>
 						</tr>
 					</s:iterator>
 				</table>		
@@ -57,14 +61,15 @@
 			<s:else>
 				<p>没有相应的信息</p>
 			</s:else>
-			<div id="chart" style="margin-top: 20px">
-				<img src="barChart.action"/>
-				<br>
-				<div style="float:left">
-				<img src="pieChartMf.action"/>
+			<div id="chartLeft">
+				<img id="bar" src="barChart.action"/>
+			</div>
+			<div id="chartRight">
+				<div style="">
+					<img src="pieChartMf.action"/>
 				</div>
-				<div style="float:right">
-				<img src="pieChartPj.action"/>
+				<div style="margin-top: 5px">
+					<img src="pieChartPj.action"/>
 				</div>
 			</div>
 		</div>

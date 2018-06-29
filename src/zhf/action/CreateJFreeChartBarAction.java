@@ -49,7 +49,7 @@ public class CreateJFreeChartBarAction extends ActionSupport {
 	} catch (Exception e) {
 	    e.printStackTrace();
 	}
-	saveAsFile(chart, saveFileFolder + "images\\bar.png", 780, 450);
+	saveAsFile(chart, saveFileFolder + "images\\bar.png", 780, 505);
 	// System.out.println("file output");
 	return chart;
     }
@@ -89,7 +89,7 @@ public class CreateJFreeChartBarAction extends ActionSupport {
 	// 以下的设置可以由用户定制，也可以省略
 	jfreechart.setTitle(new TextTitle(this.getText("label.recruimentPlanFact"), new Font("黑体", Font.LAYOUT_LEFT_TO_RIGHT, 22)));
 	CategoryPlot plot = (CategoryPlot) jfreechart.getPlot();
-	plot.setBackgroundPaint(Color.WHITE);
+	plot.setBackgroundPaint(Color.decode("#E6E6FA"));
 	jfreechart.getLegend().setItemFont(new Font("黑体", Font.ITALIC, 12));
 	// 数据轴精度
 	NumberAxis na = (NumberAxis) plot.getRangeAxis();
@@ -121,9 +121,9 @@ public class CreateJFreeChartBarAction extends ActionSupport {
 	renderer.setSeriesPaint(2, Color.decode("#FF0000"));
 	plot.setRenderer(renderer);
 	// 背景色 透明度
-	plot.setBackgroundAlpha(0.0f);
+	//plot.setBackgroundAlpha(0.0f);
 	// 前景色 透明度
-	plot.setForegroundAlpha(0.5f);
+	//plot.setForegroundAlpha(0.5f);
 	// 其它设置可以参考 CategoryPlot
 
 	return jfreechart;

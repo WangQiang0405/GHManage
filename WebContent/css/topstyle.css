@@ -3,6 +3,9 @@
 }
 #mainHead{
 	float:left;width:100%;margin:0 0;height:80px;background:url(../images/bgtop.png) no-repeat left top;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale');
+	-moz-background-size:100% 100%;
+    background-size:100% 100%;
 }
 #mainHead h1{
 	font-size:45px;margin:0;text-align:center;height:80px;line-height:80px;letter-spacing:10px;
@@ -14,7 +17,7 @@
 	margin-left:20px;color:#333333;line-height:20px;font-size:12px;
 }
 #simpleinfo a{
-	line-height:20px;font-size:12px;margin-left:79%;color:#007b00;
+	float:right;line-height:20px;font-size:12px;margin-right:20px;color:#007b00;
 }
 #simpleinfo a:hover{
 	line-height:20px;font-size:12px;margin-left:79%;color:red;

@@ -40,19 +40,19 @@
 	color:red;
 }
 #pagespan{
-	margin-left:-100px;margin-top:0px;position:absolute;
+	margin-top:0px;position:absolute;
 }
 #buttomop{
 	width:100%;font-size:14px;margin-top:2px;color:#404040;height:18px;
 }
 #buttomop .info{
-	float:left;width:45%;
+	float:left;width:30%;
 }
 #buttomop .info span{
 	margin-right:20px;
 }
 #buttomop .pageop{
-	float:right;width:50%;
+	float:right;width:65%;
 }
 #buttomop .pageop .shangye{
 	margin-top:0px;margin-left:50%;
@@ -299,6 +299,20 @@
 	text-align:center;
 	vertical-align:middle;
 	font-size:15px;
+}
+
+#chartLeft{
+	float:left;margin-top: 20px;margin-left:10%;
+	/*width:50%;*/
+	/*height:50%;*/
+}
+#chartLeft .bar{
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale');
+	-moz-background-size:100% 100%;
+    background-size:100% 100%;
+}
+#chartRight{
+	float:right;margin-top: 20px;margin-right:10%;
 }
 #foot{
 	margin-top:50px;
