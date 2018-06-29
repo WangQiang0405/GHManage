@@ -39,7 +39,7 @@
 						<th width="50%"><s:text name="field.project"/></th>
 						<th width="20%"><s:text name="field.membersPlan"/></th>
 						<th width="20%"><s:text name="field.membersFact"/></th>
-						<th width="10%"><font style="color:red;font-weight:bold"><s:text name="field.membersDifference"/></font></th>
+						<th width="10%"><s:text name="field.membersDifference"/></th>
 					</tr>
 					<s:iterator id="List" value="GhTargetList" status="ghl">
 						<tr id="ghl<s:property value="#ghl.index"/>"
